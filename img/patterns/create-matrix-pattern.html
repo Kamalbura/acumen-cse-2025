@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Matrix Pattern Creator</title>
+    <style>
+        body {
+            background-color: #000;
+            color: #00f3ff;
+            font-family: monospace;
+            padding: 20px;
+        }
+        canvas {
+            border: 1px solid #00f3ff;
+        }
+        pre {
+            background-color: rgba(0, 243, 255, 0.1);
+            padding: 10px;
+            border-radius: 5px;
+            overflow: auto;
+        }
+    </style>
+</head>
+<body>
+    <h1>Matrix Pattern Creator</h1>
+    <p>This page creates a matrix-like digital rain pattern to be used as a background texture.</p>
+    <canvas id="matrixCanvas" width="500" height="500"></canvas>
+    <div>
+        <button id="generateBtn">Generate New Pattern</button>
+        <button id="downloadBtn">Download as PNG</button>
+    </div>
+    
+    <h2>Instructions:</h2>
+    <p>1. Click "Generate New Pattern" to create a unique matrix pattern</p>
+    <p>2. Click "Download as PNG" to save the image</p>
+    <p>3. Save the file as "matrix-pattern.png" in the img/patterns folder</p>
+    
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const canvas = document.getElementById('matrixCanvas');
+            const ctx = canvas.getContext('2d');
+            const generateBtn = document.getElementById('generateBtn');
+            const downloadBtn = document.getElementById('downloadBtn');
+            
+            function generateMatrixPattern() {
+                // Clear canvas
+                ctx.fillStyle = 'black';
+                ctx.fillRect(0, 0, canvas.width, canvas.height);
+                
+                // Character set for the matrix
+                const chars = '01アイウエオカキクケコサシスセソタチツテトナニヌネノハヒフヘホマミムメモヤユヨラリルレロワヲンー';
+                
+                // Create matrix columns
+                const fontSize = 10;
+                const columns = canvas.width / fontSize;
+                
+                // Create array to track Y position of each column
+                const yPositions = Array(columns).fill(0);
+                
+                // Draw characters
+                for (let i = 0; i < columns; i++) {
+                    for (let j = 0; j < 50; j++) {
+                        const y = j * fontSize;
+                        const x = i * fontSize;
+                        
+                        const opacity = Math.random() * 0.5 + 0.1;
+                        const char = chars[Math.floor(Math.random() * chars.length)];
+                        
+                        ctx.fillStyle = `rgba(0, 243, 255, ${opacity})`;
+                        ctx.font = `${fontSize}px monospace`;
+                        ctx.fillText(char, x, y);
+                    }
+                }
+                
+                // Add some glow effect
+                ctx.globalCompositeOperation = 'lighten';
+                ctx.fillStyle = 'rgba(0, 243, 255, 0.03)';
+                ctx.fillRect(0, 0, canvas.width, canvas.height);
+                ctx.globalCompositeOperation = 'source-over';
+            }
+            
+            function downloadPattern() {
+                const dataURL = canvas.toDataURL('image/png');
+                const link = document.createElement('a');
+                link.download = 'matrix-pattern.png';
+                link.href = dataURL;
+                link.click();
+            }
+            
+            generateBtn.addEventListener('click', generateMatrixPattern);
+            downloadBtn.addEventListener('click', downloadPattern);
+            
+            // Generate initial pattern
+            generateMatrixPattern();
+        });
+    </script>
+</body>
+</html>

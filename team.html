@@ -1,0 +1,604 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Our Team | ACUMEN 2025 | CSE Fest | Vasavi College of Engineering</title>
+    <!-- <link rel="stylesheet" href="css/styles.css"> -->
+    <!-- <link rel="stylesheet" href="css/consolidated.css"> -->
+     <link rel="stylesheet" href="css/main.css"> 
+    
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;500;700;900&family=Roboto:wght@300;400;500;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <style>
+        /* Team Page Specific Styles */
+        .page-banner {
+            height: 50vh;
+            position: relative;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            background-color: var(--bg-darker);
+            overflow: hidden;
+        }
+        
+         .page-banner  h1 {
+    font-size: 3rem;
+    margin-bottom: 20px;
+    color: var(--primary-color);
+    text-shadow: 0 0 15px rgba(0, 255, 255, 0.7);
+    position: relative;
+    display: inline-block;
+}
+        
+        .page-banner p {
+            font-size: 1.2rem;
+            color: var(--text-dim);
+            z-index: 10;
+            max-width: 600px;
+        }
+        
+        .team-section {
+            padding-top: 0px;
+            padding-bottom: 60px;
+        }
+        
+        .team-category {
+            margin-bottom: 60px;
+            position: relative;
+            padding: 30px;
+        }
+        
+        .team-category .section-title {
+            margin-bottom: 30px;
+        }
+        
+        .team-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+            gap: 30px;
+        }
+        
+        .team-member-card {
+            background: rgba(0, 0, 0, 0.3);
+            border: 1px solid var(--primary-color);
+            border-radius: 10px;
+            padding: 30px 20px;
+            text-align: center;
+            transition: all 0.3s ease;
+            overflow: hidden;
+            position: relative;
+        }
+        
+        .team-member-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 10px 20px rgba(0, 255, 255, 0.2);
+            border-color: var(--secondary-color);
+        }
+        
+        .team-member-card:before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(45deg, var(--primary-color), var(--secondary-color));
+            opacity: 0.05;
+            z-index: 0;
+        }
+        
+        .member-image {
+            width: 160px;
+            height: 160px;
+            border-radius: 50%;
+            border: 3px solid var(--primary-color);
+            overflow: hidden;
+            margin: 0 auto 20px;
+            position: relative;
+            z-index: 1;
+        }
+        
+        .member-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+        
+        .member-image::after {
+            content: '';
+            position: absolute;
+            top: -3px;
+            left: -3px;
+            right: -3px;
+            bottom: -3px;
+            border-radius: 50%;
+            background: linear-gradient(45deg, var(--primary-color), var(--secondary-color), var(--accent-color), var(--primary-color));
+            z-index: -1;
+            opacity: 0.8;
+            animation: rotate 4s linear infinite;
+        }
+        
+        @keyframes rotate {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+        
+        .member-info {
+            position: relative;
+            z-index: 1;
+        }
+        
+        .member-info h3 {
+            font-size: 1.4rem;
+            margin-bottom: 5px;
+            color: var(--text-light);
+        }
+        
+        .member-role {
+            color: var(--primary-color);
+            font-size: 1rem;
+            margin-bottom: 15px;
+            font-weight: 500;
+            font-family: var(--header-font);
+        }
+        
+        .member-department {
+            color: var(--secondary-color);
+            font-size: 0.9rem;
+            margin-bottom: 15px;
+        }
+        
+        .member-contact {
+            display: flex;
+            justify-content: center;
+            gap: 10px;
+            margin-top: 15px;
+        }
+        
+        .member-contact a {
+            width: 35px;
+            height: 35px;
+            border-radius: 50%;
+            background: rgba(0, 0, 0, 0.2);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--text-light);
+            transition: all 0.3s ease;
+        }
+        
+        .member-contact a:hover {
+            background: var(--primary-color);
+            color: var(--bg-darker);
+            transform: translateY(-3px);
+        }
+        
+        /* Faculty section styling */
+        .faculty-section .team-member-card {
+            border-color: var(--secondary-color);
+        }
+        
+        .faculty-section .member-image {
+            border-color: var(--secondary-color);
+        }
+        
+        .faculty-section .member-role {
+            color: var(--secondary-color);
+        }
+        
+        /* Message from HOD section */
+        .message-section {
+            margin-bottom: 60px;
+            padding: 40px;
+            background: rgba(0, 0, 0, 0.3);
+            border-radius: 10px;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .message-section:before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(45deg, var(--primary-color), var(--secondary-color));
+            opacity: 0.05;
+            z-index: 0;
+        }
+        
+        .message-container {
+            display: flex;
+            gap: 40px;
+            position: relative;
+            z-index: 1;
+        }
+        
+        .message-image {
+            flex: 0 0 200px;
+        }
+        
+        .message-image img {
+            width: 200px;
+            height: 200px;
+            border-radius: 10px;
+            border: 3px solid var(--secondary-color);
+            object-fit: cover;
+        }
+        
+        .message-content {
+            flex: 1;
+        }
+        
+        .message-content h2 {
+            color: var(--secondary-color);
+            margin-bottom: 15px;
+        }
+        
+        .message-content h3 {
+            color: var(--primary-color);
+            margin-bottom: 20px;
+            font-size: 1.2rem;
+        }
+        
+        .message-content p {
+            color: var(--text-dim);
+            margin-bottom: 15px;
+            line-height: 1.7;
+        }
+        
+        .hod-signature {
+            font-family: 'Segoe Script', cursive;
+            font-size: 1.2rem;
+            color: var(--text-light);
+            margin-top: 20px;
+        }
+        
+        /* Gradient border for team section */
+        .team-category::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 70%;
+            height: 1px;
+            background: linear-gradient(to right, transparent, var(--primary-color), transparent);
+        }
+        
+        .team-category:last-child::after {
+            display: none;
+        }
+        
+        /* Matrix code effect */
+        .matrix-code-bg {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: 0;
+            opacity: 0.03;
+            pointer-events: none;
+        }
+        
+        /* Responsive adjustments */
+        @media screen and (max-width: 768px) {
+            .message-container {
+                flex-direction: column;
+                align-items: center;
+                text-align: center;
+            }
+            
+            .message-image {
+                margin-bottom: 20px;
+            }
+            
+            .team-grid {
+                grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+            }
+        }
+        
+        @media screen and (max-width: 480px) {
+            .message-section {
+                padding: 25px;
+            }
+            
+            .message-image img {
+                width: 150px;
+                height: 150px;
+            }
+            
+            .team-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .member-image {
+                width: 140px;
+                height: 140px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Glitch Effect Overlay -->
+    <div class="glitch-overlay"></div>
+    
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="container">
+            <div class="logo">
+                <div class="acumen-logo-nav">
+                    <span class="department-text">CSE</span>
+                    <span class="glitch-text">ACUMEN</span><span class="year-integrated">2025</span>
+                </div>
+            </div>
+            <div class="nav-toggle">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+            <ul class="nav-links">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="events.html">Events</a></li>
+                <li><a href="schedule.html">Schedule</a></li>
+                <li><a href="registration.html">Register</a></li>
+                <li><a href="gallery.html">Posters</a></li>
+                <li><a href="team.html" class="active">Team</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- Page Banner -->
+    <section class="page-banner">
+        <div class="container">
+            <h1 class="glitch-text" data-text="OUR TEAM">OUR TEAM</h1>
+            <p>Meet the brilliant minds behind ACUMEN 2025</p>
+        </div>
+        <div class="hero-overlay"></div>
+        <div class="hero-grid"></div>
+    </section>
+
+    <!-- Team Content -->
+    <section class="team-section">
+        <div class="container">
+            <!-- Message from HOD -->
+            <div class="message-section">
+                <div class="message-container">
+                    <div class="message-image">
+                        <img src="img/hod.jpg" alt="Dr. T Aadilakshmi">
+                    </div>
+                    <div class="message-content">
+                        <h2>Message from the HOD</h2>
+                        <h3>Dr. T Aadilakshmi</h3>
+                        <p>It gives me immense pleasure to welcome you to ACUMEN 2025, the flagship technical event hosted by the Department of Computer Science & Engineering at Vasavi College of Engineering.</p>
+                        <p>In today's rapidly evolving technological landscape, events like ACUMEN play a crucial role in nurturing innovation, fostering collaboration, and showcasing the incredible talent of our students. This platform serves as a bridge between academic learning and practical implementation, enabling participants to explore cutting-edge technologies and solve real-world challenges.</p>
+                        <p>I extend my heartfelt appreciation to the faculty coordinators and student organizing team for their dedication and hard work in making this event possible. To all participants, I encourage you to make the most of this opportunity to learn, compete, and grow.</p>
+                        <div class="hod-signature">Dr. T Aadilakshmi</div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Faculty Coordinators -->
+            <div class="team-category faculty-section">
+                <h2 class="section-title">Faculty <span>Coordinators</span></h2>
+                <div class="team-grid">
+                    <div class="team-member-card">
+                        <div class="member-image">
+                            <img src="img/team/faculty1.jpg" alt="T. Jalaja">
+                        </div>
+                        <div class="member-info">
+                            <h3>T. Jalaja</h3>
+                            <div class="member-role">Event Coordinator</div>
+                            <div class="member-department">Assistant Professor, CSE</div>
+                            <div class="member-contact">
+                                <a href="mailto:jalaja.t@vasavi.ac.in"><i class="fas fa-envelope"></i></a>
+                                <a href="tel:+919876543210"><i class="fas fa-phone"></i></a>
+                                <a href="#"><i class="fab fa-linkedin-in"></i></a>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="team-member-card">
+                        <div class="member-image">
+                            <img src="img/faculty2.jpg" alt="S. Komal Kour">
+                        </div>
+                        <div class="member-info">
+                            <h3>S. Komal Kour</h3>
+                            <div class="member-role">Event Coordinator</div>
+                            <div class="member-department">Assistant Professor, CSE</div>
+                            <div class="member-contact">
+                                <a href="mailto:komal.s@vasavi.ac.in"><i class="fas fa-envelope"></i></a>
+                                <a href="tel:+919876543211"><i class="fas fa-phone"></i></a>
+                                <a href="#"><i class="fab fa-linkedin-in"></i></a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Student Coordinators -->
+            <div class="team-category">
+                <h2 class="section-title">Student <span>Coordinators</span></h2>
+                <div class="team-grid">
+                    <div class="team-member-card">
+                        <div class="member-image">
+                            <img src="img/people/gabi.jpg" alt="Ryan Gabriel">
+                        </div>
+                        <div class="member-info">
+                            <h3>Ryan Gabriel</h3>
+                            <div class="member-role">Overall Coordinator</div>
+                            <div class="member-department">CSE - Final Year</div>
+                            <div class="member-contact">
+                                <a href="mailto:ryan.gabriel@acumen.com"><i class="fas fa-envelope"></i></a>
+                                <a href="#"><i class="fab fa-linkedin-in"></i></a>
+                                <a href="#"><i class="fab fa-instagram"></i></a>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="team-member-card">
+                        <div class="member-image">
+                            <img src="img/people/sarath.jpg" alt="Sarath NVS">
+                        </div>
+                        <div class="member-info">
+                            <h3>Sarath NVS</h3>
+                            <div class="member-role">Overall Coordinator</div>
+                            <div class="member-department">CSE - Final Year</div>
+                            <div class="member-contact">
+                                <a href="mailto:sarath.nvs@acumen.com"><i class="fas fa-envelope"></i></a>
+                                <a href="#"><i class="fab fa-linkedin-in"></i></a>
+                                <a href="#"><i class="fab fa-instagram"></i></a>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="team-member-card">
+                        <div class="member-image">
+                            <img src="img/people/kamal.jpg" alt="Bura Kamal">
+                        </div>
+                        <div class="member-info">
+                            <h3>Bura Kamal</h3>
+                            <div class="member-role">Overall Coordinator</div>
+                            <div class="member-department">CSE - Final Year</div>
+                            <div class="member-contact">
+                                <a href="mailto:burakamal13@gmail.com"><i class="fas fa-envelope"></i></a>
+                                <a href="#"><i class="fab fa-linkedin-in"></i></a>
+                                <a href="www.instagram.com/kamal.bura"><i class="fab fa-instagram"></i></a>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="team-member-card">
+                        <div class="member-image">
+                            <img src="img/people/chaitanya.jpg" alt="Chaithanya">
+                        </div>
+                        <div class="member-info">
+                            <h3>Chaithanya</h3>
+                            <div class="member-role">Overall Coordinator</div>
+                            <div class="member-department">CSE - Final Year</div>
+                            <div class="member-contact">
+                                <a href="mailto:chaithanya@acumen.com"><i class="fas fa-envelope"></i></a>
+                                <a href="#"><i class="fab fa-linkedin-in"></i></a>
+                                <a href="#"><i class="fab fa-instagram"></i></a>
+                            </div> 
+                        </div>
+                    </div>
+                    
+                    <div class="team-member-card">
+                        <div class="member-image">
+                            <img src="img/people/darpad.jpg" alt="Darpan Sai">
+                        </div>
+                        <div class="member-info">
+                            <h3>Darpan Sai</h3>
+                            <div class="member-role">Overall Coordinator</div>
+                            <div class="member-department">CSE - Final Year</div>
+                            <div class="member-contact">
+                                <a href="mailto:darpan.sai@acumen.com"><i class="fas fa-envelope"></i></a>
+                                <a href="#"><i class="fab fa-linkedin-in"></i></a>
+                                <a href="#"><i class="fab fa-instagram"></i></a>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="team-member-card">
+                        <div class="member-image">
+                            <img src="img/people/vaibhav.jpg" alt="Sai Deepak Kalla">
+                        </div>
+                        <div class="member-info">
+                            <h3>Sai Deepak Kalla</h3>
+                            <div class="member-role">Overall Coordinator</div>
+                            <div class="member-department">CSE - Final Year</div>
+                            <div class="member-contact">
+                                <a href="mailto:saideepak.kalla@acumen.com"><i class="fas fa-envelope"></i></a>
+                                <a href="#"><i class="fab fa-linkedin-in"></i></a>
+                                <a href="#"><i class="fab fa-instagram"></i></a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section footer-logo">
+                    <div class="acumen-logo-nav">
+                        <span class="department-text">CSE</span>
+                        <span>ACUMEN</span><span class="year-integrated">2025</span>
+                    </div>
+                    <p>ACUMEN 2025 | CSE Department</p>
+                    <p>Vasavi College of Engineering</p>
+                </div>
+                
+                <div class="footer-section">
+                    <h3>Quick Links</h3>
+                    <ul>
+                        <li><a href="index.html">Home</a></li>
+                        <li><a href="events.html">Events</a></li>
+                        <li><a href="schedule.html">Schedule</a></li>
+                        <li><a href="registration.html">Register</a></li>
+                        <li><a href="team.html">Team</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-section">
+                    <h3>Contact Us</h3>
+                    <ul>
+                        <li><i class="fas fa-map-marker-alt"></i> Vasavi College of Engineering, Ibrahimbagh, Hyderabad</li>
+                        <li><i class="fas fa-phone"></i> +91 9876543210</li>
+                        <li><i class="fas fa-envelope"></i> acumen@vasavi.ac.in</li>
+                    </ul>
+                </div>
+                
+                <div class="footer-section">
+                    <h3>Follow Us</h3>
+                    <div class="social-links">
+                        <a href="#" class="social-icon"><i class="fab fa-instagram"></i></a>
+                        <a href="#" class="social-icon"><i class="fab fa-facebook"></i></a>
+                        <a href="#" class="social-icon"><i class="fab fa-twitter"></i></a>
+                        <a href="#" class="social-icon"><i class="fab fa-linkedin"></i></a>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="footer-bottom">
+                <p>&copy; 2025 ACUMEN - CSE Department, Vasavi College of Engineering. All Rights Reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="js/main.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            // Add matrix code background effect
+            const matrixCodeBg = document.createElement('div');
+            matrixCodeBg.className = 'matrix-code-bg';
+            document.querySelector('.page-banner').appendChild(matrixCodeBg);
+            
+            // Add glitch effect on hover for team member cards
+            const teamMembers = document.querySelectorAll('.team-member-card');
+            
+            teamMembers.forEach(member => {
+                member.addEventListener('mouseenter', function() {
+                    const memberName = this.querySelector('h3');
+                    memberName.setAttribute('data-text', memberName.textContent);
+                    memberName.classList.add('glitch-text');
+                });
+                
+                member.addEventListener('mouseleave', function() {
+                    const memberName = this.querySelector('h3');
+                    memberName.classList.remove('glitch-text');
+                });
+            });
+        });
+    </script>
+     <script src="js/navbar-autohide.js"></script>
+</body>
+</html>

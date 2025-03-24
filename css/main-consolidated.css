@@ -1,0 +1,44 @@
+/**
+ * Consolidated Main CSS for ACUMEN 2025
+ * Imports all CSS files in the correct order to avoid conflicts
+ */
+
+/* Core */
+@import 'core/variables.css';
+@import 'core/reset.css';
+@import 'core/typography.css';
+@import 'core/background-system.css'; /* Our new centralized background system */
+
+/* Layout */
+@import 'layout/grid.css';
+@import 'layout/sections.css';
+@import 'layout/navbar.css';
+@import 'layout/footer.css';
+@import 'layout/events-grid.css';
+
+/* Components */
+@import 'components/buttons.css';
+@import 'components/cards.css';
+@import 'components/forms.css';
+@import 'components/countdown.css';
+@import 'components/modals.css';
+
+/* Pages */
+@import 'pages/home.css';
+@import 'pages/events.css';
+@import 'pages/event-detail.css';
+@import 'pages/registration.css';
+@import 'pages/team.css';
+@import 'pages/contact.css';
+
+/* Effects */
+@import 'effects/animation.css';
+@import 'effects/cyberpunk.css';
+@import 'effects/glitch.css';
+
+/* Mobile styles should be imported last to override previous styles */
+@import 'mobile.css';
+
+/* Utilities */
+@import 'utils/helpers.css';
+@import 'utils/accessibility.css';

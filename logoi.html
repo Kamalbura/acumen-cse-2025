@@ -1,0 +1,759 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CSE ACUMEN 2025 - Logo Generator</title>
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;500;700;900&family=Share+Tech+Mono&family=Audiowide&family=Source+Code+Pro:wght@700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        :root {
+            --primary-color: #00ffff;
+            --secondary-color: #ff00ff;
+            --accent-color: #ffff00;
+            --bg-dark: #0a0a12;
+            --bg-darker: #050507;
+            --text-light: #ffffff;
+            --text-dim: #a0a0a0;
+            --code-green: #4ade80;
+            --code-orange: #fb923c;
+            --code-red: #ef4444;
+            --matrix-green: #00ff00;
+        }
+        
+        * { 
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            background-color: var(--bg-dark);
+            color: var(--text-light);
+            font-family: 'Orbitron', sans-serif;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            padding: 20px;
+            overflow-x: hidden;
+        }
+        
+        .container {
+            width: 100%;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+        
+        header {
+            text-align: center;
+            margin-bottom: 40px;
+        }
+        
+        h1 {
+            font-size: 2.5rem;
+            margin-bottom: 10px;
+            color: var(--primary-color);
+        }
+        
+        p {
+            color: var(--text-light);
+            margin-bottom: 20px;
+        }
+        
+        .logo-container {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            margin: 30px 0;
+            position: relative;
+        }
+        
+        .logo-box {
+            background-color: var(--bg-darker);
+            border: 2px solid var(--primary-color);
+            border-radius: 10px;
+            padding: 40px;
+            width: 100%;
+            max-width: 600px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            position: relative;
+            overflow: hidden;
+            transition: all 0.3s ease;
+        }
+        
+        .logo-box::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(45deg, var(--primary-color), var(--secondary-color), var(--accent-color), var(--secondary-color), var(--primary-color));
+            opacity: 0.1;
+            z-index: 0;
+        }
+        
+        .logo {
+            position: relative;
+            z-index: 1;
+        }
+        
+        .acumen-logo {
+            position: relative;
+            font-family: 'Orbitron', sans-serif;
+            font-weight: 900;
+            font-size: 4rem;
+            letter-spacing: 2px;
+            padding: 15px;
+            text-align: center;
+            animation: pulse 4s infinite;
+            color: var(--primary-color);
+            text-shadow: 0 0 10px var(--primary-color), 
+                        0 0 20px rgba(0, 255, 255, 0.6);
+        }
+        
+        .acumen-logo .department {
+            display: block;
+            font-size: 40%;
+            font-weight: 700;
+            letter-spacing: 6px;
+            color: var(--secondary-color);
+            text-shadow: 0 0 8px var(--secondary-color);
+            margin-bottom: 8px;
+            opacity: 0.9;
+            transform: translateY(-5px);
+        }
+        
+        .acumen-logo .year-integrated {
+            font-size: 80%; /* Slightly smaller than main text */
+            letter-spacing: 1px;
+            vertical-align: baseline;
+            margin-left: 5px; /* Add space between ACUMEN and 2025 */
+            display: inline-block;
+        }
+        
+        .logo-tagline {
+            font-size: 0.9rem;
+            margin-top: 10px;
+            color: var(--text-light);
+            opacity: 0.8;
+        }
+        
+        /* Scanner effect for logo */
+        .acumen-logo::after {
+            content: '';
+            position: absolute;
+            top: -100%;
+            left: 0;
+            width: 100%;
+            height: 200%;
+            background: linear-gradient(
+                to bottom,
+                rgba(0, 255, 255, 0) 0%,
+                rgba(0, 255, 255, 0.3) 50%,
+                rgba(0, 255, 255, 0) 100%
+            );
+            animation: scan 3s linear infinite;
+            pointer-events: none;
+        }
+        
+        /* Glitch effect for logo */
+        .glitch-logo {
+            position: relative;
+            display: inline-block;
+        }
+        
+        .glitch-logo::before,
+        .glitch-logo::after {
+            content: 'ACUMEN';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            opacity: 0.8;
+        }
+        
+        .glitch-logo::before {
+            left: 2px;
+            text-shadow: -2px 0 var(--secondary-color);
+            animation: glitch-1 2s infinite linear alternate-reverse;
+            clip-path: polygon(0 0, 100% 0, 100% 45%, 0 45%);
+        }
+        
+        .glitch-logo::after {
+            left: -2px;
+            text-shadow: 2px 0 var(--accent-color);
+            animation: glitch-2 3s infinite linear alternate-reverse;
+            clip-path: polygon(0 60%, 100% 60%, 100% 100%, 0 100%);
+        }
+        
+        /* Code bracket styling for CS theme */
+        .code-brackets .acumen-logo::before {
+            content: "<";
+            position: absolute;
+            left: -20px;
+            top: 50%;
+            transform: translateY(-50%);
+            color: var(--code-green);
+            opacity: 0.8;
+        }
+        
+        .code-brackets .acumen-logo::after {
+            content: "/>";
+            position: absolute;
+            right: -40px;
+            top: 50%;
+            transform: translateY(-50%);
+            color: var(--code-green);
+            opacity: 0.8;
+        }
+        
+        /* Binary pattern overlay */
+        .binary-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            opacity: 0.1;
+            z-index: 0;
+            overflow: hidden;
+        }
+        
+        .binary-text {
+            position: absolute;
+            color: var(--primary-color);
+            font-family: 'Source Code Pro', monospace;
+            user-select: none;
+        }
+        
+        /* Circuit pattern */
+        .circuit-pattern {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            z-index: 0;
+            opacity: 0.1;
+        }
+        
+        /* Geometric logo elements */
+        .logo-circuit {
+            position: absolute;
+            z-index: 0;
+            width: 120%;
+            height: 120%;
+            top: -10%;
+            left: -10%;
+            opacity: 0.15;
+            pointer-events: none;
+        }
+        
+        .circuit-line {
+            position: absolute;
+            background-color: var(--primary-color);
+        }
+        
+        .horizontal-line {
+            height: 1px;
+            width: 100%;
+        }
+        
+        .vertical-line {
+            width: 1px;
+            height: 100%;
+        }
+        
+        .node {
+            position: absolute;
+            width: 5px;
+            height: 5px;
+            border-radius: 50%;
+            background-color: var(--primary-color);
+            box-shadow: 0 0 5px var(--primary-color);
+        }
+        
+        /* Loading animation */
+        .loading {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(5, 5, 7, 0.8);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            z-index: 1000;
+            visibility: hidden;
+            opacity: 0;
+            transition: opacity 0.3s;
+        }
+        
+        .loading.active {
+            visibility: visible;
+            opacity: 1;
+        }
+        
+        /* Controls Section */
+        .logo-controls {
+            margin-top: 40px;
+            width: 100%;
+            max-width: 600px;
+            background-color: rgba(0, 0, 0, 0.3);
+            border: 1px solid var(--primary-color);
+            border-radius: 10px;
+            padding: 20px;
+        }
+        
+        .control-group {
+            margin-bottom: 20px;
+        }
+        
+        .control-group h3 {
+            margin-bottom: 15px;
+            color: var(--primary-color);
+            font-size: 1.2rem;
+        }
+        
+        .button-group {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+            margin-bottom: 15px;
+        }
+        
+        .control-button {
+            padding: 8px 15px;
+            background-color: transparent;
+            border: 1px solid var(--primary-color);
+            border-radius: 5px;
+            color: var(--text-light);
+            cursor: pointer;
+            transition: all 0.3s ease;
+            font-family: 'Orbitron', sans-serif;
+            display: flex;
+            align-items: center;
+        }
+        
+        .control-button i {
+            margin-right: 5px;
+        }
+        
+        .control-button:hover {
+            background-color: var(--primary-color);
+            color: var(--bg-darker);
+        }
+        
+        .control-button.active {
+            background-color: var(--primary-color);
+            color: var(--bg-darker);
+        }
+        
+        .export-options {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+        }
+        
+        .export-button {
+            padding: 10px 20px;
+            background-color: var(--secondary-color);
+            border: none;
+            border-radius: 5px;
+            color: var(--text-light);
+            cursor: pointer;
+            transition: all 0.3s ease;
+            font-family: 'Orbitron', sans-serif;
+            display: flex;
+            align-items: center;
+        }
+        
+        .export-button i {
+            margin-right: 8px;
+        }
+        
+        .export-button:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(255, 0, 255, 0.4);
+        }
+        
+        /* Animations */
+        @keyframes pulse {
+            0%, 100% {
+                text-shadow: 0 0 10px var(--primary-color),
+                           0 0 20px rgba(0, 255, 255, 0.6);
+            }
+            50% {
+                text-shadow: 0 0 15px var(--primary-color),
+                           0 0 30px rgba(0, 255, 255, 0.8),
+                           0 0 40px rgba(0, 255, 255, 0.4);
+            }
+        }
+        
+        @keyframes scan {
+            0% {
+                transform: translateY(-100%);
+            }
+            100% {
+                transform: translateY(100%);
+            }
+        }
+        
+        @keyframes glitch-1 {
+            0%, 100% { transform: none; opacity: 0.8; }
+            50% { transform: translate(1px); opacity: 0.5; }
+            62.5% { transform: translate(0, 1px) scale(0.98); opacity: 0.7; }
+            75% { transform: translate(2px, 0) scale(1.01); opacity: 0.8; }
+        }
+        
+        @keyframes glitch-2 {
+            0%, 100% { transform: none; opacity: 0.8; }
+            50% { transform: translate(-1px, 1px); opacity: 0.5; }
+            62.5% { transform: translate(1px, -1px) scale(0.99); opacity: 0.7; }
+            75% { transform: translate(-1px, -1px) scale(1.01); opacity: 0.8; }
+        }
+        
+        /* Responsive Styles */
+        @media screen and (max-width: 768px) {
+            .acumen-logo {
+                font-size: 3rem;
+            }
+            
+            .logo-box {
+                padding: 20px;
+            }
+            
+            .button-group, .export-options {
+                justify-content: center;
+            }
+        }
+        
+        @media screen and (max-width: 480px) {
+            .acumen-logo {
+                font-size: 2.2rem;
+            }
+        }
+        
+        footer {
+            margin-top: 50px;
+            text-align: center;
+            font-size: 0.9rem;
+            color: var(--text-dim);
+        }
+        
+        .back-button {
+            display: inline-block;
+            margin-top: 20px;
+            padding: 10px 15px;
+            background-color: transparent;
+            border: 1px solid var(--primary-color);
+            color: var(--primary-color);
+            border-radius: 5px;
+            text-decoration: none;
+            transition: all 0.3s ease;
+        }
+        
+        .back-button:hover {
+            background-color: var(--primary-color);
+            color: var(--bg-darker);
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>CSE ACUMEN Logo Generator</h1>
+        <p>Create a professional, customized logo for the Computer Science & Engineering department's ACUMEN 2025 event</p>
+    </header>
+
+    <div class="container">
+        <div class="logo-container">
+            <div class="logo-box" id="logoBox">
+                <div class="binary-overlay" id="binaryOverlay"></div>
+                <div class="circuit-pattern" id="circuitPattern"></div>
+                <div class="logo" id="logoElement">
+                    <div class="logo-inner" id="logoInner">
+                        <div class="acumen-logo" id="acumenLogo">
+                            <span class="department" id="departmentText">COMPUTER SCIENCE & ENGINEERING</span>
+                            <span class="glitch-logo" id="mainLogoText">ACUMEN</span><span class="year-integrated" id="yearText">2025</span>
+                        </div>
+                        <div class="logo-tagline" id="logoTagline">Redefining Reality: Code. Create. Conquer.</div>
+                    </div>
+                </div>
+                <div class="loading" id="loadingIndicator">
+                    <div class="spinner"></div>
+                </div>
+                <div class="logo-circuit" id="logoCircuit">
+                    <!-- Circuit lines generated by JS -->
+                </div>
+            </div>
+
+            <div class="logo-controls">
+                <div class="control-group">
+                    <h3>Animation Style</h3>
+                    <div class="button-group">
+                        <button class="control-button active" data-style="glitch">
+                            <i class="fas fa-bolt"></i> Glitch
+                        </button>
+                        <button class="control-button" data-style="pulse">
+                            <i class="fas fa-lightbulb"></i> Pulse
+                        </button>
+                        <button class="control-button" data-style="static">
+                            <i class="fas fa-minus"></i> Static
+                        </button>
+                    </div>
+                </div>
+
+                <div class="control-group">
+                    <h3>Color Theme</h3>
+                    <div class="button-group">
+                        <button class="control-button active" data-color="cyan">
+                            <i class="fas fa-circle" style="color: #00ffff;"></i> Cyan
+                        </button>
+                        <button class="control-button" data-color="magenta">
+                            <i class="fas fa-circle" style="color: #ff00ff;"></i> Magenta
+                        </button>
+                        <button class="control-button" data-color="yellow">
+                            <i class="fas fa-circle" style="color: #ffff00;"></i> Yellow
+                        </button>
+                    </div>
+                </div>
+
+                <div class="control-group">
+                    <h3>Export</h3>
+                    <div class="export-options">
+                        <button class="export-button" id="downloadPNG">
+                            <i class="fas fa-download"></i> PNG
+                        </button>
+                        <button class="export-button" id="downloadSVG">
+                            <i class="fas fa-download"></i> SVG
+                        </button>
+                        <button class="export-button" id="copyCode">
+                            <i class="fas fa-code"></i> HTML Code
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <footer>
+            <a href="index.html" class="back-button">
+                <i class="fas fa-arrow-left"></i> Back to ACUMEN Home
+            </a>
+        </footer>
+    </div>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            // Generate circuit elements
+            const logoCircuit = document.getElementById('logoCircuit');
+            const numLines = 15;
+            const numNodes = 20;
+            
+            // Create horizontal and vertical circuit lines
+            for (let i = 0; i < numLines; i++) {
+                // Horizontal lines
+                const hLine = document.createElement('div');
+                hLine.className = 'circuit-line horizontal-line';
+                hLine.style.top = `${Math.random() * 100}%`;
+                hLine.style.left = '0';
+                hLine.style.width = `${20 + Math.random() * 80}%`;
+                hLine.style.opacity = 0.1 + Math.random() * 0.3;
+                logoCircuit.appendChild(hLine);
+                
+                // Vertical lines
+                const vLine = document.createElement('div');
+                vLine.className = 'circuit-line vertical-line';
+                vLine.style.top = '0';
+                vLine.style.left = `${Math.random() * 100}%`;
+                vLine.style.height = `${20 + Math.random() * 80}%`;
+                vLine.style.opacity = 0.1 + Math.random() * 0.3;
+                logoCircuit.appendChild(vLine);
+            }
+            
+            // Create circuit nodes
+            for (let i = 0; i < numNodes; i++) {
+                const node = document.createElement('div');
+                node.className = 'node';
+                node.style.top = `${Math.random() * 100}%`;
+                node.style.left = `${Math.random() * 100}%`;
+                node.style.transform = 'translate(-50%, -50%)';
+                logoCircuit.appendChild(node);
+            }
+            
+            // Generate binary overlay
+            generateBinaryOverlay();
+            
+            function generateBinaryOverlay() {
+                const binaryOverlay = document.getElementById('binaryOverlay');
+                binaryOverlay.innerHTML = '';
+                const binaryChars = ['0', '1'];
+                const textCount = 100;
+                
+                for (let i = 0; i < textCount; i++) {
+                    const text = document.createElement('div');
+                    text.className = 'binary-text';
+                    text.style.left = `${Math.random() * 100}%`;
+                    text.style.top = `${Math.random() * 100}%`;
+                    text.style.fontSize = `${8 + Math.random() * 8}px`;
+                    text.style.opacity = `${0.1 + Math.random() * 0.5}`;
+                    
+                    let binaryText = '';
+                    for (let j = 0; j < 8; j++) {
+                        binaryText += binaryChars[Math.floor(Math.random() * 2)];
+                    }
+                    
+                    text.textContent = binaryText;
+                    binaryOverlay.appendChild(text);
+                }
+            }
+            
+            // Animation style buttons
+            const styleButtons = document.querySelectorAll('.control-button[data-style]');
+            styleButtons.forEach(button => {
+                button.addEventListener('click', () => {
+                    // Remove active class from all buttons
+                    styleButtons.forEach(btn => btn.classList.remove('active'));
+                    
+                    // Add active class to clicked button
+                    button.classList.add('active');
+                    
+                    // Apply selected style
+                    const style = button.dataset.style;
+                    const acumenLogo = document.getElementById('acumenLogo');
+                    const glitchLogo = acumenLogo.querySelector('.glitch-logo');
+                    
+                    if (style === 'glitch') {
+                        acumenLogo.style.animation = '';
+                        glitchLogo.classList.add('glitch-logo');
+                    } else if (style === 'pulse') {
+                        acumenLogo.style.animation = 'pulse 4s infinite';
+                        glitchLogo.classList.remove('glitch-logo');
+                    } else if (style === 'static') {
+                        acumenLogo.style.animation = 'none';
+                        glitchLogo.classList.remove('glitch-logo');
+                    }
+                });
+            });
+            
+            // Color theme buttons
+            const colorButtons = document.querySelectorAll('.control-button[data-color]');
+            colorButtons.forEach(button => {
+                button.addEventListener('click', () => {
+                    // Remove active class from all buttons
+                    colorButtons.forEach(btn => btn.classList.remove('active'));
+                    
+                    // Add active class to clicked button
+                    button.classList.add('active');
+                    
+                    // Apply selected color theme
+                    const color = button.dataset.color;
+                    const acumenLogo = document.getElementById('acumenLogo');
+                    const logoBox = document.getElementById('logoBox');
+                    
+                    if (color === 'cyan') {
+                        acumenLogo.style.color = '#00ffff';
+                        acumenLogo.style.textShadow = '0 0 10px #00ffff, 0 0 20px rgba(0, 255, 255, 0.6)';
+                        logoBox.style.borderColor = '#00ffff';
+                    } else if (color === 'magenta') {
+                        acumenLogo.style.color = '#ff00ff';
+                        acumenLogo.style.textShadow = '0 0 10px #ff00ff, 0 0 20px rgba(255, 0, 255, 0.6)';
+                        logoBox.style.borderColor = '#ff00ff';
+                    } else if (color === 'yellow') {
+                        acumenLogo.style.color = '#ffff00';
+                        acumenLogo.style.textShadow = '0 0 10px #ffff00, 0 0 20px rgba(255, 255, 0, 0.6)';
+                        logoBox.style.borderColor = '#ffff00';
+                    }
+                });
+            });
+            
+            // Export as PNG
+            document.getElementById('downloadPNG').addEventListener('click', () => {
+                const logoBox = document.getElementById('logoBox');
+                
+                // Temporarily remove animations for clean capture
+                const tempStyle = document.createElement('style');
+                tempStyle.innerHTML = `
+                    * {
+                        animation: none !important;
+                        transition: none !important;
+                    }
+                `;
+                document.head.appendChild(tempStyle);
+                
+                html2canvas(logoBox, {
+                    backgroundColor: null,
+                    scale: 2,
+                    logging: false
+                }).then(canvas => {
+                    // Create download link
+                    const link = document.createElement('a');
+                    link.download = 'acumen-logo.png';
+                    link.href = canvas.toDataURL('image/png');
+                    link.click();
+                    
+                    // Remove temp style
+                    document.head.removeChild(tempStyle);
+                });
+            });
+            
+            // Export as SVG - simplified version
+            document.getElementById('downloadSVG').addEventListener('click', () => {
+                alert('For best quality SVG, we\'ve added HTML & CSS code that you can use with any SVG converter tool');
+                document.getElementById('copyCode').click();
+            });
+            
+            // Copy HTML Code
+            document.getElementById('copyCode').addEventListener('click', () => {
+                const logoBox = document.getElementById('logoBox');
+                const acumenLogo = document.getElementById('acumenLogo');
+                const logoTagline = document.getElementById('logoTagline');
+                
+                const logoHTML = `
+<div class="acumen-logo" style="
+    font-family: 'Orbitron', sans-serif;
+    font-weight: 900;
+    font-size: 4rem;
+    letter-spacing: 2px;
+    position: relative;
+    color: ${acumenLogo.style.color || '#00ffff'};
+    text-shadow: ${acumenLogo.style.textShadow || '0 0 10px #00ffff, 0 0 20px rgba(0, 255, 255, 0.6)'};
+    padding: 15px;
+    text-align: center;
+">
+    <span class="${acumenLogo.querySelector('.glitch-logo').className.includes('glitch-logo') ? 'glitch-logo' : ''}">ACUMEN</span><span style="
+        font-size: 80%;
+        letter-spacing: 1px;
+        margin-left: 5px;
+    ">2025</span>
+    <div style="
+        font-size: 0.9rem;
+        margin-top: 10px;
+        color: #ffffff;
+        opacity: 0.8;
+    ">${logoTagline.textContent}</div>
+</div>
+
+<!-- Remember to include the Orbitron font -->
+<link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;500;700;900&display=swap" rel="stylesheet">
+                `;
+                
+                // Copy to clipboard
+                navigator.clipboard.writeText(logoHTML).then(() => {
+                    alert('Logo HTML code copied to clipboard!');
+                });
+            });
+        });
+    </script>
+</body>
+</html>

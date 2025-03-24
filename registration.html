@@ -1,0 +1,435 @@
+<!DOCTYPE html>
+<html lang="en" class="no-js">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Registration | ACUMEN 2025 | CSE Fest | Vasavi College of Engineering</title>
+    
+    <!-- Critical initialization -->
+    <script src="js/acumen-init.js"></script>
+    
+    <!-- Main stylesheet -->
+    <link rel="stylesheet" href="css/main.css">
+    
+    <!-- Registration-specific styles -->
+    <link rel="stylesheet" href="css/registration.css">
+    <link rel="stylesheet" href="css/event.css">
+    
+    <!-- Critical fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;500;700;900&family=Roboto:wght@300;400;500;700&display=swap" rel="stylesheet">
+    
+    <!-- Font Awesome Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+</head>
+<body class="circuit-bg digital-noise registration-page">
+    <!-- Glitch Effect Overlay -->
+    <div class="glitch-overlay"></div>
+    
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="container">
+            <div class="logo">
+                <div class="acumen-logo-nav">
+                    <span class="department-text">CSE</span>
+                    <span class="glitch-text">ACUMEN</span><span class="year-integrated">2025</span>
+                </div>
+            </div>
+            <div class="nav-toggle" aria-label="Toggle navigation">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+            <ul class="nav-links">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="events.html">Events</a></li>
+                <li><a href="schedule.html">Schedule</a></li>
+                <li><a href="registration.html" class="active">Register</a></li>
+                <li><a href="gallery.html">Posters</a></li>
+                <li><a href="team.html">Team</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- Page Banner -->
+    <section class="page-banner">
+        <div class="container">
+            <h1 class="glitch-text" data-text="EVENT REGISTRATION">EVENT REGISTRATION</h1>
+            <p>Register for ACUMEN 2025 events and secure your spot</p>
+        </div>
+        <div class="hero-overlay"></div>
+        <div class="hero-grid"></div>
+    </section>
+
+    <!-- Registration Form Section -->
+    <section class="registration-section">
+        <div class="container">
+            <div class="registration-container">
+                <div class="registration-header">
+                    <h2>ACUMEN 2025 Registration</h2>
+                    <p>Fill in your details below to register for ACUMEN 2025 events. Select your preferred events and proceed with payment.</p>
+                </div>
+
+                <form id="registrationForm" class="registration-form" action="submit-registration.php" method="POST">
+                    
+                    <!-- Personal Information Section -->
+                    <div class="form-section" id="personalInfoSection">
+                        <div class="form-section-header">
+                            <i class="fas fa-user"></i>
+                            <h3>Personal Information</h3>
+                        </div>
+                        
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label for="firstName" class="required">First Name</label>
+                                <input type="text" id="firstName" name="firstName" required>
+                                <div class="form-error-message" id="firstNameError">Please enter your first name</div>
+                            </div>
+                            
+                            <div class="form-group">
+                                <label for="lastName" class="required">Last Name</label>
+                                <input type="text" id="lastName" name="lastName" required>
+                                <div class="form-error-message" id="lastNameError">Please enter your last name</div>
+                            </div>
+                        </div>
+                        
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label for="email" class="required">Email Address</label>
+                                <input type="email" id="email" name="email" required>
+                                <div class="form-error-message" id="emailError">Please enter a valid email address</div>
+                            </div>
+                            
+                            <div class="form-group">
+                                <label for="phone" class="required">Phone Number</label>
+                                <input type="tel" id="phone" name="phone" required>
+                                <div class="form-error-message" id="phoneError">Please enter a valid phone number</div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- College Information Section -->
+                    <div class="form-section" id="collegeInfoSection">
+                        <div class="form-section-header">
+                            <i class="fas fa-graduation-cap"></i>
+                            <h3>College Information</h3>
+                        </div>
+                        
+                        <div class="form-group">
+                            <div class="form-checkbox" style="margin-bottom: 15px;">
+                                <input type="checkbox" id="isVasaviStudent" name="isVasaviStudent">
+                                <label for="isVasaviStudent">I am a Vasavi College student</label>
+                            </div>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="college" class="required">College/University Name</label>
+                            <input type="text" id="college" name="college" required>
+                            <div class="form-error-message" id="collegeError">Please enter your college name</div>
+                        </div>
+                        
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label for="department" class="required">Department</label>
+                                <select id="department" name="department" required>
+                                    <option value="">Select Department</option>
+                                    <option value="CSE">Computer Science & Engineering</option>
+                                    <option value="IT">Information Technology</option>
+                                    <option value="ECE">Electronics & Communication</option>
+                                    <option value="EEE">Electrical & Electronics</option>
+                                    <option value="MECH">Mechanical Engineering</option>
+                                    <option value="CIVIL">Civil Engineering</option>
+                                    <option value="OTHER">Other</option>
+                                </select>
+                                <div class="form-error-message" id="departmentError">Please select your department</div>
+                            </div>
+                            
+                            <div class="form-group">
+                                <label for="year" class="required">Year of Study</label>
+                                <select id="year" name="year" required>
+                                    <option value="">Select Year</option>
+                                    <option value="1">1st Year</option>
+                                    <option value="2">2nd Year</option>
+                                    <option value="3">3rd Year</option>
+                                    <option value="4">4th Year</option>
+                                    <option value="5">5th Year</option>
+                                </select>
+                                <div class="form-error-message" id="yearError">Please select your year of study</div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Event Selection Section -->
+                    <div class="form-section" id="eventSelectionSection">
+                        <div class="form-section-header">
+                            <i class="fas fa-calendar-alt"></i>
+                            <h3>Event Selection</h3>
+                        </div>
+                        
+                        <p>Select the events you want to participate in:</p>
+                        <div class="form-error-message" id="eventsError">Please select at least one event</div>
+                        
+                        <div class="events-filter">
+                            <button type="button" class="events-filter-btn active" data-filter="all">All Events</button>
+                            <button type="button" class="events-filter-btn" data-filter="technical">Technical</button>
+                            <button type="button" class="events-filter-btn" data-filter="coding">Coding</button>
+                            <button type="button" class="events-filter-btn" data-filter="gaming">Gaming</button>
+                            <button type="button" class="events-filter-btn" data-filter="non-technical">Non-Technical</button>
+                        </div>
+                        
+                        <!-- Events grid will be populated by JavaScript from events.html -->
+                        <div class="events-grid" id="eventsGrid">
+                            <!-- Event cards will be loaded here -->
+                            <div class="loading-events">
+                                <div class="spinner"></div>
+                                <p>Loading events...</p>
+                            </div>
+                        </div>
+                        
+                        <p class="form-note">* Team events require additional team member information</p>
+                    </div>
+                    
+                    <!-- Team Information Section (initially hidden) -->
+                    <div class="form-section" id="teamInfoSection" style="display: none;">
+                        <div class="form-section-header">
+                            <i class="fas fa-users"></i>
+                            <h3>Team Information</h3>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="teamName" class="required">Team Name</label>
+                            <input type="text" id="teamName" name="teamName">
+                            <div class="form-error-message" id="teamNameError">Please enter a team name</div>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="teamSize" class="required">Team Size</label>
+                            <select id="teamSize" name="teamSize">
+                                <option value="2">2 Members</option>
+                                <option value="3">3 Members</option>
+                                <option value="4">4 Members</option>
+                            </select>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label>Team Captain</label>
+                            <input type="text" value="You are the team captain" disabled>
+                        </div>
+                        
+                        <div id="teamMembers">
+                            <!-- Team member fields will be added dynamically -->
+                        </div>
+                        
+                        <button type="button" id="addMemberBtn" class="add-member-btn">
+                            <i class="fas fa-plus"></i> Add Team Member
+                        </button>
+                    </div>
+                    
+                    <!-- Order Summary Section -->
+                    <div class="form-section" id="orderSummarySection">
+                        <div class="form-section-header">
+                            <i class="fas fa-shopping-cart"></i>
+                            <h3>Order Summary</h3>
+                        </div>
+                        
+                        <div class="order-summary">
+                            <h4 class="summary-title">Selected Events</h4>
+                            
+                            <div class="summary-items" id="orderSummaryItems">
+                                <p id="noEventsSelected">No events selected yet</p>
+                            </div>
+                            
+                            <div class="summary-total">
+                                <div class="summary-total-label">Total Amount:</div>
+                                <div class="summary-total-price" id="totalAmount">₹0</div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Payment Section -->
+                    <div class="form-section" id="paymentSection">
+                        <div class="form-section-header">
+                            <i class="fas fa-credit-card"></i>
+                            <h3>Payment Method</h3>
+                        </div>
+                        
+                        <p>Please select your preferred payment method:</p>
+                        
+                        <div class="payment-options">
+                            <label class="payment-option selected">
+                                <input type="radio" name="paymentMethod" value="upi" checked>
+                                <i class="fas fa-mobile-alt"></i>
+                                <span class="payment-option-name">UPI</span>
+                            </label>
+                            
+                            <label class="payment-option">
+                                <input type="radio" name="paymentMethod" value="cash">
+                                <i class="fas fa-money-bill-wave"></i>
+                                <span class="payment-option-name">Cash at Venue</span>
+                            </label>
+                            
+                            <label class="payment-option">
+                                <input type="radio" name="paymentMethod" value="bank">
+                                <i class="fas fa-university"></i>
+                                <span class="payment-option-name">Bank Transfer</span>
+                            </label>
+                        </div>
+                        
+                        <!-- UPI Payment Details -->
+                        <div class="payment-details upi-details" id="upiDetails">
+                            <div class="qr-code">
+                                <img src="img/registration/acumen-qr-code.png" alt="UPI QR Code">
+                            </div>
+                            
+                            <div class="upi-info">
+                                <p>Scan the QR code or use the UPI ID below:</p>
+                                
+                                <div class="upi-id">
+                                    acumen2025@okaxis
+                                    <button type="button" class="copy-btn" id="copyUpiBtn">Copy</button>
+                                </div>
+                                
+                                <p>Payment will be verified within 24 hours.</p>
+                            </div>
+                        </div>
+                        
+                        <!-- Cash Payment Details (hidden by default) -->
+                        <div class="payment-details" id="cashDetails" style="display: none;">
+                            <p>You can pay in cash at the registration desk on the day of the event.</p>
+                            <p>Please note that spot registrations may be subject to availability.</p>
+                            <p>Venue: CSE Block, Vasavi College of Engineering</p>
+                        </div>
+                        
+                        <!-- Bank Transfer Details (hidden by default) -->
+                        <div class="payment-details" id="bankDetails" style="display: none;">
+                            <p><strong>Account Name:</strong> ACUMEN 2025</p>
+                            <p><strong>Account Number:</strong> 1234567890</p>
+                            <p><strong>IFSC Code:</strong> AXIS0001234</p>
+                            <p><strong>Bank:</strong> Axis Bank, Kukatpally Branch</p>
+                        </div>
+                        
+                        <div class="form-group" style="margin-top: 20px;">
+                            <label for="transactionId">Transaction ID (For UPI/Bank Transfer)</label>
+                            <input type="text" id="transactionId" name="transactionId" placeholder="e.g. UPI1234567890">
+                            <div class="form-error-message" id="transactionIdError">Transaction ID is required for UPI/Bank transfers</div>
+                        </div>
+                    </div>
+                    
+                    <!-- Terms & Conditions -->
+                    <div class="form-section" id="termsSection">
+                        <div class="form-section-header">
+                            <i class="fas fa-file-signature"></i>
+                            <h3>Terms & Conditions</h3>
+                        </div>
+                        
+                        <div class="terms-container">
+                            <p>Please read and agree to the following terms and conditions:</p>
+                            
+                            <ul class="terms-list">
+                                <li>Registration fees are non-refundable.</li>
+                                <li>Participants must carry their college ID cards during the event.</li>
+                                <li>Event rules and guidelines must be strictly followed.</li>
+                                <li>Organizers reserve the right to modify event details if necessary.</li>
+                                <li>Participants will be responsible for any damage to equipment or facilities.</li>
+                                <li>The decision of the judges and organizers will be final.</li>
+                            </ul>
+                            
+                            <div class="form-group">
+                                <div class="form-checkbox">
+                                    <input type="checkbox" id="termsAgreement" name="termsAgreement" required>
+                                    <label for="termsAgreement" class="required">I agree to the Terms & Conditions and Privacy Policy</label>
+                                </div>
+                                <div class="form-error-message" id="termsError">You must agree to the terms and conditions</div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Form Submit Button -->
+                    <div class="form-submit-area">
+                        <button type="submit" class="submit-btn" id="submitRegistration">
+                            <i class="fas fa-paper-plane"></i> Submit Registration
+                        </button>
+                    </div>
+                </form>
+                
+                <!-- Success Message (hidden by default) -->
+                <div class="success-message" id="successMessage">
+                    <i class="fas fa-check-circle"></i>
+                    <h3>Registration Successful!</h3>
+                    <p>Thank you for registering for ACUMEN 2025. Your registration has been received.</p>
+                    <p>Your registration ID is:</p>
+                    <div class="registration-id" id="registrationId">ACU-2025-XXXX</div>
+                    <p>We've sent a confirmation email with all the details to your registered email address.</p>
+                    <p>For any queries, please contact us at <a href="mailto:acumen@vasavi.ac.in">acumen@vasavi.ac.in</a></p>
+                    <div style="margin-top: 30px;">
+                        <a href="events.html" class="btn btn-secondary">Explore Events</a>
+                        <a href="schedule.html" class="btn btn-primary" style="margin-left: 10px;">View Schedule</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Processing Indicator -->
+    <div class="processing-indicator" id="processingIndicator">
+        <div class="spinner"></div>
+        <div class="processing-text">Processing Registration...</div>
+    </div>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section footer-logo">
+                    <div class="acumen-logo-nav">
+                        <span class="department-text">CSE</span>
+                        <span>ACUMEN</span><span class="year-integrated">2025</span>
+                    </div>
+                    <p>ACUMEN 2025 | CSE Department</p>
+                    <p>Vasavi College of Engineering</p>
+                </div>
+                
+                <div class="footer-section">
+                    <h3>Quick Links</h3>
+                    <ul>
+                        <li><a href="index.html">Home</a></li>
+                        <li><a href="events.html">Events</a></li>
+                        <li><a href="schedule.html">Schedule</a></li>
+                        <li><a href="registration.html">Register</a></li>
+                        <li><a href="team.html">Team</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-section">
+                    <h3>Contact Us</h3>
+                    <ul>
+                        <li><i class="fas fa-map-marker-alt"></i> Vasavi College of Engineering, Ibrahimbagh, Hyderabad</li>
+                        <li><i class="fas fa-phone"></i> +91 9876543210</li>
+                        <li><i class="fas fa-envelope"></i> acumen@vasavi.ac.in</li>
+                    </ul>
+                </div>
+                
+                <div class="footer-section">
+                    <h3>Follow Us</h3>
+                    <div class="social-links">
+                        <a href="#" class="social-icon"><i class="fab fa-instagram"></i></a>
+                        <a href="#" class="social-icon"><i class="fab fa-facebook"></i></a>
+                        <a href="#" class="social-icon"><i class="fab fa-twitter"></i></a>
+                        <a href="#" class="social-icon"><i class="fab fa-linkedin"></i></a>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="footer-bottom">
+                <p>&copy; 2025 ACUMEN - CSE Department, Vasavi College of Engineering. All Rights Reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Scripts -->
+    <script src="js/main.js"></script>
+    <script src="js/registration.js"></script>
+    <script src="js/navbar-autohide.js"></script>
+</body>
+</html>

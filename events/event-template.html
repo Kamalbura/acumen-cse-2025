@@ -1,0 +1,384 @@
+<!DOCTYPE html>
+<html lang="en" class="no-js fonts-loading">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="event-category" content="technical"> <!-- Change this based on event type -->
+    <title>[EVENT_NAME] | ACUMEN 2025 | CSE Fest | Vasavi College of Engineering</title>
+    
+    <!-- Prevent FOUC -->
+    <script src="../js/critical-css-loader.js"></script>
+    <script src="../js/font-loading-fix.js"></script>
+    
+    <!-- Safety net script - First script to load -->
+    <script src="../js/safety-net.js"></script>
+    
+    <!-- Critical stylesheets for event pages -->
+    <link rel="stylesheet" href="../css/emergency-fallback.css" data-critical="true">
+    <link rel="stylesheet" href="../css/styles.css" data-critical="true">
+    <link rel="stylesheet" href="../css/anti-flicker.css" data-critical="true">
+    
+    <!-- Event-specific styles -->
+    <link rel="stylesheet" href="../css/event-page.css">
+    
+    <!-- Non-critical stylesheets (loaded async) -->
+    <link rel="stylesheet" href="../css/cyberpunk.css">
+    <link rel="stylesheet" href="../css/cyberpunk-enhanced.css" media="print" onload="this.media='all'">
+    
+    <!-- Event-specific path checker -->
+    <script src="../events/path-checker.js"></script>
+    
+    <!-- Emergency fix script -->
+    <script src="../js/emergency-fix.js"></script>
+    <script src="../js/fix-all-events.js"></script>
+    
+    <!-- Disable custom cursor effects to fix flickering -->
+    <script src="../js/disable-cursor-effects.js"></script>
+    
+    <!-- Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;500;700;900&family=Roboto:wght@300;400;500;700&display=swap" rel="stylesheet">
+    
+    <!-- Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+</head>
+<body class="event-page" data-category="technical"> <!-- Change data-category based on event type -->
+    <!-- Glitch Effect Overlay -->
+    <div class="glitch-overlay"></div>
+    
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="container">
+            <div class="logo">
+                <div class="acumen-logo-nav">
+                    <span class="department-text">CSE</span>
+                    <span class="glitch-text">ACUMEN</span><span class="year-integrated">2025</span>
+                </div>
+            </div>
+            <div class="nav-toggle">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+            <ul class="nav-links">
+                <li><a href="../index.html">Home</a></li>
+                <li><a href="../events.html" class="active">Events</a></li>
+                <li><a href="../schedule.html">Schedule</a></li>
+                <li><a href="../registration.html">Register</a></li>
+                <li><a href="../gallery.html">Gallery</a></li>
+                <li><a href="../team.html">Team</a></li>
+                <li><a href="../sponsors.html">Sponsors</a></li>
+                <li><a href="../contact.html">Contact</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- Event Hero Section -->
+    <section class="event-hero" style="background-image: url('[EVENT_BACKGROUND_IMAGE]'); background-position: center;">
+        <div class="event-hero-overlay"></div>
+        <div class="container">
+            <div class="event-hero-content">
+                <h1 class="glitch-text" data-text="[EVENT_NAME]">[EVENT_NAME]</h1>
+                <p>[EVENT_TAGLINE]</p>
+                <a href="../registration.html#[EVENT_ID]" class="btn btn-primary">Register Now</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Event Details -->
+    <section class="event-details">
+        <div class="container">
+            <a href="../events.html" class="event-back-button">
+                <i class="fas fa-arrow-left"></i> Back to All Events
+            </a>
+            
+            <!-- About Event and Poster - Top section -->
+            <div class="event-top-content">
+                <div class="event-content-with-poster">
+                    <div class="event-section">
+                        <div class="event-section-content">
+                            <h2>About the Event</h2>
+                            <p>[EVENT_DESCRIPTION_PARAGRAPH_1]</p>
+                            <p>[EVENT_DESCRIPTION_PARAGRAPH_2]</p>
+                            
+                            <div class="event-meta">
+                                <div class="event-meta-item">
+                                    <h3><i class="fas fa-calendar-alt"></i> Date & Time</h3>
+                                    <p>[EVENT_DATE]</p>
+                                    <p>[EVENT_TIME]</p>
+                                </div>
+                                
+                                <div class="event-meta-item">
+                                    <h3><i class="fas fa-map-marker-alt"></i> Venue</h3>
+                                    <p>[EVENT_VENUE]</p>
+                                    <p>[EVENT_LOCATION]</p>
+                                </div>
+                                
+                                <div class="event-meta-item">
+                                    <h3><i class="fas fa-users"></i> Team Size</h3>
+                                    <p>[TEAM_SIZE]</p>
+                                </div>
+                                
+                                <div class="event-meta-item">
+                                    <h3><i class="fas fa-trophy"></i> Prizes</h3>
+                                    <p>1st Place: ₹[PRIZE_1]</p>
+                                    <p>2nd Place: ₹[PRIZE_2]</p>
+                                    <p>3rd Place: ₹[PRIZE_3]</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="event-poster-container">
+                    <div class="event-poster">
+                        <img src="../img/posters/[EVENT_ID].jpg" alt="[EVENT_TITLE] Poster">
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Full-width sections after the poster -->
+            <div class="event-section full-width">
+                <div class="event-section-content">
+                    <h2>[FORMAT_SECTION_TITLE]</h2>
+                    
+                    <h3>[FORMAT_SUBTITLE_1]</h3>
+                    <ul class="event-rules">
+                        <li>[RULE_1]</li>
+                        <li>[RULE_2]</li>
+                        <li>[RULE_3]</li>
+                        <li>[RULE_4]</li>
+                        <li>[RULE_5]</li>
+                    </ul>
+                    
+                    <h3>[FORMAT_SUBTITLE_2]</h3>
+                    <ul class="event-rules">
+                        <li>[TECHNICAL_RULE_1]</li>
+                        <li>[TECHNICAL_RULE_2]</li>
+                        <li>[TECHNICAL_RULE_3]</li>
+                        <li>[TECHNICAL_RULE_4]</li>
+                        <li>[TECHNICAL_RULE_5]</li>
+                    </ul>
+                    
+                    <h3>[CRITERIA_TITLE]</h3>
+                    <div class="event-guidelines">
+                        <div class="guideline-item">
+                            <h4>[CRITERIA_1_TITLE]</h4>
+                            <p>[CRITERIA_1_DESCRIPTION]</p>
+                        </div>
+                        
+                        <div class="guideline-item">
+                            <h4>[CRITERIA_2_TITLE]</h4>
+                            <p>[CRITERIA_2_DESCRIPTION]</p>
+                        </div>
+                        
+                        <div class="guideline-item">
+                            <h4>[CRITERIA_3_TITLE]</h4>
+                            <p>[CRITERIA_3_DESCRIPTION]</p>
+                        </div>
+                        
+                        <div class="guideline-item">
+                            <h4>[CRITERIA_4_TITLE]</h4>
+                            <p>[CRITERIA_4_DESCRIPTION]</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="event-section full-width">
+                <div class="event-section-content">
+                    <h2>Registration Details</h2>
+                    <p>Registration fee: ₹[REGISTRATION_FEE]</p>
+                    <p>Registration includes:</p>
+                    <ul class="event-rules">
+                        <li>[INCLUSION_1]</li>
+                        <li>[INCLUSION_2]</li>
+                        <li>[INCLUSION_3]</li>
+                        <li>[INCLUSION_4]</li>
+                    </ul>
+                    
+                    <h3>Prerequisites</h3>
+                    <ul class="event-rules">
+                        <li>[PREREQUISITE_1]</li>
+                        <li>[PREREQUISITE_2]</li>
+                        <li>[PREREQUISITE_3]</li>
+                    </ul>
+                    
+                    <div class="registration-cta">
+                        <a href="../registration.html#[EVENT_ID]" class="btn btn-primary">Register Now</a>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="event-section full-width">
+                <div class="event-section-content">
+                    <h2>Event Organizers</h2>
+                    <p>Meet the team behind [EVENT_TITLE]:</p>
+                    
+                    <div class="organizers">
+                        <div class="organizer-card">
+                            <div class="organizer-image">
+                                <img src="../img/team/[FACULTY_IMAGE]" alt="[FACULTY_NAME]">
+                            </div>
+                            <div class="organizer-info">
+                                <h4>[FACULTY_NAME]</h4>
+                                <p>[FACULTY_ROLE]</p>
+                                <p>[FACULTY_DEPARTMENT]</p>
+                                <div class="organizer-contact">
+                                    <a href="mailto:[FACULTY_EMAIL]"><i class="fas fa-envelope"></i> Email</a>
+                                    <a href="tel:[FACULTY_PHONE]"><i class="fas fa-phone"></i> Contact</a>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="organizer-card">
+                            <div class="organizer-image">
+                                <img src="../img/team/[STUDENT_IMAGE]" alt="[STUDENT_NAME]">
+                            </div>
+                            <div class="organizer-info">
+                                <h4>[STUDENT_NAME]</h4>
+                                <p>[STUDENT_ROLE]</p>
+                                <p>[STUDENT_YEAR]</p>
+                                <div class="organizer-contact">
+                                    <a href="mailto:[STUDENT_EMAIL]"><i class="fas fa-envelope"></i> Email</a>
+                                    <a href="tel:[STUDENT_PHONE]"><i class="fas fa-phone"></i> Contact</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="event-section full-width">
+                <div class="event-section-content">
+                    <h2>Frequently Asked Questions</h2>
+                    
+                    <div class="event-faq">
+                        <div class="faq-item">
+                            <div class="faq-question">
+                                [FAQ_1_QUESTION]
+                                <i class="fas fa-chevron-down"></i>
+                            </div>
+                            <div class="faq-answer">
+                                [FAQ_1_ANSWER]
+                            </div>
+                        </div>
+                        
+                        <div class="faq-item">
+                            <div class="faq-question">
+                                [FAQ_2_QUESTION]
+                                <i class="fas fa-chevron-down"></i>
+                            </div>
+                            <div class="faq-answer">
+                                [FAQ_2_ANSWER]
+                            </div>
+                        </div>
+                        
+                        <div class="faq-item">
+                            <div class="faq-question">
+                                [FAQ_3_QUESTION]
+                                <i class="fas fa-chevron-down"></i>
+                            </div>
+                            <div class="faq-answer">
+                                [FAQ_3_ANSWER]
+                            </div>
+                        </div>
+                        
+                        <div class="faq-item">
+                            <div class="faq-question">
+                                [FAQ_4_QUESTION]
+                                <i class="fas fa-chevron-down"></i>
+                            </div>
+                            <div class="faq-answer">
+                                [FAQ_4_ANSWER]
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-logo">
+                    <img src="../img/acumen-logo-white.png" alt="ACUMEN Logo">
+                    <p>ACUMEN 2025 | CSE Department</p>
+                    <p>Vasavi College of Engineering</p>
+                </div>
+                <div class="footer-links">
+                    <h3>Quick Links</h3>
+                    <ul>
+                        <li><a href="../index.html">Home</a></li>
+                        <li><a href="../events.html">Events</a></li>
+                        <li><a href="../registration.html">Register</a></li>
+                        <li><a href="../team.html">Team</a></li>
+                        <li><a href="../contact.html">Contact</a></li>
+                    </ul>
+                </div>
+                <div class="footer-contact">
+                    <h3>Contact Us</h3>
+                    <p><i class="fas fa-map-marker-alt"></i> Vasavi College of Engineering, Hyderabad</p>
+                    <p><i class="fas fa-phone"></i> +91 98765 43210</p>
+                    <p><i class="fas fa-envelope"></i> acumen@vasavi.ac.in</p>
+                </div>
+                <div class="footer-social">
+                    <h3>Follow Us</h3>
+                    <div class="social-icons">
+                        <a href="#" class="social-icon"><i class="fab fa-instagram"></i></a>
+                        <a href="#" class="social-icon"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#" class="social-icon"><i class="fab fa-twitter"></i></a>
+                        <a href="#" class="social-icon"><i class="fab fa-linkedin-in"></i></a>
+                    </div>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2025 ACUMEN - Vasavi College of Engineering. All Rights Reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Regular scripts with correct paths -->
+    <script src="../js/main.js"></script>
+    <script src="../js/event-page-functionality.js"></script>
+    <script src="../js/path-fixer.js"></script>
+    <script src="../js/cursor-effects.js"></script>
+    <script src="../js/faq-accordion.js"></script>
+    <link rel="stylesheet" href="../css/faq-accordion.css">
+    
+    <!-- Safety scripts inclusion -->
+    <script>
+        // Load safety-scripts.html content
+        fetch('../safety-scripts.html')
+            .then(response => response.text())
+            .then(html => {
+                const tempContainer = document.createElement('div');
+                tempContainer.innerHTML = html;
+                
+                // Extract and execute scripts
+                const scripts = tempContainer.querySelectorAll('script');
+                scripts.forEach(script => {
+                    const newScript = document.createElement('script');
+                    if (script.src) {
+                        newScript.src = script.src;
+                    } else {
+                        newScript.textContent = script.textContent;
+                    }
+                    document.body.appendChild(newScript);
+                });
+            })
+            .catch(error => console.error('Failed to load safety scripts:', error));
+    </script>
+    
+    <!-- Font awesome for icons -->
+    <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
+    
+    <!-- Enhanced effects (will be conditionally loaded based on device capability) -->
+    <script src="../js/cursor-effects-enhanced.js"></script>
+    <script src="../js/hover-effects.js"></script>
+    
+    <!-- Add animation performance optimizer -->
+    <script src="../js/animation-performance.js"></script>
+</body>
+</html>

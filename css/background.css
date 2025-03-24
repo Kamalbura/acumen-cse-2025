@@ -1,0 +1,137 @@
+/**
+ * Centralized Background Styling
+ * Controls all background-related styling for the ACUMEN website
+ */
+
+/* Main site background */
+body {
+    /* Set single background image for entire site */
+    background-image: url('../assets/background2.jpg');
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
+    background-repeat: no-repeat;
+    position: relative;
+    min-height: 100vh;
+    z-index: 0;
+    
+    /* Remove any base background color */
+    background-color: transparent;
+}
+
+/* Ensure events page has the background image */
+body.events-page {
+    background-image: url('../assets/background2.jpg') !important;
+    background-size: cover !important;
+    background-position: center !important;
+    background-attachment: fixed !important;
+}
+
+/* Remove all overlay effects that might interfere with background */
+body::before,
+.glitch-overlay,
+.digital-noise::before,
+.circuit-bg::before,
+.hero-grid,
+.hero-overlay,
+.matrix-bg::before,
+.grid-overlay,
+.circuit-overlay,
+.data-streams,
+.hologram-effect,
+.hologram-effect::before {
+    display: none !important;
+    opacity: 0 !important;
+    background: none !important;
+}
+
+/* Make all section backgrounds transparent */
+section, 
+.hero, 
+.about, 
+.events-highlight, 
+.venue-section, 
+.schedule-section, 
+.registration-section, 
+.gallery-section, 
+.team-section, 
+.contact-section, 
+.footer {
+    background-color: transparent !important;
+    background-image: none !important;
+}
+
+/* Remove any circuit backgrounds */
+.circuit-bg::before {
+    display: none;
+}
+
+/* Transparent Components - 90% transparent */
+.venue-card, 
+.event-card, 
+.transport-container, 
+.venue-map,
+.team-member-card,
+.sponsor-card,
+.transport-option,
+.main-venue-info,
+.message-section,
+.poster-item,
+.about-content,
+.cta-section .cta-content,
+.form-section,
+.timeline-content,
+.order-summary,
+.guideline-item,
+.organizer-card,
+.event-meta,
+.about-container, 
+.navbar,
+.footer-content,
+.cta-container,
+.hero-content,
+.page-banner,
+.event-banner,
+.event-categories,
+.events-list,
+.registration-banner,
+.cyber-card,
+.cyber-tabs {
+    background-color: rgba(10, 10, 27, 0.1) !important; /* 90% transparency */
+    backdrop-filter: blur(3px) !important;
+    -webkit-backdrop-filter: blur(3px) !important;
+    border: 1px solid rgba(0, 243, 255, 0.2);
+}
+
+/* Semi-transparent footer */
+.footer {
+    background-color: rgba(5, 5, 15, 0.1) !important;
+    backdrop-filter: blur(5px) !important;
+    -webkit-backdrop-filter: blur(5px) !important;
+    border-top: 1px solid rgba(0, 243, 255, 0.2);
+}
+
+/* Semi-transparent navbar */
+.navbar {
+    background-color: rgba(8, 8, 20, 0.1) !important;
+    backdrop-filter: blur(10px) !important;
+    -webkit-backdrop-filter: blur(10px) !important;
+    border-bottom: 1px solid rgba(0, 243, 255, 0.2);
+}
+
+/* Ensure text readability with transparent backgrounds */
+h1, h2, h3, h4, h5, h6, p, a, span, li {
+    text-shadow: 0 0 10px rgba(0, 0, 0, 0.7) !important;
+}
+
+/* Stronger text shadow for h1 elements to ensure readability */
+h1 {
+    text-shadow: 0 0 15px rgba(0, 0, 0, 0.9), 0 0 20px rgba(0, 0, 0, 0.8), 0 0 10px rgba(0, 243, 255, 0.5) !important;
+}
+
+/* Hero content text shadow for better readability */
+.hero-content .hero-description {
+    text-shadow: 0 0 8px rgba(0, 0, 0, 0.9), 0 0 16px rgba(0, 0, 0, 0.8) !important;
+}
+
+/* Mobile styles moved to mobile.css */

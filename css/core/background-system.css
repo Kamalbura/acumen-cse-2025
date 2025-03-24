@@ -1,0 +1,99 @@
+/**
+ * Core Background System
+ * Centralized background handling for consistency across pages
+ */
+
+/* Base Background */
+body {
+    background-color: #101025;
+    color: #fff;
+    font-family: 'Roboto', sans-serif;
+    position: relative;
+    overflow-x: hidden;
+}
+
+/* Primary Background Image Layer */
+body::before {
+    content: '';
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-image: url('../../img/background.jpg');
+    background-size: cover;
+    background-position: center;
+    z-index: -10;
+    pointer-events: none;
+}
+
+/* Ensure sections are transparent */
+section {
+    background-color: transparent !important;
+    position: relative;
+    z-index: 1;
+}
+
+/* Card Transparency System */
+.card,
+.event-card,
+.sponsor-card,
+.venue-card,
+.team-member-card,
+.transport-container,
+.venue-map,
+.main-venue-info {
+    background-color: rgba(10, 10, 27, 0.6) !important;
+    backdrop-filter: blur(5px);
+    -webkit-backdrop-filter: blur(5px);
+    border: 1px solid rgba(0, 243, 255, 0.3);
+}
+
+/* Navigation and Footer Transparency */
+.navbar, 
+.footer {
+    background-color: rgba(8, 8, 24, 0.85) !important;
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+}
+
+/* Mobile Background Handling moved to mobile-background-fix.js */
+@media (max-width: 768px) {
+    /* Body before style handled by JS for better compatibility */
+    
+    /* Slightly more opaque backgrounds on mobile for readability */
+    .card,
+    .event-card,
+    .sponsor-card,
+    .venue-card,
+    .team-member-card,
+    .transport-container,
+    .venue-map,
+    .main-venue-info {
+        background-color: rgba(10, 10, 27, 0.7) !important;
+    }
+    
+    .navbar, 
+    .footer {
+        background-color: rgba(8, 8, 24, 0.9) !important;
+    }
+}
+
+/* Fallback for browsers that don't support backdrop-filter */
+@supports not ((backdrop-filter: blur(5px)) or (-webkit-backdrop-filter: blur(5px))) {
+    .card,
+    .event-card,
+    .sponsor-card,
+    .venue-card,
+    .team-member-card,
+    .transport-container,
+    .venue-map,
+    .main-venue-info {
+        background-color: rgba(10, 10, 27, 0.85) !important;
+    }
+    
+    .navbar, 
+    .footer {
+        background-color: rgba(8, 8, 24, 0.95) !important;
+    }
+}

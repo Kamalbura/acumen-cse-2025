@@ -1,0 +1,753 @@
+/**
+ * Consolidated Event Styles
+ * Combines all event-specific styling to eliminate redundancy
+ */
+
+/* === VARIABLES === */
+:root {
+    /* Event category colors - standardized with our color scheme */
+    --tech-color: #00ffcc;
+    --nontech-color: #ff9900;
+    --gaming-color: #ff3366;
+    /* Removed hackathon-color variable */
+    --coding-color: #33ccff;
+    
+    /* These variables should use the standard naming pattern */
+    --event-card-height: 400px;
+    --event-card-width: 300px;
+}
+body.events-page .navbar + section, body.events-page main > section:first-child {
+    margin-top: 30;
+    padding-top: 50px;
+}
+/* === EVENT BANNER === */
+.events-banner {
+    min-height: 300px; /* Ensure minimum height for small screens */
+    position: relative;
+    background-image: url('../assets/background2.jpg');
+    background-size: cover;
+    background-position: center;
+    color: var(--text-light);
+    text-align: center;
+    padding: 120px 0 70px; /* Increased top padding to account for navbar */
+    overflow: hidden;
+    margin-top: 0; /* Remove top margin - we'll use padding instead */
+}
+
+.events-banner h1 {
+    font-size: 4rem;
+    margin-bottom: 1rem;
+    color: var(--primary-color);
+    text-shadow: 0 0 15px rgba(0, 255, 255, 0.7);
+}
+
+.events-banner p {
+    font-size: 1.3rem;
+    color: var(--text-dim);
+    margin-bottom: 2rem;
+    max-width: 600px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+/* === EVENT COUNTER === */
+.event-counter {
+    display: flex;
+    justify-content: center;
+    gap: 40px;
+    margin-top: 40px;
+}
+
+.counter-item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 15px 25px;
+    background: rgba(0, 0, 0, 0.4);
+    border: 1px solid var(--primary-color);
+    border-radius: 10px;
+    position: relative;
+    overflow: hidden;
+}
+
+.counter-item::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: transparent;
+    opacity: 0.1;
+    z-index: 1;
+}
+
+.counter-item .count {
+    font-size: 2.5rem;
+    font-weight: 700;
+    color: var(--primary-color);
+    font-family: 'Orbitron', sans-serif;
+    position: relative;
+    z-index: 2;
+}
+
+.counter-item .label {
+    font-size: 1rem;
+    color: var(--text-dim);
+    position: relative;
+    z-index: 2;
+}
+
+/* === EVENT CATEGORIES === */
+.event-categories {
+    background-color: rgba(5, 5, 15, 0.1) !important;
+    backdrop-filter: blur(5px);
+    -webkit-backdrop-filter: blur(5px);
+    padding: 15px 0;
+    position: sticky;
+    top: 70px; /* Match navbar height */
+    z-index: 900;
+    border-bottom: 1px solid rgba(0, 243, 255, 0.2);
+    box-shadow: none;
+    margin-bottom: 0; /* Remove bottom margin */
+    width: 100%; /* Ensure full width */
+}
+
+.category-filters {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 15px;
+    margin: 0; /* Remove margin to prevent spacing issues */
+    padding: 0;
+}
+
+.category-btn {
+    background-color: transparent;
+    border: 1px solid var(--primary-color);
+    color: var(--text-dim);
+    padding: 8px 20px;
+    border-radius: 30px;
+    font-size: 0.9rem;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    position: relative;
+    overflow: hidden;
+    margin: 0 5px 10px;
+}
+
+.category-btn::before {
+    content: '';
+    position: absolute;
+    top: -2px;
+    left: -2px;
+    right: -2px;
+    bottom: -2px;
+    background: linear-gradient(45deg, var(--primary-color), var(--secondary-color));
+    z-index: -2;
+    border-radius: 30px;
+}
+
+.category-btn::after {
+    content: '';
+    position: absolute;
+    inset: 1px;
+    background-color: var(--bg-darker);
+    border-radius: 30px;
+    z-index: -1;
+    transition: all 0.3s ease;
+}
+
+/* Category-specific styling */
+.category-btn[data-filter="technical"] {
+    border-color: var(--tech-color);
+}
+
+.category-btn[data-filter="non-technical"] {
+    border-color: var(--nontech-color);
+}
+
+.category-btn[data-filter="gaming"] {
+    border-color: var(--gaming-color);
+}
+
+/* Removed hackathon category button styling */
+
+.category-btn[data-filter="coding"] {
+    border-color: var(--coding-color);
+}
+
+.category-btn:hover, 
+.category-btn.active {
+    color: var(--primary-color);
+    transform: translateY(-3px);
+    box-shadow: 0 5px 15px rgba(0, 255, 255, 0.3);
+}
+
+.category-btn.active::after {
+    background: rgba(0, 0, 0, 0.7);
+}
+
+.category-btn.active {
+    color: var(--primary-color);
+    background-color: rgba(0, 0, 0, 0.5);
+    box-shadow: 0 0 10px rgba(0, 255, 255, 0.2);
+}
+
+.category-btn.active:after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 2px;
+    background: var(--primary-color);
+    animation: slideIn 0.3s forwards;
+}
+
+@keyframes slideIn {
+    from { transform: scaleX(0); }
+    to { transform: scaleX(1); }
+}
+
+/* === EVENTS LIST === */
+/* Fix for events list background transparency */
+.events-list {
+    padding: 60px 0;
+    position: relative;
+    background-color: transparent; /* Remove any background color */
+    min-height: 500px;
+    z-index: 10;
+}
+
+/* Add container width constraints to prevent overflowing */
+.events-list .container {
+    max-width: 1200px;
+    padding: 0 15px;
+    margin: 0 auto;
+    box-sizing: border-box;
+}
+
+.events-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr); /* Fixed 4 columns */
+    gap: 20px; /* Reduce gap to fit 4 cards comfortably */
+    transition: opacity 0.3s ease;
+    position: relative;
+    z-index: 10; /* Ensure grid is above category bar */
+    width: 100%; /* Ensure grid takes full container width */
+    box-sizing: border-box;
+}
+
+/* Make all cards exactly the same size with strict constraints */
+/* Make event cards more transparent */
+.events-list .events-grid .event-card {
+    background-color: rgba(10, 10, 27, 0.1) !important;
+    backdrop-filter: blur(3px);
+    -webkit-backdrop-filter: blur(3px);
+    border: 1px solid var(--primary-color);
+    margin: 0;
+    padding: 0;
+    height: 360px; /* Set exact height for all cards */
+    max-width: 100%; /* Prevent cards from exceeding their grid cell */
+    width: 100%; /* Make cards fill their grid cells */
+    border-radius: 10px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.5);
+    animation: fadeIn 0.5s ease forwards;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    box-sizing: border-box; /* Include padding and border in element's width and height */
+}
+
+/* Clickable event cards styling */
+.event-card {
+    transition: all 0.3s ease;
+    cursor: pointer;
+}
+
+.event-card.card-hover,
+.event-card:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.3), 0 0 15px var(--primary-glow);
+    border-color: var(--primary-color);
+}
+
+.event-card .event-details-link {
+    position: relative;
+    z-index: 5; /* Ensure button remains clickable */
+}
+
+/* Ensure text doesn't appear selectable when clicking cards */
+.event-card-content h3,
+.event-card-content p {
+    user-select: none;
+}
+
+/* Make all content areas consistent */
+.events-list .events-grid .event-card .event-card-content {
+    padding: 25px 15px;
+    position: relative;
+    z-index: 1;
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    border-radius: 10px;
+}
+
+/* Enhance the icon since it's now the main visual element */
+.events-list .events-grid .event-card .event-icon {
+    font-size: 2.5rem;
+    color: var(--primary-color);
+    margin-bottom: 15px;
+    text-align: center;
+    height: 60px; /* Set fixed height for icons */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.3s ease;
+}
+
+.events-list .events-grid .event-card .event-icon i {
+    text-shadow: 0 0 15px rgba(0, 243, 255, 0.6);
+    display: block;
+    margin-bottom: 10px;
+}
+
+.events-list .events-grid .event-card:hover .event-icon {
+    transform: scale(1.1);
+    color: var(--primary-color);
+    text-shadow: 0 0 20px rgba(0, 243, 255, 0.8);
+}
+
+/* Improved category indicator as a top border with increased prominence */
+.events-list .events-grid .event-card::before,
+.events-list .events-grid .cyber-card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 4px; /* Slightly thicker for more visibility */
+    background-color: var(--primary-color);
+    z-index: 2;
+}
+
+/* Text styling consistency */
+.events-list .events-grid .event-card h3 {
+    color: var(--text-light);
+    margin-bottom: 8px;
+    font-size: 1.2rem;
+    font-family: var(--header-font);
+    text-shadow: 0 0 5px rgba(0, 255, 255, 0.5);
+    transition: color 0.3s ease;
+    padding-left: 5px;
+    margin-top: 0;
+    padding-top: 5px;
+    height: 2.4rem; /* Fixed height for title */
+    overflow: hidden;
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+}
+
+.events-list .events-grid .event-card p {
+    color: var(--text-dim);
+    font-size: 0.85rem;
+    line-height: 1.4;
+    padding-left: 5px;
+    height: 4.8rem; /* Fixed height for description */
+    overflow: hidden;
+    display: -webkit-box;
+    -webkit-line-clamp: 3;
+    -webkit-box-orient: vertical;
+    margin-bottom: 10px;
+}
+
+/* Event metadata with cyberpunk styling */
+.events-list .events-grid .event-card .event-meta {
+    display: flex;
+    justify-content: space-between;
+    font-size: 0.8rem;
+    color: var(--text-dim);
+    margin: 12px 0;
+    background-color: rgba(0, 0, 0, 0.3);
+    border-radius: 4px;
+    padding: 8px 5px;
+    border-top: 1px solid rgba(0, 255, 255, 0.1);
+    border-bottom: 1px solid rgba(0, 255, 255, 0.1);
+    margin-top: auto;
+    margin-bottom: 15px;
+}
+
+.events-list .events-grid .event-card .event-meta span {
+    display: flex;
+    align-items: center;
+}
+
+.events-list .events-grid .event-card .event-meta i {
+    color: var(--primary-color);
+    margin-right: 5px;
+    font-size: 0.9rem;
+}
+
+/* View details button with cyberpunk styling */
+.events-list .events-grid .event-card .event-details-link {
+    display: block;
+    text-align: center;
+    padding: 8px 0;
+    margin-top: 10px;
+    color: var(--primary-color);
+    border: 1px solid var(--primary-color);
+    border-radius: 4px;
+    text-decoration: none;
+    font-family: var(--header-font);
+    font-size: 0.85rem;
+    transition: all 0.3s ease;
+    background: rgba(0, 0, 0, 0.4);
+    position: relative;
+    overflow: hidden;
+}
+
+.events-list .events-grid .event-card .event-details-link::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(0, 255, 255, 0.2), transparent);
+    transition: left 0.7s ease;
+}
+
+.events-list .events-grid .event-card .event-details-link:hover {
+    background-color: rgba(0, 255, 255, 0.1);
+    color: var(--text-light);
+    box-shadow: 0 0 10px rgba(0, 255, 255, 0.3);
+}
+
+.events-list .events-grid .event-card .event-details-link:hover::after {
+    left: 100%;
+}
+
+.events-list .events-grid .event-card .event-details-link i {
+    margin-left: 5px;
+    font-size: 0.8rem;
+    transition: transform 0.3s ease;
+}
+
+.events-list .events-grid .event-card .event-details-link:hover i {
+    transform: translateX(4px);
+}
+
+/* Category-specific styling with top border */
+.events-list .events-grid .event-card[data-category="technical"]::before {
+    background-color: var(--tech-color);
+}
+
+.events-list .events-grid .event-card[data-category="non-technical"]::before {
+    background-color: var(--nontech-color);
+}
+
+.events-list .events-grid .event-card[data-category="gaming"]::before {
+    background-color: var(--gaming-color);
+}
+
+/* Removed hackathon card category styling */
+
+.events-list .events-grid .event-card[data-category="coding"]::before {
+    background-color: var(--coding-color);
+}
+
+/* Fix hover effects to match homepage */
+.events-list .events-grid .event-card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 15px 30px rgba(0, 0, 0, 0.7),
+                0 0 0 1px var(--primary-color),
+                0 0 20px rgba(0, 255, 255, 0.5);
+    background-color: rgba(10, 10, 27, 0.25); /* 75% transparency when hovered */
+}
+
+/* Event icon styling matching the index page */
+.events-list .events-grid .event-card .event-icon {
+    font-size: 2.2rem; /* Larger icons like on index */
+    color: var(--primary-color);
+    margin-bottom: 12px;
+    text-align: center;
+    transition: all 0.3s ease;
+}
+
+.events-list .events-grid .event-card .event-icon i {
+    text-shadow: 0 0 10px rgba(0, 243, 255, 0.6);
+}
+
+.events-list .events-grid .event-card:hover .event-icon {
+    transform: scale(1.1);
+    color: var(--primary-color);
+    text-shadow: 0 0 15px rgba(0, 243, 255, 0.8);
+}
+
+/* Category-specific icon colors */
+.events-list .events-grid .event-card[data-category="technical"] .event-icon {
+    color: var(--tech-color);
+}
+
+.events-list .events-grid .event-card[data-category="non-technical"] .event-icon {
+    color: var(--nontech-color);
+}
+
+.events-list .events-grid .event-card[data-category="gaming"] .event-icon {
+    color: var(--gaming-color);
+}
+
+.events-list .events-grid .event-card[data-category="coding"] .event-icon {
+    color: var(--coding-color);
+}
+
+/* === REGISTRATION BANNER === */
+.registration-banner {
+    padding: 80px 0;
+    position: relative;
+    background-image: url('../img/banners/registration_banner.jpg');
+    background-size: cover;
+    background-position: center;
+    text-align: center;
+    overflow: hidden;
+}
+
+.banner-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: linear-gradient(135deg, rgba(0,0,30,0.8) 0%, rgba(5,5,15,0.95) 100%);
+    z-index: 1;
+}
+
+.registration-content {
+    position: relative;
+    z-index: 2;
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+.registration-content h2 {
+    font-size: 2.8rem;
+    margin-bottom: 15px;
+    color: var(--primary-color);
+}
+
+.registration-content p {
+    color: var(--text-dim);
+    font-size: 1.2rem;
+    margin-bottom: 30px;
+}
+
+/* === ANIMATIONS === */
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(20px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+/* Staggered animation delay for cards */
+.events-grid .event-card:nth-child(1) { animation-delay: 0.1s; }
+.events-grid .event-card:nth-child(2) { animation-delay: 0.2s; }
+.events-grid .event-card:nth-child(3) { animation-delay: 0.3s; }
+.events-grid .event-card:nth-child(4) { animation-delay: 0.4s; }
+.events-grid .event-card:nth-child(5) { animation-delay: 0.5s; }
+.events-grid .event-card:nth-child(6) { animation-delay: 0.6s; }
+
+/* === RESPONSIVE STYLING === */
+@media screen and (max-width: 1200px) {
+    .events-grid {
+        grid-template-columns: repeat(3, 1fr);
+        max-width: 100%;
+    }
+}
+
+@media screen and (max-width: 992px) {
+    .events-grid {
+        grid-template-columns: repeat(2, 1fr);
+        max-width: 100%;
+    }
+    
+    .events-banner h1 {
+        font-size: 3rem;
+    }
+    
+    .event-counter {
+        gap: 20px;
+    }
+}
+
+@media screen and (max-width: 768px) {
+    .events-grid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 15px;
+        max-width: 100%;
+    }
+    
+    .event-counter {
+        flex-wrap: wrap;
+        justify-content: center;
+    }
+    
+    .counter-item {
+        min-width: 120px;
+    }
+    
+    .category-filters {
+        overflow-x: auto;
+        flex-wrap: nowrap;
+        justify-content: flex-start;
+        padding-bottom: 10px;
+        -webkit-overflow-scrolling: touch;
+    }
+    
+    .category-btn {
+        padding: 6px 15px;
+        font-size: 0.8rem;
+        flex: 0 0 auto;
+        white-space: nowrap;
+    }
+    
+    .registration-content h2 {
+        font-size: 2rem;
+    }
+    
+    /* Override hover effects for mobile */
+    .events-list .events-grid .event-card:hover {
+        transform: none !important;
+    }
+    
+    .events-list .events-grid .event-card:active {
+        transform: scale(0.98);
+    }
+    
+    .events-list .events-grid .event-card .event-icon {
+        font-size: 1.5rem;
+        margin-bottom: 8px;
+    }
+}
+
+@media screen and (max-width: 576px) {
+    .events-grid {
+        grid-template-columns: 1fr;
+        gap: 15px;
+        max-width: 100%;
+    }
+    
+    .events-list .container {
+        padding: 0 10px;
+    }
+    
+    .events-banner h1 {
+        font-size: 2.5rem;
+    }
+    
+    .event-counter {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        gap: 15px;
+    }
+    
+    .counter-item {
+        width: auto;
+    }
+}
+
+/* === ACCESSIBILITY === */
+.category-btn:focus,
+.filter-btn:focus {
+    outline: 2px solid var(--primary-color);
+    outline-offset: 2px;
+}
+
+.event-card:focus-visible {
+    outline: 3px solid var(--primary-color);
+    outline-offset: 3px;
+}
+
+/* Fix for touch devices */
+@media (hover: none) {
+    .event-card:hover {
+        transform: none !important;
+    }
+    
+    .event-card:active {
+        transform: scale(0.98);
+    }
+}
+
+/* Make category filters transparent background */
+.cyber-tabs.category-filters {
+    background-color: rgba(8, 8, 24, 0.15); /* 85% transparency */
+}
+
+/* Updated event counters with better alignment */
+.event-stats {
+    padding: 40px 0;
+    background-color: var(--bg-dark);
+}
+
+.stats-counters {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 20px;
+    margin: 20px auto;
+    max-width: 1000px;
+}
+
+.counter-item {
+    padding: 15px 25px;
+    text-align: center;
+    flex: 1;
+    min-width: 120px;
+    max-width: 180px;
+    margin: 0;
+    transition: all 0.3s ease;
+}
+
+.counter-item:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 0 15px var(--primary-glow);
+}
+
+.counter-item .count {
+    font-size: 2.2rem;
+    font-weight: 700;
+    color: var(--primary-color);
+    font-family: var(--header-font);
+    margin-bottom: 5px;
+}
+
+.counter-item .label {
+    color: var(--text-dim);
+    font-size: 1rem;
+}
+
+/* Responsive adjustments to show stats in two lines on mobile */
+@media screen and (max-width: 768px) {
+    .stats-counters {
+        max-width: 400px;
+    }
+    
+    .counter-item {
+        min-width: 140px;
+        flex: 0 0 calc(50% - 20px);
+        max-width: calc(50% - 20px);
+    }
+}
+
+@media screen and (max-width: 400px) {
+    .counter-item {
+        flex: 0 0 100%;
+        max-width: 100%;
+    }
+    
+    .counter-item .count {
+        font-size: 1.8rem;
+    }
+}

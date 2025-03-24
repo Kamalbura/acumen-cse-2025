@@ -1,0 +1,791 @@
+/**
+ * Main CSS file for ACUMEN 2025
+ * Loads all required styles in the correct order
+ */
+
+/* Base styles */
+@import 'base/variables.css';
+@import 'base/reset.css';
+@import 'base/typography.css';
+
+/* Background - Centralized background styling */
+@import 'background.css';
+
+/* Components */
+@import 'components/cards.css';
+@import 'components/buttons.css';
+@import 'components/navigation.css';
+@import 'components/countdown.css';
+@import 'components/forms.css';
+
+/* Layout */
+@import 'layout/header.css';
+@import 'layout/footer.css';
+@import 'layout/sections.css';
+@import 'layout/grid.css';
+
+/* Pages */
+@import 'pages/home.css';
+@import 'pages/events.css';
+@import 'event-pages.css';
+
+/* Effects */
+@import 'effects/cyberpun.css';
+@import 'effects/responsive.css';
+
+/* Utilities */
+@import 'utilities/animations.css';
+@import 'utilities/helpers.css';
+
+/* Mobile-specific styles - load last to ensure proper cascade */
+@import 'mobile.css';
+
+/* Core colors improved for readability and consistency */
+:root {
+    --primary-color: #00f3ff;
+    --primary-glow: rgba(0, 243, 255, 0.6);
+    --secondary-color: #9000ff;
+    --secondary-glow: rgba(144, 0, 255, 0.6);
+    --bg-darker: #050510;
+    --bg-dark: #0a0a1b;
+    --bg-medium: #12122a;
+    --text-light: #ffffff;
+    --text-dim: #9da5b4;
+    --header-font: 'Orbitron', sans-serif;
+    --body-font: 'Roboto', sans-serif;
+    --danger: #ff4d4d;
+    --success: #00cc66;
+    --warning: #ffcc00;
+}
+
+/* Remove duplicated background styling from main.css since it's now in background.css */
+
+/* Transparent Components - 90% transparent */
+.venue-card, 
+.event-card, 
+.transport-container, 
+.venue-map,
+.team-member-card,
+.sponsor-card,
+.transport-option,
+.main-venue-info,
+.message-section,
+.poster-item,
+.about-content,
+.cta-section .cta-content,
+.form-section,
+.timeline-content,
+.order-summary,
+.guideline-item,
+.organizer-card,
+.event-meta,
+.about-container, 
+.navbar,
+.footer-content,
+.cta-container,
+.hero-content,
+.page-banner,
+.event-banner,
+.event-categories,
+.events-list,
+.registration-banner,
+.cyber-card,
+.cyber-tabs {
+    background-color: rgba(10, 10, 27, 0.1) !important; /* 90% transparency */
+    backdrop-filter: blur(3px) !important;
+    -webkit-backdrop-filter: blur(3px) !important;
+    border: 1px solid rgba(0, 243, 255, 0.2);
+}
+
+/* Semi-transparent footer */
+.footer {
+    background-color: rgba(5, 5, 15, 0.1) !important;
+    backdrop-filter: blur(5px) !important;
+    -webkit-backdrop-filter: blur(5px) !important;
+    border-top: 1px solid rgba(0, 243, 255, 0.2);
+}
+
+/* Semi-transparent navbar */
+.navbar {
+    background-color: rgba(8, 8, 20, 0.1) !important;
+    backdrop-filter: blur(10px) !important;
+    -webkit-backdrop-filter: blur(10px) !important;
+    border-bottom: 1px solid rgba(0, 243, 255, 0.2);
+}
+
+/* Remove all glitch overlays and digital noise effects */
+.glitch-overlay,
+.digital-noise::before,
+.circuit-bg::before,
+.hero-grid,
+.hero-overlay,
+.matrix-bg::before,
+.grid-overlay,
+.circuit-overlay,
+.data-streams,
+.hologram-effect,
+.hologram-effect::before {
+    display: none !important;
+    opacity: 0 !important;
+    background: none !important;
+}
+
+/* Ensure text readability with transparent backgrounds */
+h1, h2, h3, h4, h5, h6, p, a, span, li {
+    text-shadow: 0 0 10px rgba(0, 0, 0, 0.7) !important;
+}
+
+/* Add subtle animation to background pattern */
+@keyframes slowDrift {
+    0% { background-position: 0% 0%; }
+    50% { background-position: 1% 1%; }
+    100% { background-position: 0% 0%; }
+}
+
+/* Media query adjustments */
+@media (max-width: 768px) {
+    body {
+        background-attachment: scroll; /* Better performance on mobile */
+    }
+    
+    /* Slightly more opaque backgrounds for readability on small screens */
+    .venue-card, 
+    .event-card, 
+    .transport-container, 
+    .venue-map,
+    .team-member-card,
+    .sponsor-card,
+    .transport-option,
+    .main-venue-info {
+        background-color: rgba(10, 10, 27, 0.85) !important;
+    }
+}
+
+/* Replace grid background with image background */
+.hero {
+    /* Keep existing styles */
+    position: relative;
+    overflow: hidden;
+    /* Remove any grid-related background */
+}
+
+/* Replace the hero-grid element with a background image */
+.hero-grid {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    /* Replace grid lines with background image */
+    background-image: url('../assets/background2.jpg');
+    background-size: cover;
+    background-position: center;
+    z-index: 1;
+    opacity: 0.4; /* Adjust opacity as needed */
+}
+
+/* Optional: Add a subtle pattern overlay on top of the background image */
+.hero::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-image: url('../assets/background2.jpg');
+    background-size: 300px;
+    opacity: 0.05;
+    z-index: 2;
+    pointer-events: none;
+}
+
+/* Ensure the hero overlay has proper z-index to darken the background image */
+.hero-overlay {
+    z-index: 3;
+    background: linear-gradient(to bottom, 
+        rgba(10, 10, 27, 0.85), 
+        rgba(10, 10, 27, 0.7));
+}
+
+/* Ensure hero content is above background */
+.hero-container, .hero-left, .hero-right {
+    position: relative;
+    z-index: 5;
+}
+
+/* Ensure all sections with background images are properly aligned */
+section {
+    position: relative;
+    z-index: 2;
+    background-color: transparent !important;
+    background-image: none !important;
+}
+
+/* Enhanced transparency for better background visibility */
+
+/* Global container transparency */
+.container {
+    position: relative;
+    z-index: 1;
+}
+
+/* Transparent component backgrounds - INCREASED TRANSPARENCY */
+.venue-card, 
+.event-card, 
+.transport-container, 
+.venue-map,
+.team-member-card,
+.sponsor-card,
+.transport-option,
+.main-venue-info,
+.message-section,
+.poster-item,
+.about-content,
+.cta-section .cta-content,
+.form-section,
+.timeline-content,
+.order-summary {
+    background-color: rgba(10, 10, 27, 0.5) !important; /* 50% opacity */
+    backdrop-filter: blur(4px) !important; /* Increased blur for readability */
+    -webkit-backdrop-filter: blur(4px) !important;
+}
+
+/* Improve text readability with subtle text shadow for light text */
+h1, h2, h3, h4, h5, 
+.venue-card h3, 
+.event-card h3, 
+.team-member-card h3, 
+.section-title,
+.venue-icon i, 
+p.text-light,
+.footer-links li a,
+.footer-contact p,
+.main-venue-info p,
+.transport-option div {
+    text-shadow: 0 0 3px rgba(0, 0, 0, 0.8), 0 0 5px rgba(0, 0, 0, 0.6);
+}
+
+/* Semi-transparent navbar */
+.navbar {
+    background-color: rgba(8, 8, 20, 0.7) !important; /* Slightly more opaque for usability */
+    backdrop-filter: blur(8px) !important;
+    -webkit-backdrop-filter: blur(8px) !important;
+}
+
+/* Semi-transparent footer */
+.footer {
+    background-color: rgba(5, 5, 15, 0.7) !important; /* Slightly more opaque for usability */
+    backdrop-filter: blur(8px) !important;
+    -webkit-backdrop-filter: blur(8px) !important;
+}
+
+/* Slightly less transparent hero section */
+.hero-overlay {
+    opacity: 0.6 !important; /* 60% opacity to maintain readability */
+}
+
+/* Special treatment for cards on hover to increase focus */
+.venue-card:hover, 
+.event-card:hover, 
+.team-member-card:hover,
+.sponsor-card:hover,
+.transport-option:hover,
+.timeline-content:hover,
+.poster-item:hover {
+    background-color: rgba(10, 10, 27, 0.7) !important; /* More opaque on hover for focus */
+    box-shadow: 0 0 20px rgba(0, 255, 255, 0.4);
+    border-color: var(--primary-color);
+}
+
+/* Emphasize borders for definition with increased transparency */
+.venue-card, 
+.event-card, 
+.team-member-card,
+.sponsor-card,
+.transport-option,
+.main-venue-info,
+.venue-map,
+.message-section,
+.form-section {
+    border: 1px solid rgba(0, 243, 255, 0.5) !important; /* Brighter border */
+}
+
+/* Enhance glow effects for emphasis with transparent backgrounds */
+@keyframes enhancedIconPulse {
+    from { text-shadow: 0 0 5px rgba(0, 255, 255, 0.7), 0 0 10px rgba(0, 0, 0, 0.9); }
+    to { text-shadow: 0 0 15px rgba(0, 255, 255, 0.9), 0 0 20px rgba(0, 0, 0, 0.9); }
+}
+
+.venue-icon i,
+.section-title span,
+.timeline-time,
+.transport-container h3 i {
+    animation: enhancedIconPulse 2s infinite alternate;
+}
+
+/* Modals and focused content should remain more opaque */
+.poster-modal .modal-content,
+.processing-indicator,
+.success-message {
+    background-color: rgba(8, 8, 20, 0.85) !important;
+    backdrop-filter: blur(10px) !important;
+    -webkit-backdrop-filter: blur(10px) !important;
+}
+
+/* Ensure schedule timeline visibility */
+.timeline::after {
+    box-shadow: 0 0 15px rgba(0, 255, 255, 0.8);
+    width: 4px; /* Slightly thicker */
+}
+
+/* Media query adjustments for smaller screens */
+@media (max-width: 768px) {
+    /* Slightly more opaque on mobile for better readability */
+    .venue-card, 
+    .event-card, 
+    .team-member-card,
+    .sponsor-card,
+    .transport-option,
+    .main-venue-info,
+    .venue-map,
+    .message-section,
+    .form-section {
+        background-color: rgba(10, 10, 27, 0.65) !important;
+    }
+    
+    .navbar, .footer {
+        background-color: rgba(5, 5, 15, 0.8) !important;
+    }
+}
+
+/* Make hero content 80% transparent - Background completely removed */
+.hero-content {
+    background-color: transparent !important; /* Remove any background */
+    backdrop-filter: blur(2px) !important; /* Minimal blur for readability */
+    -webkit-backdrop-filter: blur(2px) !important;
+    border: none !important; /* Remove any borders that might be applied */
+}
+
+/* Make all hero content containers transparent */
+.hero-left,
+.hero-right,
+.hero-text,
+.hero-container,
+.hero-content .mega-title,
+.hero-content .cyber-subtitle,
+.hero-content .hero-description,
+.hero-content .tagline,
+.hero-content p {
+    background-color: transparent !important;
+    backdrop-filter: none !important;
+    -webkit-backdrop-filter: none !important;
+    border: none !important;
+}
+
+/* Ensure text readability with more transparent containers */
+h1.hero-title, 
+.hero-content h1,
+.hero-content .mega-title {
+    text-shadow: 0 0 10px rgba(0, 0, 0, 0.9), 0 0 20px rgba(0, 0, 0, 0.8) !important;
+}
+
+.hero-content p,
+.hero-content .tagline,
+.hero-content .cyber-subtitle,
+.hero-content .hero-description {
+    text-shadow: 0 0 8px rgba(0, 0, 0, 0.8), 0 0 16px rgba(0, 0, 0, 0.7) !important;
+}
+
+/* Update opacity settings for all elements in hero section */
+.hero-overlay {
+    opacity: 0.4 !important; /* Make overlay more transparent */
+}
+
+/* Transparent component backgrounds - INCREASED TRANSPARENCY */
+.venue-card, 
+.event-card, 
+.transport-container, 
+.venue-map,
+.team-member-card,
+.sponsor-card,
+.transport-option,
+.main-venue-info {
+    background-color: rgba(10, 10, 27, 0.15) !important; /* 85% transparency */
+}
+
+/* Special treatment for cards on hover to increase focus */
+.venue-card:hover, 
+.event-card:hover, 
+.team-member-card:hover,
+.sponsor-card:hover,
+.transport-option:hover,
+.timeline-content:hover,
+.poster-item:hover {
+    background-color: rgba(10, 10, 27, 0.25) !important; /* More opaque on hover for focus */
+    box-shadow: 0 0 20px rgba(0, 255, 255, 0.4);
+    border-color: var(--primary-color);
+}
+
+/* Emphasize borders for definition with increased transparency */
+.venue-card, 
+.event-card, 
+.team-member-card,
+.sponsor-card,
+.transport-option,
+.main-venue-info,
+.venue-map,
+.message-section,
+.form-section {
+    border: 1px solid rgba(0, 243, 255, 0.5) !important; /* Brighter border */
+}
+
+/* Enhanced Hero Overlay Transparency */
+.hero-overlay, 
+.event-hero-overlay, 
+.page-banner .hero-overlay {
+    background: linear-gradient(to bottom, rgba(5, 5, 20, 0.05), rgba(10, 10, 35, 0.08)) !important;
+    opacity: 0.2 !important; /* Very transparent */
+    z-index: 1 !important;
+}
+
+/* Ensure hero content is still readable with transparent overlay */
+.hero-content,
+.event-hero-content,
+.page-banner .container {
+    z-index: 10 !important;
+    position: relative !important;
+}
+
+/* Ensure text readability with more transparent overlays */
+.hero-content h1,
+.event-hero-content h1,
+.page-banner h1,
+.glitch-text {
+    text-shadow: 0 0 10px rgba(93, 194, 201, 0.845), 0 0 20px rgba(0, 0, 0, 0.8) !important;
+}
+
+.hero-content p,
+.event-hero-content p,
+.page-banner p {
+    text-shadow: 0 0 8px rgba(255, 255, 255, 0.8), 0 0 16px rgba(0, 0, 0, 0.7) !important;
+}
+
+/* Ensure section overlays are also more transparent */
+section::before {
+    opacity: 0.1 !important;
+}
+
+/* Increased transparency for card, container and UI element backgrounds */
+.event-card, 
+.venue-card, 
+.team-member-card,
+.sponsor-card,
+.transport-container, 
+.venue-map, 
+.transport-option,
+.main-venue-info,
+.timeline-content,
+.message-section,
+.guideline-item,
+.organizer-card,
+.event-meta {
+    background-color: rgba(10, 10, 27, 0.12) !important; /* 88% transparency */
+    backdrop-filter: blur(1px) !important;
+    -webkit-backdrop-filter: blur(1px) !important;
+}
+
+/* Adjust hover states for improved visibility */
+.event-card:hover, 
+.venue-card:hover, 
+.team-member-card:hover,
+.sponsor-card:hover,
+.transport-option:hover,
+.timeline-content:hover {
+    background-color: rgba(10, 10, 27, 0.22) !important; /* Slightly more opaque on hover */
+}
+
+/* Add padding to hero sections to prevent navbar overlap */
+.hero-section,
+.page-banner,
+.event-hero {
+    padding-top: 20px; /* Account for navbar height */
+}
+
+/* Ensure content has padding too */
+.hero-content,
+.page-banner .container,
+.event-hero-content {
+    padding-top: 20px; /* Additional padding for content */
+}
+
+/* Responsive padding */
+@media (max-width: 768px) {
+    .hero-section,
+    .page-banner,
+    .event-hero {
+        padding-top: 70px;
+    }
+    
+    .hero-content,
+    .page-banner .container,
+    .event-hero-content {
+        padding-top: 30px;
+    }
+}
+
+/* Fix for hero section layering issues */
+.hero .added-background-layer,
+.hero-section .added-background-layer,
+.hero > .hero-grid + *:not(.hero-content):not(.container):not(.hero-overlay),
+.hero-section > .hero-grid + *:not(.hero-content):not(.container):not(.hero-overlay) {
+    display: none !important;
+}
+
+/* Ensure proper z-index for hero elements */
+.hero-content, 
+.hero .container {
+    position: relative;
+    z-index: 10;
+}
+
+.hero-grid {
+    z-index: 1;
+}
+
+.hero-overlay {
+    z-index: 2;
+}
+
+/* Smooth scrolling behavior for anchor links */
+html {
+    scroll-behavior: smooth;
+}
+
+/* Optional scroll offset adjustment to account for fixed header */
+.scroll-target {
+    scroll-margin-top: 50px; /* Adjust based on your navbar height */
+}
+
+/* Custom Cyberpunk Scrollbar */
+::-webkit-scrollbar {
+    width: 10px;
+    height: 10px;
+}
+
+::-webkit-scrollbar-track {
+    background: var(--bg-darker);
+    box-shadow: inset 0 0 5px rgba(0, 0, 0, 0.8);
+}
+
+::-webkit-scrollbar-thumb {
+    background: linear-gradient(to bottom, var(--primary-color), var(--secondary-color));
+    border-radius: 5px;
+    border: 2px solid var(--bg-darker);
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: linear-gradient(to bottom, var(--secondary-color), var(--primary-color));
+    box-shadow: 0 0 10px var(--primary-glow);
+}
+
+/* Firefox scrollbar compatibility */
+* {
+    scrollbar-width: thin;
+    scrollbar-color: var(--primary-color) var(--bg-darker);
+}
+
+/* Enhanced Link Styling */
+a {
+    color: var(--primary-color);
+    text-decoration: none;
+    transition: all 0.3s ease;
+    position: relative;
+}
+
+a:hover {
+    color: #ffffff;
+    text-shadow: 0 0 5px var(--primary-glow);
+}
+
+/* Contrast improvement for all text elements */
+h1, h2, h3, h4, h5, h6 {
+    color: var(--text-light);
+    font-family: var(--header-font);
+    font-weight: 700;
+    margin: 0 0 20px;
+    text-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+}
+h1 {
+    font-size: 3rem;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+}
+
+p {
+    margin-bottom: 20px;
+    color: var(--text-dim);
+}
+
+/* Events Page Complete Transparency Override - FIXED */
+body.events-page {
+    background-color: transparent !important;
+    /* Removed the line that was removing the background image */
+    /* background-image: none !important; - This was causing the white background */
+}
+
+body.events-page::before {
+    opacity: 0 !important;
+    background: none !important;
+}
+
+/* Make all background elements transparent on the events page */
+.events-page .glitch-overlay,
+.events-page .circuit-bg::before,
+.events-page .digital-noise::before,
+.events-page .matrix-bg::before,
+.events-page .grid-overlay,
+.events-page .circuit-overlay,
+.events-page .data-streams,
+.events-page .hologram-effect,
+.events-page .hologram-effect::before,
+.events-page section::before,
+.events-page section::after {
+    opacity: 0 !important;
+    background: none !important;
+}
+
+/* Adjust event cards and sections for better visibility with transparent background */
+.events-page .event-card,
+.events-page .cyber-card,
+.events-page .events-banner,
+.events-page .event-categories,
+.events-page .events-list,
+.events-page .registration-banner {
+    background-color: rgba(10, 10, 27, 0.08) !important; /* Very subtle background */
+    backdrop-filter: blur(1px) !important;
+    -webkit-backdrop-filter: blur(1px) !important;
+    border: 1px solid rgba(0, 243, 255, 0.2);
+}
+
+/* Enhance text readability on transparent background */
+.events-page h1,
+.events-page h2,
+.events-page h3,
+.events-page .section-title,
+.events-page .event-card h3,
+.events-page .event-meta span {
+    text-shadow: 0 0 10px rgba(0, 0, 0, 0.9), 0 0 20px rgba(0, 0, 0, 0.8) !important;
+}
+
+.events-page p,
+.events-page .event-card p {
+    text-shadow: 0 0 5px rgba(0, 0, 0, 0.8), 0 0 10px rgba(0, 0, 0, 0.7) !important;
+}
+
+/* Keep hover effects for events cards */
+.events-page .event-card:hover {
+    background-color: rgba(10, 10, 27, 0.25) !important;
+    box-shadow: 0 0 15px rgba(0, 243, 255, 0.4);
+    border-color: var(--primary-color);
+}
+
+/* Simplified Hero Countdown Styling */
+.hero-countdown {
+    position: relative;
+    z-index: 5;
+    text-align: center;
+    background: rgba(10, 10, 27, 0.1);
+    backdrop-filter: blur(5px);
+    -webkit-backdrop-filter: blur(5px);
+    border: 1px solid rgba(0, 243, 255, 0.2);
+    border-radius: 10px;
+    padding: 25px 20px;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.3);
+}
+
+.hero-countdown h2 {
+    font-family: var(--header-font);
+    color: var(--primary-color);
+    font-size: 1.6rem;
+    margin-bottom: 20px;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+.countdown-timer {
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+    margin-bottom: 15px;
+}
+
+.countdown-item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.countdown-value {
+    font-family: var(--header-font);
+    font-size: 2.2rem;
+    font-weight: 700;
+    color: var(--text-light);
+    background: rgba(10, 10, 27, 0.3);
+    min-width: 70px;
+    padding: 8px 0;
+    margin-bottom: 5px;
+    border-radius: 5px;
+    border: 1px solid rgba(0, 243, 255, 0.3);
+    display: inline-block;
+    text-align: center;
+}
+
+.countdown-label {
+    font-size: 0.8rem;
+    color: var(--text-dim);
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+.event-date {
+    margin-top: 15px;
+    font-size: 1rem;
+    color: var(--text-dim);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+}
+
+.event-date i {
+    color: var(--primary-color);
+}
+
+/* Responsive countdown styles */
+@media (max-width: 768px) {
+    .countdown-timer {
+        gap: 10px;
+    }
+    
+    .countdown-value {
+        font-size: 1.8rem;
+        min-width: 60px;
+    }
+    
+    .countdown-label {
+        font-size: 0.7rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .countdown-timer {
+        gap: 8px;
+    }
+    
+    .countdown-value {
+        font-size: 1.5rem;
+        min-width: 50px;
+    }
+}
+
+/* Remove any mobile-specific media queries, as they've been moved to mobile.css */

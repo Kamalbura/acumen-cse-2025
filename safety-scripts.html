@@ -1,0 +1,48 @@
+<!-- Emergency recovery and fixes -->
+<script>
+    // Basic emergency recovery script
+    (function() {
+        // Handle path issues 
+        const isInSubfolder = window.location.pathname.split('/').length > 2;
+        const pathPrefix = isInSubfolder ? '../' : '';
+        
+        // Function to inject emergency script
+        function injectEmergencyScript() {
+            const script = document.createElement('script');
+            script.src = pathPrefix + 'js/emergency-fix.js';
+            document.body.appendChild(script);
+        }
+        
+        // Inject emergency fix script
+        injectEmergencyScript();
+        
+        // Fix loading screen if it's stuck
+        setTimeout(function() {
+            const loadingScreen = document.querySelector('.loading-screen');
+            if (loadingScreen) {
+                loadingScreen.style.display = 'none';
+                loadingScreen.style.visibility = 'hidden';
+            }
+        }, 5000);
+    })();
+</script>
+
+<!-- Dynamic resource loader -->
+<script>
+    // Only include if it hasn't been included elsewhere
+    if (!window.AcumenResources) {
+        const resourceLoaderScript = document.createElement('script');
+        resourceLoaderScript.src = window.location.pathname.split('/').length > 2 ? '../js/resource-loader.js' : 'js/resource-loader.js';
+        document.body.appendChild(resourceLoaderScript);
+    }
+</script>
+
+<!-- Special event page handler -->
+<script>
+    // Only run for event pages
+    if (window.location.pathname.includes('/events/')) {
+        const fixEventsScript = document.createElement('script');
+        fixEventsScript.src = '../js/fix-all-events.js';
+        document.body.appendChild(fixEventsScript);
+    }
+</script>

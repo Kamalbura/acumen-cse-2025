@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Event Pages Update Guide</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            line-height: 1.6;
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+        code {
+            background-color: #f4f4f4;
+            padding: 2px 5px;
+            border-radius: 3px;
+        }
+        pre {
+            background-color: #f4f4f4;
+            padding: 15px;
+            border-radius: 5px;
+            overflow-x: auto;
+        }
+    </style>
+    <script src="../js/main.js"></script>
+    <script src="../js/cursor-effects.js"></script>
+    <script src="../js/event-styling.js"></script>
+    <script src="../js/fix-paths.js"></script>
+</head>
+<body>
+    <h1>Event Pages Update Guide</h1>
+    <p>To update all event pages with the unified FAQ accordion functionality, follow these steps:</p>
+    
+    <h2>Step 1: Add necessary files to each event page</h2>
+    <p>Add these lines right before the closing <code>&lt;/body&gt;</code> tag:</p>
+    <pre>&lt;script src="../js/faq-accordion.js"&gt;&lt;/script&gt;
+&lt;link rel="stylesheet" href="../css/faq-accordion.css"&gt;</pre>
+    
+    <h2>Step 2: Remove existing FAQ script</h2>
+    <p>Remove the existing FAQ accordion script which typically looks like this:</p>
+    <pre>&lt;script&gt;
+    // FAQ Accordion functionality
+    document.addEventListener('DOMContentLoaded', function() {
+        const faqQuestions = document.querySelectorAll('.faq-question');
+        
+        faqQuestions.forEach(question => {
+            question.addEventListener('click', function() {
+                this.classList.toggle('active');
+                
+                const answer = this.nextElementSibling;
+                if (this.classList.contains('active')) {
+                    answer.style.display = 'block';
+                } else {
+                    answer.style.display = 'none';
+                }
+            });
+        });
+    });
+&lt;/script&gt;</pre>
+    
+    <h2>Step 3: Verify FAQ HTML structure</h2>
+    <p>Make sure your FAQ HTML follows this structure:</p>
+    <pre>&lt;div class="faq-section"&gt;
+    &lt;div class="faq-item"&gt;
+        &lt;div class="faq-question"&gt;How do I register for the event?&lt;/div&gt;
+        &lt;div class="faq-answer"&gt;
+            Registration details here...
+        &lt;/div&gt;
+    &lt;/div&gt;
+    
+    &lt;div class="faq-item"&gt;
+        &lt;div class="faq-question"&gt;What are the rules?&lt;/div&gt;
+        &lt;div class="faq-answer"&gt;
+            Rules details here...
+        &lt;/div&gt;
+    &lt;/div&gt;
+&lt;/div&gt;</pre>
+
+    <h2>Files to Update</h2>
+    <ul>
+        <li>code-to-escape.html</li>
+        <li>free-fire.html</li>
+        <li>shark-tank.html</li>
+        <li>ai-imagination.html</li>
+        <li>bid-n-code.html</li>
+        <li>call-of-duty.html</li>
+        <li>project-expo.html</li>
+        <li>paper-presentation.html</li>
+        <li>poster-presentation.html</li>
+        <li>sherlock-homies.html</li>
+        <li>snakes-and-ladders.html</li>
+        <li>Any other event pages</li>
+    </ul>
+</body>
+</html>

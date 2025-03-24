@@ -1,0 +1,41 @@
+/* Grid System */
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 15px;
+    position: relative;
+    z-index: 5; /* Ensure container content is above background effects */
+}
+
+/* Add proper top padding for pages to prevent navbar overlap */
+body.events-page .container {
+    padding-top: 0; /* Reset any top padding since we'll handle in sections */
+}
+
+/* Remove unnecessary margin that might cause content overflow */
+.container > *:first-child {
+    margin-top: 0;
+}
+
+.container > *:last-child {
+    margin-bottom: 0;
+}
+
+/* Responsive adjustments */
+@media (max-width: 1200px) {
+    .container {
+        max-width: 992px;
+    }
+}
+
+@media (max-width: 992px) {
+    .container {
+        max-width: 768px;
+    }
+}
+
+@media (max-width: 768px) {
+    .container {
+        max-width: 100%;
+    }
+}

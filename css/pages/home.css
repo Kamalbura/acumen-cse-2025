@@ -1,0 +1,1191 @@
+/* Enhanced Hero Content Transparency */
+.hero-content {
+    background-color: transparent !important;
+    border-left: none !important; /* Remove any borders */
+    padding: 3rem;
+    padding-top: 0; /* Removed extra padding-top */
+    position: relative;
+    box-shadow: none !important;
+    margin-top: 0; /* Removed margin-top to center content */
+    z-index: 5; /* Ensure hero content is above other elements */
+}
+
+/* Remove background gradients or colors completely */
+.hero-content::before {
+    display: none !important;
+}
+
+/* Ensure text remains readable on transparent background */
+.hero-content .mega-title {
+    text-shadow: 0 0 10px rgba(0, 0, 0, 0.9), 0 0 20px rgba(0, 0, 0, 0.9) !important;
+}
+
+.hero-content .tagline,
+.hero-content .hero-description {
+    text-shadow: 0 0 8px rgba(0, 0, 0, 0.9), 0 0 16px rgba(0, 0, 0, 0.8) !important;
+}
+
+/* College Presents Text at Hero Top - Repositioned */
+.college-presents {
+    position: absolute;
+    top: 20px; /* Reduced from 110px */
+    left: 0;
+    width: 100%;
+    text-align: center;
+    z-index: 5;
+}
+
+.college-presents p {
+    display: inline-block;
+    font-family: var(--header-font);
+    color: var(--text-light);
+    font-size: 1.2rem;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    padding: 5px 15px;
+    background-color: rgba(10, 10, 27, 0.1);
+    backdrop-filter: blur(3px);
+    -webkit-backdrop-filter: blur(3px);
+    border-bottom: 1px solid var(--primary-color);
+    box-shadow: 0 0 10px var(--primary-glow);
+    text-shadow: 0 0 5px var(--primary-glow);
+}
+
+/* College Presents Text - Enhanced with typing animation and layout fixes */
+.presents-text {
+    font-family: var(--header-font);
+    color: var(--primary-color);
+    font-size: 1rem;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    margin-bottom: 20px;
+    text-shadow: 0 0 10px var(--primary-glow);
+    position: relative;
+    display: inline-block;
+    overflow: hidden;
+    white-space: nowrap;
+    border-right: 2px solid var(--primary-color);
+    width: 0;
+    animation: typing 2s steps(30, end) forwards, blink-caret 0.75s step-end infinite;
+    z-index: 10;
+}
+
+/* Fix hero section to prevent jumps when navbar appears/disappears */
+.hero {
+    position: relative;
+    padding-top: 0 !important; /* Remove padding-top */
+}
+
+.hero-content {
+    position: relative;
+    z-index: 5;
+    padding-top: 0; /* Remove any top padding that could cause jumps */
+}
+
+/* Create the typing effect */
+@keyframes typing {
+    from { width: 0 }
+    to { width: 100% }
+}
+
+/* The typewriter cursor effect */
+@keyframes blink-caret {
+    from, to { border-color: transparent }
+    50% { border-color: var(--primary-color) }
+}
+
+/* Responsive adjustment */
+@media screen and (max-width: 768px) {
+    .college-presents {
+        top: 90px;
+    }
+    
+    .college-presents p {
+        font-size: 0.9rem;
+        letter-spacing: 1px;
+    }
+
+    .presents-text {
+        font-size: 0.85rem;
+        letter-spacing: 1px;
+    }
+}
+
+/* Enhanced Venue Section Styles */
+.venue-section {
+    padding: 80px 0;
+    background-color: transparent !important; /* Even more transparent */
+    position: relative;
+    overflow: hidden;
+    background-image: none !important;
+}
+
+/* Remove circuit overlay effect completely */
+.venue-section::before,
+.about-section::before,
+.events-section::before,
+.sponsors-section::before,
+.cta-section::before {
+    display: none !important;
+}
+
+/* Section header consistency */
+.venue-section .section-header {
+    text-align: center;
+    margin-bottom: 40px;
+}
+
+.venue-section .section-header h2 {
+    font-size: 2.5rem;
+    margin-bottom: 15px;
+    color: var(--primary-color);
+    text-shadow: 0 0 15px rgba(0, 255, 255, 0.5);
+    font-family: var(--header-font);
+}
+
+.venue-section .section-header p {
+    color: var(--text-dim);
+    font-size: 1.1rem;
+    max-width: 700px;
+    margin: 0 auto;
+}
+
+.venue-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+    gap: 30px;
+    margin-top: 40px;
+}
+
+/* Update venue card transparency */
+.venue-card {
+    background-color: rgba(10, 10, 27, 0.08) !important; /* 92% transparency */
+    border: 1px solid rgba(0, 243, 255, 0.3); /* Keep border visible */
+    border-radius: 10px;
+    padding: 25px;
+    transition: all 0.5s ease;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    position: relative;
+    overflow: hidden;
+}
+
+.venue-card:hover {
+    transform: translateY(-10px) !important;
+    box-shadow: 0 15px 30px rgba(0, 0, 0, 0.3);
+    border-color: var(--primary-color);
+    background-color: rgba(10, 10, 27, 0.15) !important; /* Slightly more opaque on hover */
+    box-shadow: 0 0 20px rgba(0, 243, 255, 0.4);
+}
+
+.venue-card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(0, 243, 255, 0.1), transparent);
+    transition: left 0.7s ease;
+}
+
+.venue-card:hover::before {
+    left: 100%;
+}
+
+.venue-icon {
+    font-size: 2.5rem;
+    color: var(--primary-color);
+    margin-bottom: 20px;
+    text-align: center;
+}
+
+.venue-icon i {
+    /* Add pulsing glow effect to icons */
+    animation: iconPulse 2s infinite alternate;
+}
+
+@keyframes iconPulse {
+    from { text-shadow: 0 0 5px rgba(0, 255, 255, 0.5); }
+    to { text-shadow: 0 0 15px rgba(0, 255, 255, 0.8); }
+}
+
+.venue-card h3 {
+    font-size: 1.5rem;
+    margin-bottom: 10px;
+    color: var(--text-light);
+    text-align: center;
+    font-family: var(--header-font);
+    text-shadow: 0 0 3px rgba(0, 0, 0, 0.9);
+}
+
+.venue-card p {
+    color: var(--text-dim);
+    margin-bottom: 20px;
+    flex: 1;
+    font-size: 0.95rem;
+    line-height: 1.5;
+}
+
+.venue-facilities {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    border-top: 1px solid rgba(0, 243, 255, 0.2);
+    padding-top: 15px;
+}
+
+.venue-facilities li {
+    display: flex;
+    align-items: center;
+    margin-bottom: 8px;
+    color: var(--text-dim);
+    transition: color 0.3s ease;
+}
+
+.venue-card:hover .venue-facilities li {
+    color: var(--text-light);
+}
+
+.venue-facilities li i {
+    color: var (--primary-color);
+    margin-right: 10px;
+    font-size: 0.9rem;
+    width: 18px;
+    text-align: center;
+}
+
+/* More transparent map and transport containers */
+.venue-map {
+    margin-top: 60px;
+    background: rgba(8, 8, 24, 0.08) !important;
+    border: 1px solid rgba(0, 243, 255, 0.3);
+    border-radius: 10px;
+    padding: 30px;
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+}
+
+.venue-map::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 5px;
+    background: linear-gradient(90deg, transparent, var(--primary-color), transparent);
+    animation: mapScanLine 3s infinite;
+}
+
+@keyframes mapScanLine {
+    0% { left: -100%; }
+    100% { left: 100%; }
+}
+
+.venue-map h3 {
+    color: var(--primary-color);
+    margin-bottom: 20px;
+    font-size: 1.8rem;
+    font-family: var(--header-font);
+    text-shadow: 0 0 3px rgba(0, 0, 0, 0.9);
+}
+
+.map-container {
+    border: 2px solid var(--primary-color);
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: 0 0 20px rgba(0, 243, 255, 0.3);
+    margin-bottom: 20px;
+    transition: all 0.3s ease;
+    position: relative;
+}
+
+.map-info {
+    color: var(--text-light);
+    font-size: 1.1rem;
+    line-height: 1.6;
+}
+
+.venue-note {
+    margin-top: 30px;
+    text-align: center;
+    padding: 15px;
+    background: rgba(255, 165, 0, 0.1);
+    border: 1px solid rgba(255, 165, 0, 0.3);
+    border-radius: 8px;
+}
+
+.venue-note p {
+    color: var(--text-light);
+    font-size: 0.95rem;
+}
+
+.venue-note i {
+    color: #ffa500;
+    margin-right: 8px;
+}
+
+/* Transport options styles */
+.transport-container {
+    background: rgba(8, 8, 24, 0.08) !important;
+    border: 1px solid rgba(0, 243, 255, 0.3);
+    border-radius: 10px;
+    padding: 25px;
+    margin-top: 30px;
+    position: relative;
+    overflow: hidden;
+}
+
+.transport-container h3 {
+    color: var(--primary-color);
+    margin-bottom: 20px;
+    font-size: 1.5rem;
+    font-family: var(--header-font);
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    text-shadow: 0 0 3px rgba(0, 0, 0, 0.9);
+}
+
+.transport-container h3 i {
+    color: var(--primary-color);
+    animation: iconPulse 2s infinite alternate;
+}
+
+.transport-options {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 20px;
+}
+
+.transport-option {
+    display: flex;
+    align-items: flex-start;
+    gap: 15px;
+    padding: 15px;
+    border: 1px solid rgba(0, 243, 255, 0.2);
+    border-radius: 8px;
+    background: rgba(8, 8, 24, 0.08) !important; /* 92% transparency */
+    transition: all 0.3s ease;
+}
+
+.transport-option:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+    border-color: var(--primary-color);
+    background-color: rgba(10, 10, 27, 0.15) !important; /* Slightly more opaque on hover */
+    box-shadow: 0 0 20px rgba(0, 243, 255, 0.4);
+}
+
+.transport-option i {
+    font-size: 1.8rem;
+    color: var(--primary-color);
+    text-shadow: 0 0 10px rgba(0, 243, 255, 0.4);
+}
+
+.transport-option strong {
+    color: var(--text-light);
+    display: block;
+    margin-bottom: 5px;
+}
+
+.transport-option div {
+    color: var(--text-dim);
+    font-size: 0.9rem;
+    line-height: 1.5;
+}
+
+.main-venue-info {
+    margin-top: 20px;
+    padding: 15px;
+    background: rgba(8, 8, 24, 0.08) !important; /* 92% transparency */
+    border: 1px solid rgba(0, 243, 255, 0.2);
+    border-radius: 8px;
+    text-align: left;
+}
+
+.main-venue-info h4 {
+    color: var(--text-light);
+    margin-bottom: 10px;
+    font-size: 1.2rem;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    text-shadow: 0 0 3px rgba(0, 0, 0, 0.9);
+}
+
+.main-venue-info h4 i {
+    color: var(--primary-color);
+}
+
+.main-venue-info p {
+    color: var(--text-dim);
+    line-height: 1.6;
+    margin: 0;
+}
+
+/* Responsive styles for venue section */
+@media (max-width: 992px) {
+    .venue-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+    
+    .transport-options {
+        grid-template-columns: repeat(2, 1fr);
+    }
+    
+    /* Improve section spacing */
+    .venue-section,
+    .about-section,
+    .events-section,
+    .sponsors-section,
+    .cta-section {
+        padding: 60px 0;
+    }
+    
+    /* Ensure adequate spacing between section elements */
+    .section-header {
+        margin-bottom: 30px;
+    }
+}
+
+@media (max-width: 768px) {
+    .venue-section {
+        padding: 50px 0;
+    }
+    
+    .venue-section .section-header h2 {
+        font-size: 2rem;
+    }
+    
+    .venue-map h3 {
+        font-size: 1.5rem;
+    }
+    
+    .map-container {
+        height: 250px;
+    }
+    
+    .map-info {
+        font-size: 1rem;
+    }
+    
+    /* Make sure icons appear properly on mobile */
+    .venue-icon {
+        font-size: 2rem;
+    }
+    
+    .transport-options {
+        grid-template-columns: 1fr;
+    }
+    
+    .main-venue-info {
+        text-align: center;
+    }
+    
+    .main-venue-info h4 {
+        justify-content: center;
+    }
+    
+    /* Prevent overlap in hero content */
+    .hero-content {
+        padding: 2rem;
+        margin-top: 40px; /* Add space below navbar */
+    }
+    
+    .hero-content .mega-title {
+        font-size: 2.5rem;
+        margin-bottom: 15px;
+    }
+    
+    .hero-content .tagline,
+    .hero-content .hero-description {
+        font-size: 1rem;
+        margin-bottom: 20px;
+    }
+    
+    .hero-buttons {
+        display: flex;
+        flex-direction: column;
+        gap: 15px;
+    }
+    
+    .hero-buttons .btn {
+        width: 100%;
+        padding: 12px 20px;
+        margin-right: 0;
+    }
+    
+    /* Improve venue section spacing */
+    .venue-section {
+        padding: 40px 0;
+    }
+    
+    .venue-section .section-header h2 {
+        font-size: 1.8rem;
+        margin-bottom: 10px;
+    }
+    
+    .venue-grid {
+        gap: 20px;
+        margin-top: 30px;
+    }
+    
+    .venue-card {
+        padding: 15px;
+        margin-bottom: 20px;
+    }
+    
+    /* Fix transport options grid */
+    .transport-options {
+        grid-template-columns: 1fr;
+        gap: 15px;
+    }
+    
+    .transport-option {
+        padding: 12px;
+        gap: 10px;
+    }
+    
+    /* Fix map and venue info */
+    .venue-map {
+        padding: 15px;
+        margin-top: 30px;
+    }
+    
+    .venue-map h3 {
+        font-size: 1.5rem;
+        margin-bottom: 15px;
+    }
+    
+    .main-venue-info {
+        padding: 12px;
+    }
+}
+
+@media (max-width: 576px) {
+    .venue-grid {
+        grid-template-columns: 1fr;
+        gap: 20px;
+    }
+    
+    .venue-card {
+        padding: 20px;
+    }
+    
+    .venue-section .section-header h2 {
+        font-size: 1.8rem;
+    }
+    
+    /* Smaller spacing for extra small screens */
+    .venue-section,
+    .about-section,
+    .events-section,
+    .sponsors-section,
+    .cta-section {
+        padding: 30px 0;
+    }
+    
+    /* Ensure text is properly sized */
+    .venue-section .section-header h2 {
+        font-size: 1.5rem;
+    }
+    
+    .venue-section .section-header p {
+        font-size: 0.9rem;
+    }
+    
+    /* Stack elements more aggressively */
+    .transport-container h3 {
+        font-size: 1.3rem;
+        margin-bottom: 15px;
+    }
+    
+    .venue-card h3 {
+        font-size: 1.3rem;
+    }
+    
+    .venue-facilities {
+        padding-top: 10px;
+    }
+    
+    .venue-facilities li {
+        margin-bottom: 6px;
+        font-size: 0.9rem;
+    }
+    
+    /* Fix countdown widget for smallest screens */
+    .countdown-container {
+        padding: 15px 10px;
+    }
+    
+    .countdown .time span:first-child {
+        font-size: 1.8rem;
+    }
+    
+    .countdown .time .label {
+        font-size: 0.7rem;
+    }
+}
+
+/* Remove backgrounds from all sections */
+.about-section,
+.events-section,
+.sponsors-section,
+.cta-section {
+    background-color: transparent !important;
+    background-image: none !important;
+}
+
+/* Fix touchscreen hover states */
+@media (hover: none) {
+    .venue-card:hover,
+    .transport-option:hover {
+        transform: none !important;
+    }
+    
+    .venue-card:active,
+    .transport-option:active {
+        transform: translateY(-3px) !important;
+    }
+}
+
+/* Hero Section - Enhanced positioning to prevent overlap */
+.hero {
+    position: relative;
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+    padding-top: 80px; /* Space for navbar */
+}
+
+.hero-content {
+    position: relative;
+    z-index: 5;
+    text-align: center;
+    margin-top: 2rem; /* Add extra margin to prevent overlap with navbar */
+}
+
+/* Hero Section - Fixed to prevent overlap */
+.hero {
+    position: relative;
+    min-height: 100vh;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+}
+
+/* Added navbar spacer styling */
+.navbar-spacer {
+    height: 80px; /* Match navbar height */
+    width: 100%;
+    visibility: hidden;
+}
+
+.hero-container {
+    position: relative;
+    z-index: 5;
+    margin-top: 0;
+    padding-top: 0;
+}
+
+.hero-content {
+    position: relative;
+    z-index: 5;
+    text-align: center;
+    padding-top: 20px; /* Add comfortable spacing */
+}
+
+/* College Presents Text - now inside hero-content */
+.presents-text {
+    font-family: var(--header-font);
+    color: var(--primary-color);
+    font-size: 1rem;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    margin-bottom: 20px;
+    text-shadow: 0 0 10px var(--primary-glow);
+    position: relative;
+    display: inline-block;
+    overflow: hidden;
+    white-space: nowrap;
+    border-right: 2px solid var(--primary-color);
+    width: 0;
+    animation: typing 2s steps(30, end) forwards, blink-caret 0.75s step-end infinite;
+}
+
+/* Create the typing effect */
+@keyframes typing {
+    from { width: 0 }
+    to { width: 100% }
+}
+
+/* The typewriter cursor effect */
+@keyframes blink-caret {
+    from, to { border-color: transparent }
+    50% { border-color: var(--primary-color) }
+}
+
+/* Hero Section - Fixed positioning that works with auto-hiding navbar */
+.hero {
+    position: relative;
+    min-height: 60vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+    /* Remove padding-top as the navbar spacer handles the spacing */
+    padding-top: 0;
+}
+
+.hero-content {
+    position: relative;
+    z-index: 5;
+    text-align: center;
+    /* Use padding instead of margin for more stable positioning */
+    padding-top: 40px;
+    width: 100%;
+    max-width: 800px;
+}
+
+/* College Presents Text - Positioned correctly above main title */
+.presents-text {
+    font-family: var(--header-font);
+    color: var(--primary-color);
+    font-size: 1rem;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    margin-bottom: 10px;
+    text-shadow: 0 0 10px var(--primary-glow);
+    position: relative;
+    display: inline-block;
+    overflow: hidden;
+    white-space: nowrap;
+    border-right: 2px solid var(--primary-color);
+    width: 0;
+    animation: typing 2s steps(30, end) forwards, blink-caret 0.75s step-end infinite;
+    z-index: 10;
+}
+
+/* Main title adjustments */
+.hero-content h1 {
+    margin-top: 15px;
+    position: relative;
+    z-index: 5;
+}
+
+/* Hero Section with two-column layout */
+.hero {
+    position: relative;
+    min-height: 90vh;
+    display: flex;
+    align-items: center;
+    overflow: hidden;
+    padding-top: 0;
+}
+
+.hero-container {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 30px;
+    align-items: center;
+    width: 95%;
+    z-index: 5;
+    padding: 20px;
+    margin-top: 0; /* Remove any top margin */
+}
+
+/* Left side - Hero content */
+.hero-content {
+    position: relative;
+    z-index: 5;
+    text-align: left;
+    padding-top: 10px;
+    animation: fadeInLeft 1.2s ease-out forwards;
+}
+
+/* Right side - Countdown timer */
+.hero-countdown {
+    position: relative;
+    z-index: 5;
+    text-align: center;
+    animation: fadeInRight 1.2s ease-out forwards;
+    padding: 20px;
+    /* background: rgba(10, 10, 27, 0.5); */
+    border: 1px solid rgba(113, 219, 224, 0.24);
+    border-radius: 10px;
+    /* backdrop-filter: blur(10px); */
+    box-shadow: 0 0 30px rgba(0, 243, 255, 0.15);
+}
+
+.hero-countdown h2 {
+    font-family: var(--header-font);
+    color: var(--text-light);
+    font-size: 1.8rem;
+    margin-bottom: 10px;
+    text-shadow: 0 0 10px var(--primary-glow);
+}
+
+.countdown-timer {
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+    margin-bottom: 10px;
+}
+
+.countdown-item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.countdown-value {
+    font-family: var(--header-font);
+    font-size: 2.5rem;
+    font-weight: 700;
+    color: var(--primary-color);
+    text-shadow: 0 0 15px var(--primary-glow);
+    background: rgba(0, 0, 30, 0.6);
+    padding: 8px;
+    min-width: 80px;
+    border-radius: 8px;
+    border: 1px solid rgba(0, 243, 255, 0.3);
+    display: inline-block;
+}
+
+.countdown-label {
+    font-size: 0.9rem;
+    color: var(--text-dim);
+    margin-top: 8px;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+.event-date {
+    margin-top: 15px;
+    font-size: 1.2rem;
+    color: var(--text-light);
+}
+
+.event-date i {
+    margin-right: 8px;
+    color: var(--primary-color);
+}
+
+/* Responsive adjustments */
+@media screen and (max-width: 992px) {
+    .hero-container {
+        grid-template-columns: 1fr;
+    }
+    
+    .hero-content {
+        text-align: center;
+        margin-bottom: 20px;
+    }
+    
+    .countdown-value {
+        font-size: 2rem;
+        min-width: 60px;
+    }
+}
+
+@media screen and (max-width: 576px) {
+    .countdown-timer {
+        gap: 5px;
+    }
+    
+    .countdown-value {
+        font-size: 1.5rem;
+        min-width: 50px;
+        padding: 8px;
+    }
+    
+    .countdown-label {
+        font-size: 0.7rem;
+    }
+}
+
+/* Animation keyframes */
+@keyframes fadeInLeft {
+    from {
+        opacity: 0;
+        transform: translateX(-50px);
+    }
+    to {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+@keyframes fadeInRight {
+    from {
+        opacity: 0;
+        transform: translateX(50px);
+    }
+    to {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+/* Hero Section Enhancement */
+.hero {
+    min-height: 100vh;
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-image: 
+        linear-gradient(to bottom, rgba(5, 5, 16, 0.8), rgba(10, 10, 27, 0.9)), 
+        url('../../img/hero-bg.jpg');
+    background-size: cover;
+    background-position: center;
+    overflow: hidden;
+    padding-top: 0; /* Remove padding-top */
+}
+
+.hero::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-image: 
+        radial-gradient(circle at 30% 70%, rgba(0, 243, 255, 0.05), transparent 30%),
+        radial-gradient(circle at 70% 30%, rgba(144, 0, 255, 0.05), transparent 30%);
+    z-index: 0;
+}
+
+.hero-content {
+    text-align: center;
+    position: relative;
+    z-index: 5;
+    padding: 30px;
+    background-color: rgba(10, 10, 27, 0.6);
+    border-radius: 10px;
+    backdrop-filter: blur(5px);
+    border: 1px solid rgba(0, 243, 255, 0.1);
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.5);
+}
+
+/* College Presents Text Enhancement */
+.presents-text {
+    font-family: var(--header-font);
+    color: var(--primary-color);
+    font-size: 1rem;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    margin-bottom: 10px;
+    text-shadow: 0 0 10px var(--primary-glow);
+    position: relative;
+    display: inline-block;
+    overflow: hidden;
+    white-space: nowrap;
+    border-right: 2px solid var(--primary-color);
+    width: 0;
+    animation: typing 2s steps(30, end) forwards, blink-caret 0.75s step-end infinite;
+    z-index: 10;
+    background-color: var(--bg-darker);
+    padding: 5px 10px;
+    border-radius: 3px;
+}
+
+.hero h1 {
+    font-size: 4.5rem;
+    margin-bottom: 20px;
+    text-transform: uppercase;
+    text-shadow: 0 0 20px rgba(0, 243, 255, 0.5);
+    color: var(--text-light);
+}
+
+.hero .tagline {
+    font-size: 1.5rem;
+    font-family: var(--header-font);
+    color: var(--text-dim);
+    margin-bottom: 30px;
+}
+
+/* Hero Countdown Enhancement */
+.hero-countdown {
+    position: relative;
+    z-index: 5;
+    text-align: center;
+    animation: fadeInRight 1.2s ease-out forwards;
+    padding: 30px;
+    background: rgba(10, 10, 27, 0.5);
+    border: 1px solid rgba(0, 243, 255, 0.2);
+    border-radius: 5px;
+    backdrop-filter: blur(10px);
+    box-shadow: 0 0 30px rgba(0, 243, 255, 0.15);
+    margin-top: 80px;
+    align-self: start;
+}
+
+/* About Section Styles - Ensure proper spacing */
+.about-section {
+    padding: 80px 0;
+    position: relative;
+    overflow: hidden;
+    margin-top: 0; /* Ensure no extra margin at top */
+}
+
+.about-container {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 50px;
+    margin-top: 50px;
+    align-items: center;
+}
+
+.about-image {
+    position: relative;
+    height: 100%;
+    overflow: hidden;
+    border-radius: 10px;
+    border: 1px solid var(--primary-color);
+    box-shadow: 0 0 20px rgba(0, 243, 255, 0.3);
+}
+
+.about-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.5s ease;
+}
+
+.about-image:hover img {
+    transform: scale(1.05);
+}
+
+.image-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(45deg, rgba(10, 10, 27, 0.7), transparent);
+}
+
+/* Corner dots for cyberpunk aesthetic */
+.corner-dots {
+    position: absolute;
+    width: 20px;
+    height: 20px;
+    border: 2px solid var(--primary-color);
+    z-index: 2;
+}
+
+.top-left {
+    top: 10px;
+    left: 10px;
+    border-right: none;
+    border-bottom: none;
+}
+
+.top-right {
+    top: 10px;
+    right: 10px;
+    border-left: none;
+    border-bottom: none;
+}
+
+.bottom-left {
+    bottom: 10px;
+    left: 10px;
+    border-right: none;
+    border-top: none;
+}
+
+.bottom-right {
+    bottom: 10px;
+    right: 10px;
+    border-left: none;
+    border-top: none;
+}
+
+.about-content h3 {
+    color: var(--primary-color);
+    font-size: 1.8rem;
+    margin-bottom: 20px;
+    font-family: var(--header-font);
+    text-shadow: 0 0 10px rgba(0, 243, 255, 0.5);
+}
+
+.about-content p {
+    color: var(--text-dim);
+    margin-bottom: 20px;
+    line-height: 1.6;
+}
+
+/* Stats display */
+.about-stats {
+    display: flex;
+    justify-content: space-between;
+    margin: 30px 0;
+}
+
+.stat-item {
+    text-align: center;
+    padding: 15px 20px;
+    border: 1px solid rgba(0, 243, 255, 0.3);
+    border-radius: 8px;
+    background-color: rgba(10, 10, 27, 0.4);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.stat-item:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 5px 15px rgba(0, 243, 255, 0.2);
+}
+
+.stat-number {
+    font-size: 2rem;
+    font-weight: 700;
+    color: var(--primary-color);
+    font-family: var(--header-font);
+}
+
+.stat-label {
+    color: var(--text-dim);
+    font-size: 0.9rem;
+    margin-top: 5px;
+}
+
+/* Responsive layout */
+@media (max-width: 992px) {
+    .about-container {
+        grid-template-columns: 1fr;
+        gap: 40px;
+    }
+    
+    .about-image {
+        height: 400px;
+        margin-bottom: 30px;
+    }
+    
+    .about-stats {
+        justify-content: space-around;
+    }
+}
+
+@media (max-width: 768px) {
+    .about-stats {
+        flex-direction: column;
+        gap: 20px;
+    }
+    
+    .stat-item {
+        width: 100%;
+    }
+    
+    .about-image {
+        height: 300px;
+    }
+}

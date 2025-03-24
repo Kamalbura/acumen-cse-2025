@@ -1,0 +1,149 @@
+/* Responsive styles */
+@media screen and (max-width: 992px) {
+    .section-title {
+        font-size: 2rem;
+    }
+    
+    .hero-text h1 {
+        font-size: 3rem;
+    }
+    
+    .hero-text .tagline {
+        font-size: 1.2rem;
+    }
+    
+    .about-content {
+        flex-direction: column;
+    }
+    
+    .about-image {
+        margin-top: 30px;
+        max-width: 500px;
+    }
+    
+    .hero-container {
+        flex-direction: column;
+    }
+    
+    .hero-left, .hero-right {
+        width: 100%;
+        text-align: center;
+    }
+}
+
+@media screen and (max-width: 768px) {
+    .section-title {
+        font-size: 1.8rem;
+    }
+    
+    .hero-text h1 {
+        font-size: 2.5rem;
+    }
+    
+    .hero-text .tagline {
+        font-size: 1rem;
+    }
+    
+    .countdown .time span:first-child {
+        font-size: 2rem;
+    }
+    
+    .countdown .time .label {
+        font-size: 0.8rem;
+    }
+    
+    .nav-links {
+        position: fixed;
+        top: 0;
+        right: -100%;
+        width: 70%;
+        height: 100vh;
+        background-color: var(--bg-darker);
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        transition: right 0.5s ease;
+        z-index: 999;
+    }
+    
+    .nav-links.active {
+        right: 0;
+        box-shadow: -5px 0 20px rgba(0, 0, 0, 0.5);
+    }
+    
+    .nav-links li {
+        margin: 15px 0;
+    }
+    
+    .nav-toggle {
+        display: flex;
+        z-index: 1000;
+    }
+    
+    .hero-buttons {
+        flex-direction: column;
+        align-items: center;
+    }
+    
+    .btn {
+        width: 100%;
+        margin-bottom: 10px;
+    }
+}
+
+@media screen and (max-width: 480px) {
+    .section-title {
+        font-size: 1.5rem;
+    }
+    
+    .hero-text h1 {
+        font-size: 2rem;
+    }
+    
+    .countdown {
+        flex-wrap: wrap;
+    }
+    
+    .countdown .time {
+        width: 50%;
+        margin-bottom: 20px;
+    }
+}
+
+/* Touch device optimizations */
+@media (hover: none) and (pointer: coarse) {
+    .btn:hover::before,
+    .event-card:hover::before,
+    .glitch-text::before,
+    .glitch-text::after {
+        display: none;
+    }
+    
+    .btn:active,
+    .event-card:active {
+        transform: scale(0.98);
+    }
+    
+    /* Ensure clickable elements have enough tap area */
+    .btn, 
+    .nav-links a, 
+    .event-card, 
+    .social-icon {
+        min-height: 44px;
+    }
+    
+    input, select, textarea, button {
+        font-size: 16px; /* Prevents iOS zoom */
+    }
+}
+
+/* Reduced motion preference */
+@media (prefers-reduced-motion: reduce) {
+    *, ::before, ::after {
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.01ms !important;
+        animation-delay: 0ms !important;
+        scroll-behavior: auto !important;
+    }
+}

@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Event Name | ACUMEN 2025 | CSE Fest | Vasavi College of Engineering</title>
+    
+    <!-- Include error handler early -->
+    <script src="../js/error-handler.js"></script>
+    
+    <!-- Essential stylesheets - only what we need -->
+    <link rel="stylesheet" href="../css/styles.css">
+    <link rel="stylesheet" href="../css/cyberpunk.css">
+    <link rel="stylesheet" href="css/event-page.css">
+    
+    <!-- Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;500;700;900&family=Roboto:wght@300;400;500;700&display=swap" rel="stylesheet">
+    
+    <!-- Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+</head>
+<body class="category--event-type">
+    <!-- Glitch Effect Overlay -->
+    <div class="glitch-overlay"></div>
+    
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="container">
+            <div class="logo">
+                <a href="../index.html">
+                    <div class="acumen-logo-nav">
+                        <span class="department-text">CSE</span>
+                        <span class="glitch-text" data-text="ACUMEN">ACUMEN</span><span class="year-integrated">2025</span>
+                    </div>
+                </a>
+            </div>
+            <div class="nav-toggle" aria-label="Toggle navigation">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+            <ul class="nav-links">
+                <li><a href="../index.html">Home</a></li>
+                <li><a href="../events.html" class="active">Events</a></li>
+                <li><a href="../schedule.html">Schedule</a></li>
+                <li><a href="../registration.html">Register</a></li>
+                <li><a href="../gallery.html">Gallery</a></li>
+                <li><a href="../team.html">Team</a></li>
+            </ul>
+        </div>
+    </nav>
+    
+    <!-- Event Content -->
+    <section class="event-details">
+        <div class="container">
+            <a href="../events.html" class="event-back-button">
+                <i class="fas fa-arrow-left"></i> Back to All Events
+            </a>
+            
+            <!-- Event content goes here -->
+            
+        </div>
+    </section>
+    
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section footer-logo">
+                    <div class="acumen-logo-nav">
+                        <span class="department-text">CSE</span>
+                        <span>ACUMEN</span><span class="year-integrated">2025</span>
+                    </div>
+                    <p>ACUMEN 2025 | CSE Department</p>
+                    <p>Vasavi College of Engineering</p>
+                </div>
+                
+                <div class="footer-section">
+                    <h3>Quick Links</h3>
+                    <ul>
+                        <li><a href="../index.html">Home</a></li>
+                        <li><a href="../events.html">Events</a></li>
+                        <li><a href="../schedule.html">Schedule</a></li>
+                        <li><a href="../registration.html">Register</a></li>
+                        <li><a href="../team.html">Team</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-section">
+                    <h3>Contact Us</h3>
+                    <ul>
+                        <li><i class="fas fa-map-marker-alt"></i> Vasavi College of Engineering, Ibrahimbagh, Hyderabad</li>
+                        <li><i class="fas fa-phone"></i> +91 9876543210</li>
+                        <li><i class="fas fa-envelope"></i> acumen@vasavi.ac.in</li>
+                    </ul>
+                </div>
+                
+                <div class="footer-section">
+                    <h3>Follow Us</h3>
+                    <div class="social-links">
+                        <a href="#" class="social-icon"><i class="fab fa-instagram"></i></a>
+                        <a href="#" class="social-icon"><i class="fab fa-facebook"></i></a>
+                        <a href="#" class="social-icon"><i class="fab fa-twitter"></i></a>
+                        <a href="#" class="social-icon"><i class="fab fa-linkedin"></i></a>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="footer-bottom">
+                <p>&copy; 2025 ACUMEN - CSE Department, Vasavi College of Engineering. All Rights Reserved.</p>
+            </div>
+        </div>
+    </footer>
+    
+    <!-- Path fixer -->
+    <script src="../js/path-fixer.js"></script>
+    
+    <!-- Image loader -->
+    <script src="../js/image-loader.js"></script>
+    
+    <!-- Event page specific scripts -->
+    <script src="../js/main.js"></script>
+    
+    <!-- FAQ functionality -->
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const faqItems = document.querySelectorAll('.faq-question');
+            
+            faqItems.forEach(item => {
+                item.addEventListener('click', function() {
+                    this.classList.toggle('active');
+                    const answer = this.nextElementSibling;
+                    
+                    if (this.classList.contains('active')) {
+                        answer.style.display = 'block';
+                    } else {
+                        answer.style.display = 'none';
+                    }
+                });
+            });
+        });
+    </script>
+</body>
+</html>

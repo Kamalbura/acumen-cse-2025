@@ -1,0 +1,579 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Schedule | ACUMEN 2025 | CSE Fest | Vasavi College of Engineering</title>
+    <link rel="stylesheet" href="css/main.css">
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;500;700;900&family=Roboto:wght@300;400;500;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <style>
+        /* Schedule Page Specific Styles */
+        .page-banner {
+            height: 50vh;
+            position: relative;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            background-color: var(--bg-darker);
+            overflow: hidden;
+        }
+        
+        .page-banner h1 {
+            font-size: 4rem;
+            margin-bottom: 1rem;
+            z-index: 10;
+        }
+        
+        .page-banner p {
+            font-size: 1.2rem;
+            color: var(--text-dim);
+            z-index: 10;
+            max-width: 600px;
+        }
+        
+        .schedule-tabs {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            margin-bottom: 40px;
+        }
+        
+        .schedule-tab {
+            padding: 10px 20px;
+            margin: 0 10px 10px;
+            cursor: pointer;
+            border: 2px solid var(--primary-color);
+            border-radius: 5px;
+            transition: all 0.3s ease;
+            font-family: var(--header-font);
+            background: transparent;
+            color: var(--text-light);
+        }
+        
+        .schedule-tab.active, .schedule-tab:hover {
+            background-color: var(--primary-color);
+            color: var(--bg-darker);
+        }
+        
+        .schedule-container {
+            margin-top: 30px;
+        }
+        
+        .schedule-day {
+            display: none;
+        }
+        
+        .schedule-day.active {
+            display: block;
+            animation: fadeIn 0.5s ease forwards;
+        }
+        
+        .timeline {
+            position: relative;
+            max-width: 1000px;
+            margin: 0 auto;
+        }
+        
+        .timeline::after {
+            content: '';
+            position: absolute;
+            width: 3px;
+            background: linear-gradient(to bottom, var(--primary-color), var(--secondary-color));
+            top: 0;
+            bottom: 0;
+            left: 50%;
+            margin-left: -1.5px;
+            z-index: 1;
+            box-shadow: 0 0 10px rgba(0, 255, 255, 0.5);
+        }
+        
+        .timeline-item {
+            position: relative;
+            width: 50%;
+            padding: 20px 40px;
+            box-sizing: border-box;
+            margin-bottom: 30px;
+        }
+        
+        .timeline-item::after {
+            content: '';
+            position: absolute;
+            width: 20px;
+            height: 20px;
+            background-color: var(--bg-darker);
+            border: 3px solid var(--primary-color);
+            border-radius: 50%;
+            top: 30px;
+            z-index: 2;
+            box-shadow: 0 0 10px rgba(0, 255, 255, 0.7);
+        }
+        
+        .timeline-item.left {
+            left: 0;
+        }
+        
+        .timeline-item.right {
+            left: 50%;
+        }
+        
+        .timeline-item.left::after {
+            right: -10px;
+        }
+        
+        .timeline-item.right::after {
+            left: -10px;
+        }
+        
+        .timeline-content {
+            padding: 20px;
+            background: rgba(0, 0, 0, 0.3);
+            border: 1px solid var(--primary-color);
+            position: relative;
+            border-radius: 10px;
+            transition: all 0.3s ease;
+        }
+        
+        .timeline-content:hover {
+            border-color: var(--secondary-color);
+            box-shadow: 0 0 15px rgba(0, 255, 255, 0.3);
+        }
+        
+        .timeline-content h3 {
+            margin-top: 0;
+            color: var(--primary-color);
+            font-size: 1.4rem;
+        }
+        
+        .timeline-time {
+            display: inline-block;
+            padding: 5px 10px;
+            background: rgba(0, 255, 255, 0.1);
+            border-radius: 5px;
+            color: var(--primary-color);
+            font-family: var(--header-font);
+            font-size: 0.9rem;
+            margin-bottom: 10px;
+        }
+        
+        .timeline-venue {
+            color: var(--text-dim);
+            margin-bottom: 10px;
+            font-size: 0.9rem;
+            display: flex;
+            align-items: center;
+        }
+        
+        .timeline-venue i {
+            margin-right: 8px;
+            color: var(--primary-color);
+        }
+        
+        .timeline-desc {
+            color: var(--text-dim);
+            font-size: 0.9rem;
+        }
+        
+        .download-schedule {
+            text-align: center;
+            margin-top: 50px;
+        }
+        
+        @media screen and (max-width: 768px) {
+            .timeline::after {
+                left: 31px;
+            }
+            
+            .timeline-item {
+                width: 100%;
+                padding-left: 70px;
+                padding-right: 20px;
+            }
+            
+            .timeline-item.right {
+                left: 0;
+            }
+            
+            .timeline-item.left::after, 
+            .timeline-item.right::after {
+                left: 21px;
+            }
+        }
+
+        /* Pre-event section styles */
+        .pre-event-section {
+            margin-top: 50px;
+            margin-bottom: 70px;
+            padding: 30px;
+            background: rgba(0, 0, 0, 0.3);
+            border: 1px solid var(--primary-color);
+            border-radius: 10px;
+        }
+
+        .pre-event-section h2 {
+            color: var(--primary-color);
+            margin-bottom: 20px;
+            text-align: center;
+        }
+
+        .pre-event-days {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between;
+            gap: 20px;
+        }
+
+        .pre-event-day {
+            flex: 1;
+            min-width: 250px;
+            padding: 20px;
+            background: rgba(10, 10, 27, 0.4);
+            border: 1px solid rgba(0, 255, 255, 0.2);
+            border-radius: 5px;
+        }
+
+        .pre-event-day h3 {
+            color: var(--secondary-color);
+            margin-bottom: 15px;
+            font-size: 1.2rem;
+        }
+
+        .pre-event-day p {
+            color: var(--text-dim);
+            margin-bottom: 10px;
+        }
+
+        .events-group {
+            margin-top: 50px;
+            padding: 25px;
+            background: rgba(10, 10, 27, 0.4);
+            border: 1px solid rgba(0, 255, 255, 0.2);
+            border-radius: 10px;
+        }
+
+        .events-group h3 {
+            color: var(--primary-color);
+            margin-bottom: 20px;
+            text-align: center;
+        }
+
+        .events-list {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+            gap: 20px;
+        }
+
+        .event-item {
+            padding: 15px;
+            background: rgba(0, 0, 0, 0.3);
+            border: 1px solid var(--primary-color);
+            border-radius: 5px;
+        }
+
+        .event-item h4 {
+            color: var(--secondary-color);
+            margin-bottom: 10px;
+        }
+
+        .event-item p {
+            font-size: 0.9rem;
+            color: var(--text-dim);
+        }
+
+        .event-item .location {
+            margin-top: 10px;
+            font-size: 0.8rem;
+            color: var(--text-light);
+            display: flex;
+            align-items: center;
+        }
+
+        .event-item .location i {
+            color: var(--primary-color);
+            margin-right: 5px;
+        }
+    </style>
+</head>
+<body>
+    <!-- Glitch Effect Overlay -->
+    <div class="glitch-overlay"></div>
+    
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="container">
+            <div class="logo">
+                <div class="acumen-logo-nav">
+                    <span class="department-text">CSE</span>
+                    <span class="glitch-text">ACUMEN</span><span class="year-integrated">2025</span>
+                </div>
+            </div>
+            <div class="nav-toggle">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+            <ul class="nav-links">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="events.html">Events</a></li>
+                <li><a href="schedule.html" class="active">Schedule</a></li>
+                <li><a href="registration.html">Register</a></li>
+                <li><a href="gallery.html">Gallery</a></li>
+                <li><a href="team.html">Team</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- Hero Banner -->
+    <section class="page-banner">
+        <div class="container">
+            <h1 class="glitch-text" data-text="SCHEDULE">SCHEDULE</h1>
+            <p>Complete timeline of the ACUMEN 2025 one-day extravaganza</p>
+        </div>
+        <div class="hero-overlay"></div>
+        <div class="hero-grid"></div>
+    </section>
+
+    <!-- Schedule Content -->
+    <section class="schedule-section">
+        <div class="container">
+            <!-- Pre-event Activities Section -->
+            <div class="pre-event-section">
+                <h2>Pre-Event Activities</h2>
+                <div class="pre-event-days">
+                    <div class="pre-event-day">
+                        <h3>Day -3 (Apr 7, 2025)</h3>
+                        <p><strong>Banner Launch Day</strong></p>
+                        <p>Official announcement and banner unveiling across campus</p>
+                        <p>Registration booths open in main building</p>
+                    </div>
+                    
+                    <div class="pre-event-day">
+                        <h3>Day -2 (Apr 8, 2025)</h3>
+                        <p><strong>Social Media Campaign</strong></p>
+                        <p>Online event teasers and promotional activities</p>
+                        <p>Flash registration discounts announced</p>
+                    </div>
+                    
+                    <div class="pre-event-day">
+                        <h3>Day -1 (Apr 9, 2025)</h3>
+                        <p><strong>Final Preparations</strong></p>
+                        <p>Last day for registrations</p>
+                        <p>Pre-event briefings and venue setup</p>
+                    </div>
+                </div>
+            </div>
+
+            <h2 class="section-title">Event <span>Day</span> Schedule</h2>
+            <p class="text-center">April 10, 2025</p>
+
+            <!-- Event Day Timeline -->
+            <div class="timeline">
+                <!-- Inauguration -->
+                <div class="timeline-item left">
+                    <div class="timeline-content">
+                        <span class="timeline-time">8:30 AM - 9:30 AM</span>
+                        <h3>Inauguration Ceremony</h3>
+                        <div class="timeline-venue">
+                            <i class="fas fa-map-marker-alt"></i> Main Auditorium
+                        </div>
+                        <div class="timeline-desc">
+                            <p>Official inauguration of ACUMEN 2025 by the Head of CSE Department, followed by welcome address and event announcements.</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Registration and Check-in -->
+                <div class="timeline-item right">
+                    <div class="timeline-content">
+                        <span class="timeline-time">9:00 AM - 10:00 AM</span>
+                        <h3>Registration and Check-in</h3>
+                        <div class="timeline-venue">
+                            <i class="fas fa-map-marker-alt"></i> CSE Block Entrance
+                        </div>
+                        <div class="timeline-desc">
+                            <p>Participant registration, ID distribution, and event kit collection. On-spot registrations available until 10 AM.</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Treasure Hunt -->
+                <div class="timeline-item left">
+                    <div class="timeline-content">
+                        <span class="timeline-time">11:00 AM - 1:00 PM</span>
+                        <h3>Treasure Hunt</h3>
+                        <div class="timeline-venue">
+                            <i class="fas fa-map-marker-alt"></i> Starting at Quadrangle
+                        </div>
+                        <div class="timeline-desc">
+                            <p>Campus-wide treasure hunt with tech-based clues and puzzles. Teams will navigate through various locations to find the ultimate prize.</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Lunch Break -->
+                <div class="timeline-item right">
+                    <div class="timeline-content">
+                        <span class="timeline-time">1:00 PM - 2:00 PM</span>
+                        <h3>Lunch Break</h3>
+                        <div class="timeline-venue">
+                            <i class="fas fa-map-marker-alt"></i> Food Court
+                        </div>
+                        <div class="timeline-desc">
+                            <p>Lunch provided for all registered participants. Food coupons will be in your event kit.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Simultaneous Events Section -->
+            <div class="events-group">
+                <h3>Simultaneous Events (2:00 PM - 5:00 PM)</h3>
+                <div class="events-list">
+                    <div class="event-item">
+                        <h4>Paper Presentation</h4>
+                        <p>Research papers presentation by participants</p>
+                        <div class="location"><i class="fas fa-map-marker-alt"></i> Seminar Hall</div>
+                    </div>
+                    
+                    <div class="event-item">
+                        <h4>Poster Presentation</h4>
+                        <p>Visual showcase of research and creative ideas</p>
+                        <div class="location"><i class="fas fa-map-marker-alt"></i> Exhibition Hall</div>
+                    </div>
+                    
+                    <div class="event-item">
+                        <h4>Project Expo</h4>
+                        <p>Innovative technical project demonstrations</p>
+                        <div class="location"><i class="fas fa-map-marker-alt"></i> Main Hall, CSE Block</div>
+                    </div>
+                    
+                    <div class="event-item">
+                        <h4>Code to Escape</h4>
+                        <p>Coding challenges to solve and escape</p>
+                        <div class="location"><i class="fas fa-map-marker-alt"></i> Lab 301</div>
+                    </div>
+                    
+                    <div class="event-item">
+                        <h4>Bid N Code</h4>
+                        <p>Bid for coding problems and solve them</p>
+                        <div class="location"><i class="fas fa-map-marker-alt"></i> Lab 302</div>
+                    </div>
+                    
+                    <div class="event-item">
+                        <h4>Call of Duty Tournament</h4>
+                        <p>Gaming competition for COD enthusiasts</p>
+                        <div class="location"><i class="fas fa-map-marker-alt"></i> Gaming Arena</div>
+                    </div>
+                    
+                    <div class="event-item">
+                        <h4>Sherlock Homies</h4>
+                        <p>Detective challenge with digital forensics</p>
+                        <div class="location"><i class="fas fa-map-marker-alt"></i> Digital Forensics Lab</div>
+                    </div>
+                    
+                    <div class="event-item">
+                        <h4>Jail Break Challenge</h4>
+                        <p>Cybersecurity and ethical hacking contest</p>
+                        <div class="location"><i class="fas fa-map-marker-alt"></i> Security Lab (Room 301)</div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Closing Ceremony -->
+            <div class="timeline" style="margin-top: 40px;">
+                <div class="timeline-item left">
+                    <div class="timeline-content">
+                        <span class="timeline-time">5:30 PM - 7:00 PM</span>
+                        <h3>Award Ceremony & Closing</h3>
+                        <div class="timeline-venue">
+                            <i class="fas fa-map-marker-alt"></i> Main Auditorium
+                        </div>
+                        <div class="timeline-desc">
+                            <p>Announcement of winners, prize distribution, and official closing of ACUMEN 2025. Followed by a small cultural performance.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="download-schedule">
+                <a href="#" class="btn btn-primary">Download Full Schedule <i class="fas fa-download"></i></a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section footer-logo">
+                    <div class="acumen-logo-nav">
+                        <span class="department-text">CSE</span>
+                        <span>ACUMEN</span><span class="year-integrated">2025</span>
+                    </div>
+                    <p>ACUMEN 2025 | CSE Department</p>
+                    <p>Vasavi College of Engineering</p>
+                </div>
+                
+                <div class="footer-section">
+                    <h3>Quick Links</h3>
+                    <ul>
+                        <li><a href="index.html">Home</a></li>
+                        <li><a href="events.html">Events</a></li>
+                        <li><a href="schedule.html">Schedule</a></li>
+                        <li><a href="registration.html">Register</a></li>
+                        <li><a href="team.html">Team</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-section">
+                    <h3>Contact Us</h3>
+                    <ul>
+                        <li><i class="fas fa-map-marker-alt"></i> Vasavi College of Engineering, Ibrahimbagh, Hyderabad</li>
+                        <li><i class="fas fa-phone"></i> +91 9876543210</li>
+                        <li><i class="fas fa-envelope"></i> acumen@vasavi.ac.in</li>
+                    </ul>
+                </div>
+                
+                <div class="footer-section">
+                    <h3>Follow Us</h3>
+                    <div class="social-links">
+                        <a href="#" class="social-icon"><i class="fab fa-instagram"></i></a>
+                        <a href="#" class="social-icon"><i class="fab fa-facebook"></i></a>
+                        <a href="#" class="social-icon"><i class="fab fa-twitter"></i></a>
+                        <a href="#" class="social-icon"><i class="fab fa-linkedin"></i></a>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="footer-bottom">
+                <p>&copy; 2025 ACUMEN - CSE Department, Vasavi College of Engineering. All Rights Reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="js/main.js"></script>
+    <script src="js/mobile-fix.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            // Add glitch effect to timeline items on hover
+            const timelineContents = document.querySelectorAll('.timeline-content');
+            
+            timelineContents.forEach(item => {
+                item.addEventListener('mouseenter', function() {
+                    const heading = this.querySelector('h3');
+                    heading.classList.add('glitch-text');
+                    heading.setAttribute('data-text', heading.textContent.trim());
+                });
+                
+                item.addEventListener('mouseleave', function() {
+                    const heading = this.querySelector('h3');
+                    heading.classList.remove('glitch-text');
+                });
+            });
+        });
+    </script>
+     <script src="js/navbar-autohide.js"></script>
+</body>
+</html>
+

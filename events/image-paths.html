@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Image Path Helper</title>
+    <style>
+        body {
+            font-family: monospace;
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 20px;
+            background-color: #0a0a1b;
+            color: #00f3ff;
+        }
+        h1, h2 {
+            color: #00f3ff;
+        }
+        code {
+            background-color: rgba(0, 243, 255, 0.1);
+            padding: 2px 5px;
+            border-radius: 3px;
+        }
+        pre {
+            background-color: rgba(0, 0, 0, 0.3);
+            padding: 15px;
+            border-radius: 5px;
+            overflow-x: auto;
+        }
+        .note {
+            padding: 10px;
+            background-color: rgba(0, 243, 255, 0.1);
+            border-left: 3px solid #00f3ff;
+            margin: 15px 0;
+        }
+    </style>
+</head>
+<body>
+    <h1>Event Image Path Helper</h1>
+    <p>This document provides guidance on how to correctly reference images in event pages.</p>
+    
+    <h2>Path Structure</h2>
+    <p>When referencing images in event detail pages, remember to use the parent directory notation <code>../</code> because event pages are in a subdirectory.</p>
+    
+    <div class="note">
+        <strong>Important:</strong> Use the proper relative paths for all resources when working in event detail pages.
+    </div>
+    
+    <h2>Correct Image Path Examples</h2>
+    <pre><code><!-- General images -->
+&lt;img src="../img/events/event-name.jpg" alt="Event Name"&gt;
+
+<!-- Logo reference -->
+&lt;img src="../img/acumen-logo.png" alt="ACUMEN Logo"&gt;
+
+<!-- Background images in CSS -->
+background-image: url('../img/banners/events_banner.jpg');</code></pre>
+
+    <h2>Common Path Mistakes</h2>
+    <pre><code><!-- INCORRECT - missing parent directory -->
+&lt;img src="img/events/event-name.jpg" alt="Event Name"&gt;
+
+<!-- CORRECT -->
+&lt;img src="../img/events/event-name.jpg" alt="Event Name"&gt;</code></pre>
+
+    <h2>Automatic Path Fixing</h2>
+    <p>Our site includes the <code>path-fixer.js</code> script which attempts to fix incorrect paths, but it's better to use correct paths from the start.</p>
+    
+    <div class="note">
+        <p>If images are not displaying properly:</p>
+        <ol>
+            <li>Make sure the image actually exists in the referenced location</li>
+            <li>Check that you're using <code>../</code> at the beginning of paths</li>
+            <li>Verify that the image filename and extension match exactly (case-sensitive)</li>
+        </ol>
+    </div>
+    
+    <h2>Directory Structure Reference</h2>
+    <pre><code>acumen/
+├── img/
+│   ├── events/         <!-- Event thumbnails -->
+│   ├── banners/        <!-- Banner images -->
+│   ├── team/           <!-- Team member photos -->
+│   ├── posters/        <!-- Event posters -->
+│   └── patterns/       <!-- Background patterns -->
+├── css/
+├── js/
+└── events/            <!-- You are here in event detail pages --></code></pre>
+
+    <script src="../js/path-fixer.js"></script>
+</body>
+</html>

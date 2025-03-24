@@ -1,0 +1,378 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Code to Escape | ACUMEN 2025 | CSE Fest | Vasavi College of Engineering</title>
+    
+    <!-- Essential stylesheets - only what we need -->
+    <link rel="stylesheet" href="../css/styles.css">
+    <link rel="stylesheet" href="../css/cyberpunk.css">
+    <link rel="stylesheet" href="css/event-page.css">
+    
+    <!-- Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;500;700;900&family=Roboto:wght@300;400;500;700&display=swap" rel="stylesheet">
+    
+    <!-- Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+</head>
+<body class="category--coding">
+    <!-- Glitch Effect Overlay -->
+    <div class="glitch-overlay"></div>
+    
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="container">
+            <div class="logo">
+                <div class="acumen-logo-nav">
+                    <span class="department-text">CSE</span>
+                    <span class="glitch-text">ACUMEN</span><span class="year-integrated">2025</span>
+                </div>
+            </div>
+            <div class="nav-toggle">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+            <ul class="nav-links">
+                <li><a href="../index.html">Home</a></li>
+                <li><a href="../events.html" class="active">Events</a></li>
+                <li><a href="../schedule.html">Schedule</a></li>
+                <li><a href="../registration.html">Register</a></li>
+                <li><a href="../gallery.html">Gallery</a></li>
+                <li><a href="../team.html">Team</a></li>
+                <li><a href="../sponsors.html">Sponsors</a></li>
+                <li><a href="../contact.html">Contact</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- Event Hero Section -->
+    <section class="event-hero" style="background-image: url('https://images.unsplash.com/photo-1550439062-609e1531270e?q=80&w=1920&auto=format&fit=crop'); background-position: center;">
+        <div class="event-hero__overlay"></div>
+        <div class="container">
+            <div class="event-hero__content">
+                <h1 class="event-hero__title glitch-text" data-text="Code to Escape">Code to Escape</h1>
+                <p class="event-hero__tagline">Solve coding challenges to break free from virtual rooms</p>
+                <a href="../registration.html#code-escape" class="btn btn-primary">Register Now</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Event Details -->
+    <section class="event-details">
+        <div class="container">
+            <a href="../events.html" class="event-details__back-button">
+                <i class="fas fa-arrow-left"></i> Back to All Events
+            </a>
+            
+            <!-- About Event and Poster - Moved to the top -->
+            <div class="event-top-content">
+                <!-- Event Poster Container - Positioned on the right -->
+                <div class="event-poster-container">
+                    <div class="event-poster">
+                        <img src="../img/posters/escape.jpg" alt="Code to Escape Poster">
+                    </div>
+                </div>
+                
+                <div class="event-content-with-poster">
+                    <div class="event-section">
+                        <div class="event-section-content">
+                            <h2 class="event-section__title">About the Event</h2>
+                            <p class="event-section__text">Code to Escape combines the thrill of escape rooms with the challenge of competitive programming. Participants will navigate through a series of virtual rooms, each requiring them to solve coding problems to unlock the next level. You'll need quick thinking, problem-solving skills, and efficient coding to escape before time runs out!</p>
+                            
+                            <p class="event-section__text">This event is designed to test both your algorithmic thinking and ability to perform under pressure. With a mix of logic puzzles, algorithm challenges, and debugging tasks, Code to Escape provides an exciting competitive experience for programmers of all skill levels.</p>
+                            
+                            <div class="event-meta">
+                                <div class="event-meta__item">
+                                    <h3 class="event-meta__item-title"><i class="fas fa-calendar-alt"></i> Date & Time</h3>
+                                    <p class="event-meta__item-text">April 11, 2025</p>
+                                    <p class="event-meta__item-text">10:00 AM - 2:00 PM</p>
+                                </div>
+                                
+                                <div class="event-meta__item">
+                                    <h3 class="event-meta__item-title"><i class="fas fa-map-marker-alt"></i> Venue</h3>
+                                    <p class="event-meta__item-text">Computer Lab 301</p>
+                                    <p class="event-meta__item-text">CSE Department</p>
+                                </div>
+                                
+                                <div class="event-meta__item">
+                                    <h3 class="event-meta__item-title"><i class="fas fa-users"></i> Team Size</h3>
+                                    <p class="event-meta__item-text">Team of 2</p>
+                                </div>
+                                
+                                <div class="event-meta__item">
+                                    <h3 class="event-meta__item-title"><i class="fas fa-trophy"></i> Prizes</h3>
+                                    <p class="event-meta__item-text">1st Place: ₹8,000</p>
+                                    <p class="event-meta__item-text">2nd Place: ₹4,000</p>
+                                    <p class="event-meta__item-text">3rd Place: ₹2,000</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Full-width sections after the poster -->
+            <div class="event-section event-section--full-width">
+                <div class="event-section-content">
+                    <h2 class="event-section__title">Event Format</h2>
+                    
+                    <h3 class="event-section__subtitle">Escape Room Structure</h3>
+                    <p class="event-section__text">The virtual escape room consists of 5 interconnected chambers, each with its own theme and programming challenges:</p>
+                    
+                    <div class="event-guidelines">
+                        <div class="guideline-card">
+                            <h4 class="guideline-card__title">Chamber 1: The Logic Gate</h4>
+                            <p class="guideline-card__text">Solve logical puzzles and implement basic algorithms to unlock the first door</p>
+                        </div>
+                        
+                        <div class="guideline-card">
+                            <h4 class="guideline-card__title">Chamber 2: The Data Labyrinth</h4>
+                            <p class="guideline-card__text">Navigate through data structure challenges involving arrays, linked lists, and trees</p>
+                        </div>
+                        
+                        <div class="guideline-card">
+                            <h4 class="guideline-card__title">Chamber 3: The Algorithm Vault</h4>
+                            <p class="guideline-card__text">Implement efficient sorting, searching, and graph algorithms to proceed</p>
+                        </div>
+                        
+                        <div class="guideline-card">
+                            <h4 class="guideline-card__title">Chamber 4: The Debug Dungeon</h4>
+                            <p class="guideline-card__text">Find and fix bugs in complex code snippets with multiple interconnected issues</p>
+                        </div>
+                        
+                        <div class="guideline-card">
+                            <h4 class="guideline-card__title">Chamber 5: The Final Cipher</h4>
+                            <p class="guideline-card__text">Solve a cryptographic challenge that requires combining skills from all previous chambers</p>
+                        </div>
+                    </div>
+                    
+                    <h3 class="event-section__subtitle">Game Mechanics</h3>
+                    <ul class="event-rules">
+                        <li class="event-rules__item">Teams have a total of 4 hours to escape from all chambers</li>
+                        <li class="event-rules__item">Each chamber has a maximum time limit; exceeding it results in penalty points</li>
+                        <li class="event-rules__item">Successfully solving a challenge provides the key (in the form of code or password) to the next chamber</li>
+                        <li class="event-rules__item">Teams can request hints, but each hint reduces the potential points for that chamber</li>
+                        <li class="event-rules__item">Final ranking is determined by the number of chambers completed and time taken</li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="event-section">
+                <div class="event-section-content">
+                    <h2 class="event-section__title">Technical Requirements</h2>
+                    
+                    <h3 class="event-section__subtitle">Programming Languages</h3>
+                    <p class="event-section__text">Participants can code in any of the following languages:</p>
+                    <ul class="event-rules">
+                        <li class="event-rules__item">Python 3.x</li>
+                        <li class="event-rules__item">Java</li>
+                        <li class="event-rules__item">C++</li>
+                        <li class="event-rules__item">JavaScript</li>
+                    </ul>
+                    
+                    <h3 class="event-section__subtitle">Required Knowledge</h3>
+                    <ul class="event-rules">
+                        <li class="event-rules__item">Data structures (arrays, linked lists, stacks, queues, trees, graphs)</li>
+                        <li class="event-rules__item">Algorithms (sorting, searching, graph traversal, dynamic programming basics)</li>
+                        <li class="event-rules__item">Problem-solving approaches and optimization techniques</li>
+                        <li class="event-rules__item">Basic debugging skills</li>
+                        <li class="event-rules__item">Time and space complexity analysis</li>
+                    </ul>
+                    
+                    <h3 class="event-section__subtitle">Equipment</h3>
+                    <p class="event-section__text">Each team should bring:</p>
+                    <ul class="event-rules">
+                        <li class="event-rules__item">At least one laptop with your preferred IDE/editor installed</li>
+                        <li class="event-rules__item">Charger and any necessary adapters</li>
+                        <li class="event-rules__item">Pen and paper for planning and algorithm design</li>
+                    </ul>
+                    
+                    <p class="event-section__text">Note: Internet access will be restricted to the competition platform only. No external resources, including previously written code or AI assistants, are allowed.</p>
+                </div>
+            </div>
+            
+            <div class="event-section">
+                <div class="event-section-content">
+                    <h2 class="event-section__title">Scoring System</h2>
+                    
+                    <div class="event-guidelines">
+                        <div class="guideline-card">
+                            <h4 class="guideline-card__title">Chamber Completion</h4>
+                            <p class="guideline-card__text">Each chamber is worth 200 base points; all 5 chambers equal 1000 points total</p>
+                        </div>
+                        
+                        <div class="guideline-card">
+                            <h4 class="guideline-card__title">Time Bonus</h4>
+                            <p class="guideline-card__text">Remaining time at the end of the challenge converts to bonus points (1 minute = 2 points)</p>
+                        </div>
+                        
+                        <div class="guideline-card">
+                            <h4 class="guideline-card__title">Code Quality</h4>
+                            <p class="guideline-card__text">Up to 50 bonus points per chamber for elegant, efficient, and well-commented code</p>
+                        </div>
+                        
+                        <div class="guideline-card">
+                            <h4 class="guideline-card__title">Hint Penalties</h4>
+                            <p class="guideline-card__text">First hint: -20 points, Second hint: -30 points, Third hint: -50 points</p>
+                        </div>
+                    </div>
+                    
+                    <h3 class="event-section__subtitle">Tiebreaker Rules</h3>
+                    <p class="event-section__text">In case of tied scores, the following criteria will be applied in order:</p>
+                    <ol class="event-rules">
+                        <li class="event-rules__item">Total time taken (less time ranks higher)</li>
+                        <li class="event-rules__item">Number of hints used (fewer hints ranks higher)</li>
+                        <li class="event-rules__item">Code quality score (higher score ranks higher)</li>
+                        <li class="event-rules__item">Performance in the Final Cipher chamber (better performance ranks higher)</li>
+                    </ol>
+                    
+                    <div class="registration-cta">
+                        <a href="../registration.html#code-escape" class="btn btn-primary">Register Now</a>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="event-section">
+                <div class="event-section-content">
+                    <h2 class="event-section__title">Event Organizers</h2>
+                    <p class="event-section__text">Meet the team behind Code to Escape:</p>
+                    
+                    <div class="organizers">
+                        <div class="organizer-card">
+                            <div class="organizer-image">
+                                <img src="../img/team/faculty2.jpg" alt="Dr. Suresh Kumar">
+                            </div>
+                            <div class="organizer-info">
+                                <h4 class="organizer-info__name">Dr. Suresh Kumar</h4>
+                                <p class="organizer-info__role">Faculty Coordinator</p>
+                                <p class="organizer-info__department">Department of Computer Science & Engineering</p>
+                                <div class="organizer-contact">
+                                    <a href="mailto:suresh.kumar@vasavi.ac.in"><i class="fas fa-envelope"></i> Email</a>
+                                    <a href="tel:+919876543212"><i class="fas fa-phone"></i> Contact</a>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="organizer-card">
+                            <div class="organizer-image">
+                                <img src="../img/team/student3.jpg" alt="Arjun Reddy">
+                            </div>
+                            <div class="organizer-info">
+                                <h4 class="organizer-info__name">Arjun Reddy</h4>
+                                <p class="organizer-info__role">Student Coordinator</p>
+                                <p class="organizer-info__department">3rd Year, Computer Science</p>
+                                <div class="organizer-contact">
+                                    <a href="mailto:arjun.r@acumen.vasavi.ac.in"><i class="fas fa-envelope"></i> Email</a>
+                                    <a href="tel:+919876543213"><i class="fas fa-phone"></i> Contact</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="organizer-message">
+                        <blockquote>
+                            <p>"Code to Escape is designed to challenge participants' problem-solving skills in an engaging, time-sensitive environment. It's not just about coding speed—it's about strategic thinking and the ability to perform under pressure. We're excited to see how participants navigate through our digital escape rooms!"</p>
+                            <cite>- Dr. Suresh Kumar, Event Coordinator</cite>
+                        </blockquote>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="event-section">
+                <div class="event-section-content">
+                    <h2 class="event-section__title">Frequently Asked Questions</h2>
+                    
+                    <div class="event-faq">
+                        <div class="faq-item">
+                            <div class="faq-question">
+                                What skill level is required for this competition?
+                                <i class="fas fa-chevron-down"></i>
+                            </div>
+                            <div class="faq-answer">
+                                The competition is designed for intermediate to advanced programmers. Early chambers are accessible to those with basic algorithmic knowledge, while later chambers will challenge even experienced coders. We recommend having experience with competitive programming or coding challenges before participating.
+                            </div>
+                        </div>
+                        
+                        <div class="faq-item">
+                            <div class="faq-question">
+                                How will the competition platform work?
+                                <i class="fas fa-chevron-down"></i>
+                            </div>
+                            <div class="faq-answer">
+                                The competition will run on a custom web platform that combines storytelling elements with a code editor and execution environment. Your code will be tested against hidden test cases, and you'll receive immediate feedback on whether your solution is correct.
+                            </div>
+                        </div>
+                        
+                        <div class="faq-item">
+                            <div class="faq-question">
+                                Can we bring reference materials?
+                                <i class="fas fa-chevron-down"></i>
+                            </div>
+                            <div class="faq-answer">
+                                You may bring printed reference materials like algorithm cheat sheets, but no digital materials. All electronic devices apart from your competition laptop must be turned off and stored away during the event.
+                            </div>
+                        </div>
+                        
+                        <div class="faq-item">
+                            <div class="faq-question">
+                                What happens if we get completely stuck on a chamber?
+                                <i class="fas fa-chevron-down"></i>
+                            </div>
+                            <div class="faq-answer">
+                                After exhausting all available hints, teams that are still stuck can opt for a "chamber bypass" which allows them to proceed to the next chamber. However, this results in zero points for the bypassed chamber and a 50-point penalty on your total score.
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-logo">
+                    <img src="../img/acumen-logo-white.png" alt="ACUMEN Logo">
+                    <p>ACUMEN 2025 | CSE Department</p>
+                    <p>Vasavi College of Engineering</p>
+                </div>
+                <div class="footer-links">
+                    <h3>Quick Links</h3>
+                    <ul>
+                        <li><a href="../index.html">Home</a></li>
+                        <li><a href="../events.html">Events</a></li>
+                        <li><a href="../registration.html">Register</a></li>
+                        <li><a href="../team.html">Team</a></li>
+                        <li><a href="../contact.html">Contact</a></li>
+                    </ul>
+                </div>
+                <div class="footer-contact">
+                    <h3>Contact Us</h3>
+                    <p><i class="fas fa-map-marker-alt"></i> Vasavi College of Engineering, Hyderabad</p>
+                    <p><i class="fas fa-phone"></i> +91 98765 43210</p>
+                    <p><i class="fas fa-envelope"></i> acumen@vasavi.ac.in</p>
+                </div>
+                <div class="footer-social">
+                    <h3>Follow Us</h3>
+                    <div class="social-icons">
+                        <a href="#" class="social-icon"><i class="fab fa-instagram"></i></a>
+                        <a href="#" class="social-icon"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#" class="social-icon"><i class="fab fa-twitter"></i></a>
+                        <a href="#" class="social-icon"><i class="fab fa-linkedin-in"></i></a>
+                    </div>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2025 ACUMEN - Vasavi College of Engineering. All Rights Reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Simplified JS imports -->
+    <script src="../js/main.js"></script>
+    <script src="js/faq-accordion.js"></script>
+</body>
+</html>

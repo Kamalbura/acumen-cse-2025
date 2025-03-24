@@ -1,0 +1,214 @@
+/**
+ * Mobile Event Page Specific Styles
+ * Fixes layout issues on the events page for mobile devices
+ */
+
+@media (max-width: 768px) {
+  /* ===== EVENT PAGE BANNER FIXES ===== */
+  .events-banner {
+    min-height: 300px !important;
+    padding-top: 80px !important;
+    padding-bottom: 40px !important;
+    text-align: center !important;
+  }
+  
+  .events-banner h1 {
+    font-size: 2rem !important;
+    margin-bottom: 15px !important;
+  }
+  
+  .events-banner .terminal-text {
+    font-size: 0.9rem !important;
+    line-height: 1.5 !important;
+    max-width: 100% !important;
+    margin: 0 auto 20px !important;
+  }
+  
+  /* ===== EVENT COUNTER FIXES ===== */
+  .event-counter {
+    display: flex !important;
+    flex-wrap: wrap !important;
+    justify-content: center !important;
+    gap: 10px !important;
+    margin-top: 20px !important;
+  }
+  
+  .counter-item {
+    flex: 0 0 calc(50% - 10px) !important;
+    min-width: 100px !important;
+    margin: 5px 0 !important;
+    padding: 15px 10px !important;
+    position: relative !important;
+  }
+  
+  .counter-item .count {
+    font-size: 1.5rem !important;
+    margin-bottom: 5px !important;
+  }
+  
+  .counter-item .label {
+    font-size: 0.8rem !important;
+    line-height: 1.2 !important;
+  }
+  
+  /* ===== CATEGORY FILTERS FIXES ===== */
+  .category-filters {
+    display: flex !important;
+    overflow-x: auto !important;
+    white-space: nowrap !important;
+    padding-bottom: 15px !important;
+    -webkit-overflow-scrolling: touch !important;
+    margin: 0 -15px !important;
+    padding: 15px 15px !important;
+    scrollbar-width: none !important; /* Firefox */
+    -ms-overflow-style: none !important; /* IE/Edge */
+  }
+  
+  .category-filters::-webkit-scrollbar {
+    display: none !important; /* Chrome/Safari/Opera */
+  }
+  
+  .category-btn {
+    flex: 0 0 auto !important;
+    margin-right: 10px !important;
+    padding: 8px 15px !important;
+    font-size: 0.85rem !important;
+    height: auto !important;
+  }
+  
+  .category-btn:last-child {
+    margin-right: 5px !important;
+  }
+  
+  /* Ensure active button stands out */
+  .category-btn.active {
+    background-color: rgba(0, 243, 255, 0.3) !important;
+    border-color: var(--primary-color) !important;
+    box-shadow: 0 0 10px rgba(0, 243, 255, 0.5) !important;
+  }
+
+  /* ===== EVENT CARDS LAYOUT FIXES ===== */
+  .events-grid {
+    display: flex !important;
+    flex-direction: column !important;
+    align-items: center !important;
+    gap: 20px !important;
+    padding: 10px 0 !important;
+  }
+  
+  .event-card {
+    width: 100% !important;
+    max-width: 400px !important;
+    margin: 0 auto !important;
+    min-height: unset !important;
+    height: auto !important;
+  }
+  
+  .event-card-content {
+    padding: 20px 15px !important;
+    display: flex !important;
+    flex-direction: column !important;
+    height: 100% !important;
+  }
+  
+  .event-card .event-icon {
+    font-size: 1.5rem !important;
+    margin-bottom: 15px !important;
+  }
+  
+  .event-card h3 {
+    font-size: 1.3rem !important;
+    margin-bottom: 10px !important;
+  }
+  
+  .event-card p {
+    margin-bottom: 15px !important;
+    font-size: 0.95rem !important;
+    flex-grow: 1 !important;
+  }
+  
+  .event-meta {
+    margin-top: auto !important;
+    display: flex !important;
+    justify-content: space-between !important;
+    font-size: 0.8rem !important;
+    margin-bottom: 15px !important;
+  }
+  
+  .event-details-link {
+    padding: 10px !important;
+    text-align: center !important;
+    font-size: 0.9rem !important;
+    margin-top: auto !important;
+    height: auto !important;
+    display: flex !important;
+    justify-content: center !important;
+    align-items: center !important;
+  }
+  
+  /* ===== REGISTRATION BANNER FIXES ===== */
+  .registration-banner {
+    padding: 40px 0 !important;
+    text-align: center !important;
+  }
+  
+  .registration-content h2 {
+    font-size: 1.5rem !important;
+    margin-bottom: 15px !important;
+  }
+  
+  .registration-content p {
+    font-size: 0.9rem !important;
+    margin-bottom: 20px !important;
+  }
+  
+  /* ===== TOUCH INTERACTIONS ===== */
+  .event-card.touch-device {
+    transition: transform 0.3s !important;
+  }
+  
+  .event-card.touch-active {
+    transform: scale(0.98) !important;
+    opacity: 0.9 !important;
+  }
+
+  /* Ensure the events page container has proper padding */
+  .events-page .container {
+    padding-left: 15px !important;
+    padding-right: 15px !important;
+  }
+}
+
+/* Special fix for very small screens */
+@media (max-width: 360px) {
+  .event-meta {
+    flex-direction: column !important;
+    gap: 5px !important;
+  }
+  
+  .category-btn {
+    padding: 8px 12px !important;
+    font-size: 0.8rem !important;
+  }
+  
+  .counter-item {
+    flex: 0 0 100% !important;
+  }
+}
+
+/* Landscape mode adjustments */
+@media (max-height: 500px) and (orientation: landscape) {
+  .events-grid {
+    display: grid !important;
+    grid-template-columns: repeat(2, 1fr) !important;
+    gap: 15px !important;
+  }
+  
+  .event-card {
+    max-width: 100% !important;
+  }
+  
+  .events-banner {
+    min-height: 200px !important;
+  }
+}

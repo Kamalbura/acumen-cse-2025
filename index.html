@@ -1,0 +1,713 @@
+<!DOCTYPE html>
+<html lang="en" class="no-js">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ACUMEN 2025 | CSE Tech Fest | Vasavi College of Engineering</title>
+    <meta name="description" content="ACUMEN 2025 - The Annual Computer Science and Engineering Technical Festival at Vasavi College of Engineering, Hyderabad">
+    
+    <!-- Include error handler early -->
+    <script src="js/error-handler.js"></script>
+    
+    <!-- Critical fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;500;700;900&family=Roboto:wght@300;400;500;700&display=swap" rel="stylesheet">
+    
+    <!-- Font Awesome Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    
+    <!-- New consolidated CSS structure -->
+    <link rel="stylesheet" href="css/main.css">
+    <!-- <link rel="stylesheet" href="css/consolidated.css"> -->
+    
+    <!-- Accessibility helper (kept separate for easy updates) -->
+    <link rel="stylesheet" href="css/a11y-helper.css">
+    <link rel="shortcut icon" href="img/favicon.ico" type="image/x-icon">
+    <style>
+        .hero-content h1 .glitch-text {
+            font-size: 50px;
+        }
+    </style>
+    <script src="js/fix-resource-paths.js"></script>
+    <script src="js/create-placeholder-images.js"></script>
+</head>
+<body>
+    <!-- Remove any existing background overlays -->
+    <!-- Background is now controlled by background.css -->
+    
+    <!-- Navigation (FIXED VERSION) -->
+    <nav class="navbar">
+        <div class="container">
+            <div class="logo">
+                <div class="acumen-logo-nav">
+                    <span class="department-text">CSE</span>
+                    <span class="glitch-text" data-text="ACUMEN">ACUMEN</span><span class="year-integrated">2025</span>
+                </div>
+            </div>
+            <div class="nav-toggle" aria-label="Toggle navigation">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+            <ul class="nav-links">
+                <li><a href="index.html" class="active">Home</a></li>
+                <li><a href="#venue">Venue</a></li>
+                <li><a href="events.html">Events</a></li>
+                <li><a href="schedule.html">Schedule</a></li>
+                <li><a href="registration.html">Register</a></li>
+                <li><a href="gallery.html">Gallery</a></li>
+                <li><a href="team.html">Team</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- Announcement Banner -->
+    <!-- <div class="announcement-banner">
+        <div class="container">
+            <div class="ticker-wrapper">
+                <div class="ticker">
+                    <span class="ticker-item"><i class="fas fa-bullhorn"></i> Early bird registration ends December 15th!</span>
+                    <span class="ticker-item"><i class="fas fa-award"></i> Prize pool worth ₹5,00,000</span>
+                    <span class="ticker-item"><i class="fas fa-calendar-alt"></i> Workshop registration now open</span>
+                </div>
+            </div>
+            <button class="close-banner"><i class="fas fa-times"></i></button>
+        </div>
+    </div> -->
+<br><br>
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="container hero-container">
+            <div class="hero-content">
+                <div class="presents-text">Vasavi College of Engineering presents</div>
+                <h1> <span style="font-size:50px;" class="glitch-text" data-text="ACUMEN">CSE ACUMEN 2025</span></h1>
+                <p class="tagline">Where Technology Meets Imagination</p>
+                <div class="hero-buttons">
+                    <a href="events.html" class="btn btn-primary btn-magnetic">Explore Events</a>
+                    <a href="registration.html" class="btn btn-secondary btn-magnetic">Register Now</a>
+                </div>
+            </div>
+            
+            <div class="hero-countdown">
+                <h2>Event Starts In</h2>
+                <div class="countdown-timer" id="eventCountdown">
+                    <div class="countdown-item">
+                        <span class="countdown-value" id="days">00</span>
+                        <span class="countdown-label">Days</span>
+                    </div>
+                    <div class="countdown-item">
+                        <span class="countdown-value" id="hours">00</span>
+                        <span class="countdown-label">Hours</span>
+                    </div>
+                    <div class="countdown-item">
+                        <span class="countdown-value" id="minutes">00</span>
+                        <span class="countdown-label">Minutes</span>
+                    </div>
+                    <div class="countdown-item">
+                        <span class="countdown-value" id="seconds">00</span>
+                        <span class="countdown-label">Seconds</span>
+                    </div>
+                </div>
+                <div class="event-date">
+                    <i class="fas fa-calendar-alt"></i> April 10, 2025
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section class="about-section">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">About <span>ACUMEN</span></h2>
+                <p>Discover what makes our tech fest the most anticipated event of the year</p>
+            </div>
+            
+            <div class="about-container">
+                <div class="about-image">
+                    <img src="img/about/acumen-previous-year.jpg" alt="ACUMEN Tech Fest" class="cyber-image">
+                    <div class="image-overlay"></div>
+                    <div class="corner-dots top-left"></div>
+                    <div class="corner-dots top-right"></div>
+                    <div class="corner-dots bottom-left"></div>
+                    <div class="corner-dots bottom-right"></div>
+                </div>
+                
+                <div class="about-content">
+                    <h3>Celebrating Technology and Innovation</h3>
+                    <p>ACUMEN 2025 is Vasavi College of Engineering's flagship technical symposium hosted by the Department of Computer Science and Engineering. Bringing together brilliant minds from across the country, ACUMEN offers a platform for students to showcase their technical prowess and innovative thinking.</p>
+                    
+                    <p>With a wide range of events spanning coding competitions, hackathons, technical paper presentations, and gaming tournaments, ACUMEN caters to all kinds of tech enthusiasts. The event features cutting-edge workshops, expert talks, and exciting prizes for winners.</p>
+                    
+                    <div class="about-stats">
+                        <div class="stat-item">
+                            <div class="stat-number">20+</div>
+                            <div class="stat-label">Events</div>
+                        </div>
+                        <div class="stat-item">
+                            <div class="stat-number">1000+</div>
+                            <div class="stat-label">Participants</div>
+                        </div>
+                        <div class="stat-item">
+                            <div class="stat-number">₹2L+</</div>
+                            <div class="stat-label">Prizes</div>
+                        </div>
+                    </div>
+                    
+                    <a href="events.html" class="btn btn-primary">Explore Events</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Events Highlight Section -->
+    <section class="events-highlight">
+        <div class="container">
+            <h2 class="section-title">All <span>Events</span></h2>
+            
+            <!-- Events Scroll Container -->
+            <div class="events-scroll-container">
+                <button class="scroll-arrow scroll-left" aria-label="Scroll left"><i class="fas fa-chevron-left"></i></button>
+                
+                <div class="events-scroll">
+                    <div class="event-card">
+                        <div class="event-icon">
+                            <i class="fas fa-brain"></i>
+                        </div>
+                        <h3>AI Imagination</h3>
+                        <p>Create innovative solutions using AI tools and technologies in this 24-hour hackathon focused on artificial intelligence.</p>
+                        <a href="events/ai-imagination.html" class="event-details-link">View Details <i class="fas fa-arrow-right"></i></a>
+                    </div>
+                    <div class="event-card">
+                        <div class="event-icon">
+                            <i class="fas fa-gavel"></i>
+                        </div>
+                        <h3>Bid N Code</h3>
+                        <p>The coding auction where strategy meets skill. Bid on coding challenges and solve them to earn points.</p>
+                        <a href="events/bid-n-code.html" class="event-details-link">View Details <i class="fas fa-arrow-right"></i></a>
+                    </div>
+                    <div class="event-card">
+                        <div class="event-icon">
+                            <i class="fas fa-gamepad"></i>
+                        </div>
+                        <h3>Call of Duty</h3>
+                        <p>Prove your tactical skills in the ultimate gaming showdown in this action-packed tournament.</p>
+                        <a href="events/call-of-duty.html" class="event-details-link">View Details <i class="fas fa-arrow-right"></i></a>
+                    </div>
+                    <div class="event-card">
+                        <div class="event-icon">
+                            <i class="fas fa-code"></i>
+                        </div>
+                        <h3>Code to Escape</h3>
+                        <p>Solve coding challenges to break free from virtual rooms in this unique programming competition.</p>
+                        <a href="events/code-to-escape.html" class="event-details-link">View Details <i class="fas fa-arrow-right"></i></a>
+                    </div>
+                    <div class="event-card">
+                        <div class="event-icon">
+                            <i class="fas fa-fire"></i>
+                        </div>
+                        <h3>Free Fire</h3>
+                        <p>Battle it out in this epic mobile gaming showdown with squad matches and tactical gameplay.</p>
+                        <a href="events/free-fire.html" class="event-details-link">View Details <i class="fas fa-arrow-right"></i></a>
+                    </div>
+                    <div class="event-card">
+                        <div class="event-icon">
+                            <i class="fas fa-unlock"></i>
+                        </div>
+                        <h3>Jail Break</h3>
+                        <p>Test your cybersecurity skills and break through digital fortresses in this ethical hacking challenge.</p>
+                        <a href="events/jail-break.html" class="event-details-link">View Details <i class="fas fa-arrow-right"></i></a>
+                    </div>
+                    <div class="event-card">
+                        <div class="event-icon">
+                            <i class="fas fa-file-alt"></i>
+                        </div>
+                        <h3>Paper Presentation</h3>
+                        <p>Present your innovative research and academic excellence in computer science and engineering.</p>
+                        <a href="events/paper-presentation.html" class="event-details-link">View Details <i class="fas fa-arrow-right"></i></a>
+                    </div>
+                    <div class="event-card">
+                        <div class="event-icon">
+                            <i class="fas fa-paint-brush"></i>
+                        </div>
+                        <h3>Poster Presentation</h3>
+                        <p>Showcase your research through visually engaging scientific posters in this academic competition.</p>
+                        <a href="events/poster-presentation.html" class="event-details-link">View Details <i class="fas fa-arrow-right"></i></a>
+                    </div>
+                    <div class="event-card">
+                        <div class="event-icon">
+                            <i class="fas fa-laptop-code"></i>
+                        </div>
+                        <h3>Project Expo</h3>
+                        <p>Showcase your innovative projects and technological solutions in this premier exhibition platform.</p>
+                        <a href="events/project-expo.html" class="event-details-link">View Details <i class="fas fa-arrow-right"></i></a>
+                    </div>
+                    <div class="event-card">
+                        <div class="event-icon">
+                            <i class="fas fa-chart-line"></i>
+                        </div>
+                        <h3>Shark Tank</h3>
+                        <p>Pitch your tech startup ideas and win investment in this entrepreneurship challenge.</p>
+                        <a href="events/shark-tank.html" class="event-details-link">View Details <i class="fas fa-arrow-right"></i></a>
+                    </div>
+                    <div class="event-card">
+                        <div class="event-icon">
+                            <i class="fas fa-search"></i>
+                        </div>
+                        <h3>Sherlock Homies</h3>
+                        <p>Unravel digital mysteries with logic and deduction in this cyberpunk detective challenge.</p>
+                        <a href="events/sherlock-homies.html" class="event-details-link">View Details <i class="fas fa-arrow-right"></i></a>
+                    </div>
+                    <div class="event-card">
+                        <div class="event-icon">
+                            <i class="fas fa-dice"></i>
+                        </div>
+                        <h3>Snakes & Ladders</h3>
+                        <p>Navigate through a giant game board of technical challenges in this interactive competition.</p>
+                        <a href="events/snakes-and-ladders.html" class="event-details-link">View Details <i class="fas fa-arrow-right"></i></a>
+                    </div>
+                    <div class="event-card">
+                        <div class="event-icon">
+                            <i class="fas fa-ghost"></i>
+                        </div>
+                        <h3>Squid Gaming</h3>
+                        <p>A series of thrilling challenges inspired by childhood games with unique tech twists.</p>
+                        <a href="events/squid-gaming.html" class="event-details-link">View Details <i class="fas fa-arrow-right"></i></a>
+                    </div>
+                    <div class="event-card">
+                        <div class="event-icon">
+                            <i class="fas fa-map-marked-alt"></i>
+                        </div>
+                        <h3>Treasure Hunt</h3>
+                        <p>Follow the clues, solve puzzles, and find the hidden treasures in this campus-wide adventure.</p>
+                        <a href="events/treasure-hunt.html" class="event-details-link">View Details <i class="fas fa-arrow-right"></i></a>
+                    </div>
+
+                    <!-- Adding new events to the carousel -->
+                    <div class="event-card">
+                        <div class="event-icon">
+                            <i class="fas fa-exchange-alt"></i>
+                        </div>
+                        <h3>Code Relay</h3>
+                        <p>Team coding challenge where members take turns solving parts of a larger programming problem.</p>
+                        <a href="events/code-relay.html" class="event-details-link">View Details <i class="fas fa-arrow-right"></i></a>
+                    </div>
+
+                    <div class="event-card">
+                        <div class="event-icon">
+                            <i class="fas fa-bug"></i>
+                        </div>
+                        <h3>Syntax Sleuth</h3>
+                        <p>Debug mysterious code snippets and identify syntax errors to solve programming puzzles.</p>
+                        <a href="events/syntax-sleuth.html" class="event-details-link">View Details <i class="fas fa-arrow-right"></i></a>
+                    </div>
+
+                    <div class="event-card">
+                        <div class="event-icon">
+                            <i class="fas fa-gavel"></i>
+                        </div>
+                        <h3>Auction War</h3>
+                        <p>Strategic bidding competition where teams compete to acquire the best assets within budget constraints.</p>
+                        <a href="events/auction-war.html" class="event-details-link">View Details <i class="fas fa-arrow-right"></i></a>
+                    </div>
+
+                    <div class="event-card">
+                        <div class="event-icon">
+                            <i class="fas fa-film"></i>
+                        </div>
+                        <h3>The Movie Hunt</h3>
+                        <p>Identify movies from cryptic clues and solve film-related puzzles in this cinema challenge.</p>
+                        <a href="events/movie-hunt.html" class="event-details-link">View Details <i class="fas fa-arrow-right"></i></a>
+                    </div>
+
+                    <div class="event-card">
+                        <div class="event-icon">
+                            <i class="fas fa-search"></i>
+                        </div>
+                        <h3>Sherlock Holmes</h3>
+                        <p>Put your detective skills to the test in this mystery-solving challenge with digital clues.</p>
+                        <a href="events/sherlock-holmes.html" class="event-details-link">View Details <i class="fas fa-arrow-right"></i></a>
+                    </div>
+
+                    <div class="event-card">
+                        <div class="event-icon">
+                            <i class="fas fa-chess-board"></i>
+                        </div>
+                        <h3>Human Snakes & Ladders</h3>
+                        <p>Become a living game piece in this giant-sized version of the classic board game with tech twists.</p>
+                        <a href="events/human-snakes-ladders.html" class="event-details-link">View Details <i class="fas fa-arrow-right"></i></a>
+                    </div>
+
+                    <div class="event-card">
+                        <div class="event-icon">
+                            <i class="fas fa-running"></i>
+                        </div>
+                        <h3>Three Legged Maze Race</h3>
+                        <p>Navigate a complex maze in teams of two with legs tied together while solving puzzles.</p>
+                        <a href="events/three-legged-maze.html" class="event-details-link">View Details <i class="fas fa-arrow-right"></i></a>
+                    </div>
+                </div>
+                
+                <button class="scroll-arrow scroll-right" aria-label="Scroll right"><i class="fas fa-chevron-right"></i></button>
+            </div>
+            
+            <div class="text-center mt-5">
+                <a href="events.html" class="btn btn-primary">View Event Details</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Venue Section - Updated with new map and detailed information -->
+    <section class="venue-section" id="venue">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="glitch-text" data-text="EVENT VENUES">EVENT VENUES</h2>
+                <p>Explore the various venues where ACUMEN 2025 events will be held</p>
+            </div>
+            
+            <div class="venue-grid">
+                <div class="venue-card">
+                    <div class="venue-icon">
+                        <i class="fas fa-laptop-code"></i>
+                    </div>
+                    <h3>CSE Block</h3>
+                    <p>Main venue for technical events, coding competitions, and project expo</p>
+                    <ul class="venue-facilities">
+                        <li><i class="fas fa-wifi"></i> High-speed Wi-Fi</li>
+                        <li><i class="fas fa-plug"></i> Power outlets</li>
+                        <li><i class="fas fa-desktop"></i> Computer labs</li>
+                    </ul>
+                </div>
+                
+                <div class="venue-card">
+                    <div class="venue-icon">
+                        <i class="fas fa-chalkboard"></i>
+                    </div>
+                    <h3>Main Auditorium</h3>
+                    <p>Central venue for inaugural ceremony, keynote speeches, and presentations</p>
+                    <ul class="venue-facilities">
+                        <li><i class="fas fa-chair"></i> 500+ seating capacity</li>
+                        <li><i class="fas fa-volume-up"></i> Advanced sound system</li>
+                        <li><i class="fas fa-tv"></i> Large projection screens</li>
+                    </ul>
+                </div>
+                
+                <div class="venue-card">
+                    <div class="venue-icon">
+                        <i class="fas fa-gamepad"></i>
+                    </div>
+                    <h3>Gaming Arena</h3>
+                    <p>Dedicated space for all gaming competitions and e-sports events</p>
+                    <ul class="venue-facilities">
+                        <li><i class="fas fa-network-wired"></i> High-performance PCs</li>
+                        <li><i class="fas fa-bolt"></i> Low-latency network</li>
+                        <li><i class="fas fa-headset"></i> Gaming accessories</li>
+                    </ul>
+                </div>
+                
+                <div class="venue-card">
+                    <div class="venue-icon">
+                        <i class="fas fa-users"></i>
+                    </div>
+                    <h3>Open Grounds</h3>
+                    <p>Outdoor venue for non-technical events, team activities, and fun games</p>
+                    <ul class="venue-facilities">
+                        <li><i class="fas fa-tree"></i> Spacious environment</li>
+                        <li><i class="fas fa-bullhorn"></i> Public address system</li>
+                        <li><i class="fas fa-umbrella-beach"></i> Shaded areas available</li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="venue-map">
+                <h3>Campus Map</h3>
+                <div class="map-container">
+                    <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3807.346626763954!2d78.38255463487737!3d17.38051937409504!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3bcb942a2497f349%3A0x5c30ca8d2ffb8734!2sVasavi%20College%20of%20Engineering!5e0!3m2!1sen!2sin!4v1710804624000!5m2!1sen!2sin" width="100%" height="300" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+                </div>
+                
+                <div class="main-venue-info">
+                    <h4><i class="fas fa-map-marker-alt"></i> Main Venue:</h4>
+                    <p>Vasavi College of Engineering<br>
+                    9-5-81, Ibrahim Bagh, Hyderabad, Telangana 500031<br>
+                    <strong>Phone:</strong> +91 40-23146003</p>
+                </div>
+            </div>
+            
+            <div class="transport-container">
+                <h3><i class="fas fa-route"></i> How to Reach</h3>
+                <div class="transport-options">
+                    <div class="transport-option">
+                        <i class="fas fa-train"></i>
+                        <div>
+                            <strong>By Train:</strong> Nampally Railway Station (8 km), Kacheguda Railway Station (10 km)
+                        </div>
+                    </div>
+                    <div class="transport-option">
+                        <i class="fas fa-bus"></i>
+                        <div>
+                            <strong>By Bus:</strong> Buses available from Mehdipatnam, Lakdikapul, and JBS
+                        </div>
+                    </div>
+                    <div class="transport-option">
+                        <i class="fas fa-taxi"></i>
+                        <div>
+                            <strong>By Cab:</strong> Ola, Uber available throughout Hyderabad
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="venue-note">
+                <p><i class="fas fa-info-circle"></i> Venues may be subject to change. Please check the venue details on the day of the event for any updates.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Sponsors Section -->
+    <section class="sponsors-section">
+        <div class="container">
+            <h2 class="section-title">Our <span>Sponsors</span></h2>
+            <p class="section-description text-center">ACUMEN is proud to be supported by industry leaders and technology innovators.</p>
+            <div class="sponsors-grid">
+                <div class="sponsor-card">
+                    <img src="img/sponsors/sponsor-1.png" alt="Sponsor Logo">
+                </div>
+                <div class="sponsor-card">
+                    <img src="img/sponsors/sponsor-2.png" alt="Sponsor Logo">
+                </div>
+                <div class="sponsor-card">
+                    <img src="img/sponsors/sponsor-3.png" alt="Sponsor Logo">
+                </div>
+                <div class="sponsor-card">
+                    <img src="img/sponsors/sponsor-4.png" alt="Sponsor Logo">
+                </div>
+            </div>
+            <div class="text-center mt-5">
+                <a href="sponsors.html" class="btn btn-secondary">Become a Sponsor</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section class="cta-section">
+        <div class="container">
+            <div class="cta-content text-center">
+                <h2>Ready to Join ACUMEN 2025?</h2>
+                <p>Don't miss out on this opportunity to showcase your talent and connect with tech enthusiasts from across the country.</p>
+                <div class="cta-buttons">
+                    <a href="registration.html" class="btn btn-primary">Register Now</a>
+                    <a href="contact.html" class="btn btn-secondary">Contact Us</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section footer-logo">
+                    <div class="acumen-logo-nav">
+                        <span class="department-text">CSE</span>
+                        <span>ACUMEN</span><span class="year-integrated">2025</span>
+                    </div>
+                    <p>ACUMEN 2025 | CSE Department</p>
+                    <p>Vasavi College of Engineering</p>
+                </div>
+                
+                <div class="footer-section">
+                    <h3>Quick Links</h3>
+                    <ul>
+                        <li><a href="index.html">Home</a></li>
+                        <li><a href="events.html">Events</a></li>
+                        <li><a href="schedule.html">Schedule</a></li>
+                        <li><a href="registration.html">Register</a></li>
+                        <li><a href="team.html">Team</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-section">
+                    <h3>Contact Us</h3>
+                    <ul>
+                        <li><i class="fas fa-map-marker-alt"></i> Vasavi College of Engineering, Ibrahimbagh, Hyderabad</li>
+                        <li><i class="fas fa-phone"></i> +91 9876543210</li>
+                        <li><i class="fas fa-envelope"></i> acumen@vasavi.ac.in</li>
+                    </ul>
+                </div>
+                
+                <div class="footer-section">
+                    <h3>Follow Us</h3>
+                    <div class="social-links">
+                        <a href="#" class="social-icon"><i class="fab fa-instagram"></i></a>
+                        <a href="#" class="social-icon"><i class="fab fa-facebook"></i></a>
+                        <a href="#" class="social-icon"><i class="fab fa-twitter"></i></a>
+                        <a href="#" class="social-icon"><i class="fab fa-linkedin"></i></a>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="footer-bottom">
+                <p>&copy; 2025 ACUMEN - CSE Department, Vasavi College of Engineering. All Rights Reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Back to top button -->
+    <button id="back-to-top" class="back-to-top" aria-label="Back to top">
+        <i class="fas fa-arrow-up"></i>
+    </button>
+
+    <!-- Primary Scripts -->
+    <!-- <script src="js/main-optimized.js"></script> -->
+    <script src="js/countdown.js"></script> 
+    
+    <!-- Homepage specific scripts-->
+    <script src="js/homepage-animations.js"></script>
+    
+    <!-- Conditionally loaded advanced effects -->
+    <script>
+        // Only load visual enhancements on non-mobile, if user hasn't enabled reduced motion
+        if (!(/Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent)) && 
+            !window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+            const visualScript = document.createElement('script');
+            visualScript.src = 'js/visual-enhancements.js';
+            document.body.appendChild(visualScript);
+        }
+    </script>
+    
+    <!-- Performance monitoring -->
+    <script>
+        // Monitor for any performance issues
+        window.addEventListener('load', function() {
+            if ('performance' in window && 'getEntriesByType' in window.performance) {
+                setTimeout(function() {
+                    const perfData = performance.getEntriesByType('navigation')[0];
+                    if (perfData && perfData.domComplete > 3000) {
+                        // If page is too slow, load performance fixes
+                        const perfFix = document.createElement('script');
+                        perfFix.src = 'js/performance-enhancements.js';
+                        document.body.appendChild(perfFix);
+                    }
+                }, 1000);
+            }
+        });
+    </script>
+    
+
+    
+    <!-- Auto-scroll for events carousel -->
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const eventsScroll = document.querySelector('.events-scroll');
+            const scrollLeftBtn = document.querySelector('.scroll-arrow.scroll-left');
+            const scrollRightBtn = document.querySelector('.scroll-arrow.scroll-right');
+            let animationId;
+            let userInteracted = false;
+            let scrollSpeed = 1; // Pixels per frame - lower is slower
+            
+            // Continuous smooth scroll function
+            function smoothScroll() {
+                if (!userInteracted && eventsScroll) {
+                    // Increment scroll position by small amount
+                    eventsScroll.scrollLeft += scrollSpeed;
+                    
+                    // Reset to beginning if we reach the end
+                    if (eventsScroll.scrollLeft >= (eventsScroll.scrollWidth - eventsScroll.clientWidth)) {
+                        eventsScroll.scrollLeft = 0;
+                    }
+                    
+                    // Continue animation
+                    animationId = requestAnimationFrame(smoothScroll);
+                }
+            }
+            
+            // Start smooth scrolling
+            function startSmoothScroll() {
+                // Cancel any existing animation
+                if (animationId) {
+                    cancelAnimationFrame(animationId);
+                }
+                // Start new animation
+                animationId = requestAnimationFrame(smoothScroll);
+            }
+            
+            // Handle user interaction
+            function handleUserInteraction() {
+                userInteracted = true;
+                
+                // Cancel animation during user interaction
+                if (animationId) {
+                    cancelAnimationFrame(animationId);
+                    animationId = null;
+                }
+                
+                // Resume scrolling after user inactivity
+                clearTimeout(window.resumeScrollTimeout);
+                window.resumeScrollTimeout = setTimeout(function() {
+                    userInteracted = false;
+                    startSmoothScroll();
+                }, 4000); // Resume after 4 seconds of inactivity
+            }
+            
+            // Add event listeners for user interaction
+            if (eventsScroll) {
+                eventsScroll.addEventListener('mousedown', handleUserInteraction);
+                eventsScroll.addEventListener('touchstart', handleUserInteraction);
+                eventsScroll.addEventListener('wheel', handleUserInteraction);
+                
+                // Also pause on hover (optional)
+                eventsScroll.addEventListener('mouseenter', function() {
+                    userInteracted = true;
+                    if (animationId) {
+                        cancelAnimationFrame(animationId);
+                        animationId = null;
+                    }
+                });
+                
+                eventsScroll.addEventListener('mouseleave', function() {
+                    userInteracted = false;
+                    startSmoothScroll();
+                });
+            }
+            
+            // Add scroll controls functionality
+            if (scrollLeftBtn) {
+                scrollLeftBtn.addEventListener('click', function() {
+                    eventsScroll.scrollLeft -= 320;
+                    handleUserInteracted();
+                });
+            }
+            
+            if (scrollRightBtn) {
+                scrollRightBtn.addEventListener('click', function() {
+                    eventsScroll.scrollLeft += 320;
+                    handleUserInteracted();
+                });
+            }
+            
+            // Start the smooth scrolling animation
+            startSmoothScroll();
+            
+            // Pause scrolling when page is not visible
+            document.addEventListener('visibilitychange', function() {
+                if (document.hidden) {
+                    if (animationId) {
+                        cancelAnimationFrame(animationId);
+                        animationId = null;
+                    }
+                } else if (!userInteracted) {
+                    startSmoothScroll();
+                }
+            });
+        });
+    </script>
+    <script src="js/smooth-scroll.js"></script>
+    <script src="js/viewport-fix.js"></script>
+    <script src="js/navbar-autohide.js"></script>
+    <script src="js/viewport-meta-fix.js"></script>
+    <script src="js/content-padding.js"></script>
+    <script src="js/hero-alignment-fix.js"></script>
+    <script src="js/mobile-background-fix.js"></script>
+</body>
+</html>

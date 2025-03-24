@@ -1,0 +1,136 @@
+/* Typography Styles */
+h1, h2, h3, h4, h5, h6 {
+    font-family: var(--header-font);
+    font-weight: 700;
+    line-height: 1.2;
+    margin-bottom: 1rem;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+/* Enhanced H1 styling to match h2.glitch-text style */
+h1 {
+    font-size: 3rem;
+    color: var(--primary-color);
+    text-shadow: 0 0 15px rgba(0, 243, 255, 0.5);
+    font-family: var(--header-font);
+    font-weight: 900;
+    letter-spacing: 2px;
+    margin-bottom: 25px;
+    position: relative;
+}
+
+/* Special size adjustment for homepage hero title */
+.hero-content h1 {
+    font-size: 2.5rem; /* Reduced from 3rem to 2.5rem */
+}
+
+/* Ensure hero title still maintains the glitch-text style */
+.hero-content h1 .glitch-text {
+    font-size: inherit;
+}
+
+h1.glitch-text, 
+.hero-content h1 .glitch-text,
+.page-banner h1 {
+    color: var(--primary-color);
+    text-shadow: 0 0 15px var(--primary-glow);
+}
+
+/* Apply glow effect to all h1 elements */
+h1::after {
+    content: '';
+    position: absolute;
+    bottom: -5px;
+    left: 0;
+    width: 80px;
+    height: 2px;
+    background: var(--primary-color);
+    box-shadow: 0 0 10px var(--primary-glow);
+}
+
+h2 {
+    font-size: 2rem;
+}
+
+h3 {
+    font-size: 1.75rem;
+}
+
+h4 {
+    font-size: 1.5rem;
+}
+
+h5 {
+    font-size: 1.25rem;
+}
+
+h6 {
+    font-size: 1rem;
+}
+
+p {
+    margin-bottom: 1rem;
+    line-height: 1.6;
+}
+
+.section-title {
+    text-align: center;
+    font-size: 2.5rem;
+    margin-bottom: 50px;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    position: relative;
+    padding-bottom: 15px;
+}
+
+.section-title span {
+    color: var(--primary-color);
+}
+
+.section-title:after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 80px;
+    height: 4px;
+    background: linear-gradient(90deg, var(--primary-color), var(--secondary-color));
+}
+
+/* Utility classes */
+.text-center {
+    text-align: center;
+}
+
+/* Responsive h1 styling */
+@media (max-width: 992px) {
+    h1 {
+        font-size: 2.5rem;
+    }
+    
+    .hero-content h1 {
+        font-size: 2.3rem; /* Reduced size for medium screens */
+    }
+}
+
+@media (max-width: 768px) {
+    h1 {
+        font-size: 2rem;
+    }
+    
+    .hero-content h1 {
+        font-size: 2rem; /* Reduced size for small screens */
+    }
+}
+
+@media (max-width: 576px) {
+    h1 {
+        font-size: 1.8rem;
+    }
+    
+    .hero-content h1 {
+        font-size: 1.7rem; /* Reduced size for very small screens */
+    }
+}
