@@ -5,16 +5,19 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Events | ACUMEN 2025 | CSE Fest | Vasavi College of Engineering</title>
     
+    <!-- Add this near the top of your head section -->
+    <script src="./js/base-url-fix.js"></script>t>
+    
     <!-- Critical initialization -->
-    <script src="js/acumen-init.js"></script>
+    <script src="js/acumen-init.js"></script>t>
     
     <!-- Safety net script -->
-    <script src="js/safety-net.js"></script>
+    <script src="js/safety-net.js"></script>t>
 
     <!-- Add error handler early -->
-    <script src="js/error-handler.js"></script>
-
-    <!-- Core CSS files -->
+    <script src="js/error-handler.js"></script>">
+">
+    <!-- Core CSS files -->">
     <link rel="stylesheet" href="css/main.css">
     <link rel="stylesheet" href="css/event.css">
     <link rel="stylesheet" href="css/mobile-events.css">
@@ -446,93 +449,93 @@
                 <p>&copy; 2025 ACUMEN - Vasavi College of Engineering. All Rights Reserved.</p>
             </div>
         </div>
-    </footer>
-
-    <!-- Scripts -->
-    <script src="js/main.js"></script>
-    <script src="js/css-compatibility.js"></script>
-    <script src="js/event-card-animations.js"></script>
+    </footer>t>
+t>
+    <!-- Scripts -->t>
+    <script src="js/main.js"></script>t>
+    <script src="js/css-compatibility.js"></script>t>
+    <script src="js/event-card-animations.js"></script>t>
     <script src="js/resource-manager.js"></script>
     <script src="js/event-styling.js"></script>
-    <script src="js/style-consistency.js"></script>
-    
-    <!-- Mobile optimization scripts -->
-    <script src="js/path-fixer.js"></script>
-    <script src="js/image-loader.js"></script>
-    <script src="js/viewport-fix.js"></script>
+    <script src="js/style-consistency.js"></script>t>
+    t>
+    <script src="./js/viewport-fix.js"></script>
+    <script src="./js/viewport-meta-fix.js"></script>
+    <script src="./js/mobile-events-fix.js"></script>
+    <script src="./js/content-padding.js"></script>
     <script src="js/viewport-meta-fix.js"></script>
-    <script src="js/mobile-events-fix.js"></script>
-    <script src="js/content-padding.js"></script>
-    
-    <!-- Event filtering script -->
-    <script>
+    <!-- Event filtering script -->ix.js"></script>
+    <script>src="js/content-padding.js"></script>
         // Event filtering functionality
         document.addEventListener('DOMContentLoaded', function() {
             const filterButtons = document.querySelectorAll('.category-btn');
             const eventCards = document.querySelectorAll('.event-card');
-            
-            // Add click event to filter buttons
-            filterButtons.forEach(button => {
+            ment.addEventListener('DOMContentLoaded', function() {
+            // Add click event to filter buttonsSelectorAll('.category-btn');
+            filterButtons.forEach(button => {SelectorAll('.event-card');
                 button.addEventListener('click', function() {
                     // Remove active class from all buttons
                     filterButtons.forEach(btn => btn.classList.remove('active'));
+                    on.addEventListener('click', function() {
+                    // Add active class to clicked buttonns
+                    this.classList.add('active');btn.classList.remove('active'));
                     
-                    // Add active class to clicked button
-                    this.classList.add('active');
-                    
-                    // Get filter value
+                    // Get filter value to clicked button
                     const filterValue = this.getAttribute('data-filter');
                     
-                    // Filter events
-                    eventCards.forEach(card => {
+                    // Filter eventslue
+                    eventCards.forEach(card => {Attribute('data-filter');
                         if (filterValue === 'all' || card.getAttribute('data-category') === filterValue) {
                             card.style.display = 'block';
-                        } else {
-                            card.style.display = 'none';
-                        }
+                        } else {orEach(card => {
+                            card.style.display = 'none';d.getAttribute('data-category') === filterValue) {
+                        }   card.style.display = 'block';
+                    }); } else {
+                });         card.style.display = 'none';
+            });         }
                     });
-                });
-            });
-            
             // Initialize scramble text effect on event titles
             const scrambleTexts = document.querySelectorAll('.scramble-text');
             scrambleTexts.forEach(text => {
                 text.setAttribute('data-text', text.textContent);
-            });
-            
-            // Make entire event cards clickable
+            });st scrambleTexts = document.querySelectorAll('.scramble-text');
+            scrambleTexts.forEach(text => {
+            // Make entire event cards clickableext.textContent);
             eventCards.forEach(card => {
                 // Add clickable styling
-                card.style.cursor = 'pointer';
-                
+                card.style.cursor = 'pointer';le
+                tCards.forEach(card => {
                 // Add a click event listener to the card
                 card.addEventListener('click', function(e) {
                     // Find the "View Details" link inside this card
                     const detailsLink = this.querySelector('.event-details-link');
-                    
+                    .addEventListener('click', function(e) {
                     // Only navigate if the click wasn't on the button itself
-                    if (!e.target.closest('.event-details-link')) {
+                    if (!e.target.closest('.event-details-link')) {details-link');
                         if (detailsLink) {
                             window.location.href = detailsLink.getAttribute('href');
+                        }e.target.closest('.event-details-link')) {
+                    }   if (detailsLink) {
+                });         window.location.href = detailsLink.getAttribute('href');
                         }
-                    }
-                });
-                
                 // Add touch feedback for mobile
                 if (window.matchMedia('(hover: none)').matches) {
                     card.classList.add('touch-device');
-                    
+                    dd touch feedback for mobile
                     card.addEventListener('touchstart', function() {
                         this.classList.add('touch-active');
                     });
-                    
+                    card.addEventListener('touchstart', function() {
                     card.addEventListener('touchend', function() {
                         setTimeout(() => this.classList.remove('touch-active'), 300);
                     });
-                }
-            });
-        });
-    </script>
+                }   card.addEventListener('touchend', function() {
+            });         setTimeout(() => this.classList.remove('touch-active'), 300);
+        });         });
+    </script>   }
+     <script src="js/navbar-autohide.js"></script>
+</body> });
+</html>cript>
      <script src="js/navbar-autohide.js"></script>
 </body>
 </html>
